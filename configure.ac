@@ -6,7 +6,7 @@ define(_CLIENT_VERSION_REVISION, 1)
 define(_CLIENT_VERSION_BUILD, 0)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2014)
-AC_INIT([DigiByte Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[support@digibyte.co],[digibyte])
+AC_INIT([Nautiluscoin Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[support@nautiluscoin.co],[nautiluscoin])
 AC_CONFIG_AUX_DIR([src/build-aux])
 AC_CONFIG_MACRO_DIR([src/m4])
 AC_CANONICAL_HOST
@@ -112,7 +112,7 @@ AC_ARG_WITH([protoc-bindir],[AS_HELP_STRING([--with-protoc-bindir=BIN_DIR],[spec
 
 
 AC_CONFIG_SRCDIR([src])
-AC_CONFIG_HEADERS([src/digibyte-config.h])
+AC_CONFIG_HEADERS([src/nautiluscoin-config.h])
 
 dnl Checks for programs.
 AC_PROG_CXX
@@ -287,7 +287,7 @@ dnl Check for pthread compile/link requirements
 AX_PTHREAD
 INCLUDES="$INCLUDES $PTHREAD_CFLAGS"
 
-# The following macro will add the necessary defines to digibyte-config.h, but
+# The following macro will add the necessary defines to nautiluscoin-config.h, but
 # they also need to be passed down to any subprojects. Pull the results out of
 # the cache and add them to CPPFLAGS.
 AC_SYS_LARGEFILE
@@ -470,14 +470,14 @@ fi
 AC_ARG_WITH([cli],
   [AS_HELP_STRING([--with-cli],
   [with CLI (default is yes)])],
-  [build_digibyte_cli=$withval],
-  [build_digibyte_cli=yes])
+  [build_nautiluscoin_cli=$withval],
+  [build_nautiluscoin_cli=yes])
 
 AC_ARG_WITH([daemon],
   [AS_HELP_STRING([--with-daemon],
   [with daemon (default is yes)])],
-  [build_digibyted=$withval],
-  [build_digibyted=yes])
+  [build_nautiluscoind=$withval],
+  [build_nautiluscoind=yes])
 
 DIGIBYTE_QT_INIT
 
@@ -515,15 +515,15 @@ fi
 
 DIGIBYTE_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
-AC_MSG_CHECKING([whether to build digibyted])
-AM_CONDITIONAL([BUILD_DIGIBYTED], [test x$build_digibyted = xyes])
-AC_MSG_RESULT($build_digibyted)
+AC_MSG_CHECKING([whether to build nautiluscoind])
+AM_CONDITIONAL([BUILD_DIGIBYTED], [test x$build_nautiluscoind = xyes])
+AC_MSG_RESULT($build_nautiluscoind)
 
-AC_MSG_CHECKING([whether to build digibyte-cli])
-AM_CONDITIONAL([BUILD_DIGIBYTE_CLI], [test x$build_digibyte_cli = xyes])
-AC_MSG_RESULT($build_digibyte_cli)
+AC_MSG_CHECKING([whether to build nautiluscoin-cli])
+AM_CONDITIONAL([BUILD_DIGIBYTE_CLI], [test x$build_nautiluscoin_cli = xyes])
+AC_MSG_RESULT($build_nautiluscoin_cli)
 
-dnl sets $digibyte_enable_qt, $digibyte_enable_qt_test, $digibyte_enable_qt_dbus
+dnl sets $nautiluscoin_enable_qt, $nautiluscoin_enable_qt_test, $nautiluscoin_enable_qt_dbus
 DIGIBYTE_QT_CONFIGURE([$use_pkgconfig], [qt4])
 
 
@@ -619,14 +619,14 @@ else
 fi
 
 dnl these are only used when qt is enabled
-if test x$digibyte_enable_qt != xno; then
+if test x$nautiluscoin_enable_qt != xno; then
   BUILD_QT=qt
   dnl enable dbus support
   AC_MSG_CHECKING([whether to build GUI with support for D-Bus])
-  if test x$digibyte_enable_qt_dbus != xno; then
+  if test x$nautiluscoin_enable_qt_dbus != xno; then
     AC_DEFINE([USE_DBUS],[1],[Define if dbus support should be compiled in])
   fi
-  AC_MSG_RESULT($digibyte_enable_qt_dbus)
+  AC_MSG_RESULT($nautiluscoin_enable_qt_dbus)
 
   dnl enable qr support
   AC_MSG_CHECKING([whether to build GUI with support for QR codes])
@@ -649,8 +649,8 @@ if test x$digibyte_enable_qt != xno; then
     AC_MSG_WARN("xgettext is required to update qt translations")
   fi
 
-  AC_MSG_CHECKING([whether to build test_digibyte-qt])
-  if test x$use_tests$digibyte_enable_qt_test = xyesyes; then
+  AC_MSG_CHECKING([whether to build test_nautiluscoin-qt])
+  if test x$use_tests$nautiluscoin_enable_qt_test = xyesyes; then
     AC_MSG_RESULT([yes])
     BUILD_TEST_QT="test"
   else
@@ -658,7 +658,7 @@ if test x$digibyte_enable_qt != xno; then
   fi
 fi
 
-AC_MSG_CHECKING([whether to build test_digibyte])
+AC_MSG_CHECKING([whether to build test_nautiluscoin])
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
   BUILD_TEST="test"
@@ -666,7 +666,7 @@ else
   AC_MSG_RESULT([no])
 fi
 
-if test "x$use_tests$build_digibyted$use_qt" = "xnonono"; then
+if test "x$use_tests$build_nautiluscoind$use_qt" = "xnonono"; then
   AC_MSG_ERROR([No targets! Please specify at least one of: --enable-cli --enable-daemon --enable-gui or --enable-tests])
 fi
 
@@ -703,6 +703,6 @@ AC_SUBST(BUILD_TEST)
 AC_SUBST(BUILD_QT)
 AC_SUBST(BUILD_TEST_QT)
 AC_CONFIG_FILES([Makefile src/Makefile src/test/Makefile src/qt/Makefile src/qt/test/Makefile share/setup.nsi share/qt/Info.plist])
-AC_CONFIG_FILES([qa/pull-tester/run-digibyted-for-test.sh],[chmod +x qa/pull-tester/run-digibyted-for-test.sh])
+AC_CONFIG_FILES([qa/pull-tester/run-nautiluscoind-for-test.sh],[chmod +x qa/pull-tester/run-nautiluscoind-for-test.sh])
 AC_CONFIG_FILES([qa/pull-tester/build-tests.sh],[chmod +x qa/pull-tester/build-tests.sh])
 AC_OUTPUT

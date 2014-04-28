@@ -1,106 +1,106 @@
-// Copyright (c) 2011-2013 The DigiByte developers
+// Copyright (c) 2011-2013 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "digibyteunits.h"
+#include "nautiluscoinunits.h"
 
 #include <QStringList>
 
-DigiByteUnits::DigiByteUnits(QObject *parent):
+NautiluscoinUnits::NautiluscoinUnits(QObject *parent):
         QAbstractListModel(parent),
         unitlist(availableUnits())
 {
 }
 
-QList<DigiByteUnits::Unit> DigiByteUnits::availableUnits()
+QList<NautiluscoinUnits::Unit> NautiluscoinUnits::availableUnits()
 {
-    QList<DigiByteUnits::Unit> unitlist;
-    unitlist.append(DGB);
-    unitlist.append(mDGB);
-    unitlist.append(uDGB);
+    QList<NautiluscoinUnits::Unit> unitlist;
+    unitlist.append(PHI);
+    unitlist.append(mPHI);
+    unitlist.append(uPHI);
     return unitlist;
 }
 
-bool DigiByteUnits::valid(int unit)
+bool NautiluscoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case DGB:
-    case mDGB:
-    case uDGB:
+    case PHI:
+    case mPHI:
+    case uPHI:
         return true;
     default:
         return false;
     }
 }
 
-QString DigiByteUnits::name(int unit)
+QString NautiluscoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case DGB: return QString("DGB");
-    case mDGB: return QString("mDGB");
-    case uDGB: return QString::fromUtf8("μDGB");
+    case PHI: return QString("PHI");
+    case mPHI: return QString("mPHI");
+    case uPHI: return QString::fromUtf8("μPHI");
     default: return QString("???");
     }
 }
 
-QString DigiByteUnits::description(int unit)
+QString NautiluscoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case DGB: return QString("DigiBytes");
-    case mDGB: return QString("Milli-DigiBytes (1 / 1,000)");
-    case uDGB: return QString("Micro-DigiBytes (1 / 1,000,000)");
+    case PHI: return QString("Nautiluscoins");
+    case mPHI: return QString("Milli-Nautiluscoins (1 / 1,000)");
+    case uPHI: return QString("Micro-Nautiluscoins (1 / 1,000,000)");
     default: return QString("???");
     }
 }
 
-qint64 DigiByteUnits::factor(int unit)
+qint64 NautiluscoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case DGB:  return 100000000;
-    case mDGB: return 100000;
-    case uDGB: return 100;
+    case PHI:  return 100000000;
+    case mPHI: return 100000;
+    case uPHI: return 100;
     default:   return 100000000;
     }
 }
 
-qint64 DigiByteUnits::maxAmount(int unit)
+qint64 NautiluscoinUnits::maxAmount(int unit)
 {
     switch(unit)
     {
-    case DGB:  return Q_INT64_C(21000000);
-    case mDGB: return Q_INT64_C(21000000000);
-    case uDGB: return Q_INT64_C(21000000000000);
+    case PHI:  return Q_INT64_C(21000000);
+    case mPHI: return Q_INT64_C(21000000000);
+    case uPHI: return Q_INT64_C(21000000000000);
     default:   return 0;
     }
 }
 
-int DigiByteUnits::amountDigits(int unit)
+int NautiluscoinUnits::amountDigits(int unit)
 {
     switch(unit)
     {
-    case DGB: return 8; // 21,000,000 (# digits, without commas)
-    case mDGB: return 11; // 21,000,000,000
-    case uDGB: return 14; // 21,000,000,000,000
+    case PHI: return 8; // 21,000,000 (# digits, without commas)
+    case mPHI: return 11; // 21,000,000,000
+    case uPHI: return 14; // 21,000,000,000,000
     default: return 0;
     }
 }
 
-int DigiByteUnits::decimals(int unit)
+int NautiluscoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case DGB: return 8;
-    case mDGB: return 5;
-    case uDGB: return 2;
+    case PHI: return 8;
+    case mPHI: return 5;
+    case uPHI: return 2;
     default: return 0;
     }
 }
 
-QString DigiByteUnits::format(int unit, qint64 n, bool fPlus)
+QString NautiluscoinUnits::format(int unit, qint64 n, bool fPlus)
 {
     // Note: not using straight sprintf here because we do NOT want
     // localized number formatting.
@@ -127,12 +127,12 @@ QString DigiByteUnits::format(int unit, qint64 n, bool fPlus)
     return quotient_str + QString(".") + remainder_str;
 }
 
-QString DigiByteUnits::formatWithUnit(int unit, qint64 amount, bool plussign)
+QString NautiluscoinUnits::formatWithUnit(int unit, qint64 amount, bool plussign)
 {
     return format(unit, amount, plussign) + QString(" ") + name(unit);
 }
 
-bool DigiByteUnits::parse(int unit, const QString &value, qint64 *val_out)
+bool NautiluscoinUnits::parse(int unit, const QString &value, qint64 *val_out)
 {
     if(!valid(unit) || value.isEmpty())
         return false; // Refuse to parse invalid unit or empty string
@@ -169,13 +169,13 @@ bool DigiByteUnits::parse(int unit, const QString &value, qint64 *val_out)
     return ok;
 }
 
-int DigiByteUnits::rowCount(const QModelIndex &parent) const
+int NautiluscoinUnits::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return unitlist.size();
 }
 
-QVariant DigiByteUnits::data(const QModelIndex &index, int role) const
+QVariant NautiluscoinUnits::data(const QModelIndex &index, int role) const
 {
     int row = index.row();
     if(row >= 0 && row < unitlist.size())

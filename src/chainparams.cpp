@@ -1,5 +1,5 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The DigiByte developers
+// Copyright (c) 2009-2014 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -71,7 +71,7 @@ public:
         assert(hashGenesisBlock == uint256("0x7497ea1b465eb39f1c8f507bc877078fe016d6fcb6dfad3a64c98dcc6e1e8496"));
         assert(genesis.hashMerkleRoot == uint256("0x72ddd9496b004221ed0557358846d9248ecd4c440ebd28ed901efc18757d0fad"));
 
-        vSeeds.push_back(CDNSSeedData("digibyte.co seed #1", "seed1.digibyte.co"));
+        vSeeds.push_back(CDNSSeedData("nautiluscoin.co seed #1", "seed1.nautiluscoin.co"));
         vSeeds.push_back(CDNSSeedData("hashdragon.com seed #2", "seed2.hashdragon.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(30);
@@ -135,7 +135,7 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("digibyte.petertodd.org", "testnet-seed.digibyte.petertodd.org"));
+        vSeeds.push_back(CDNSSeedData("nautiluscoin.petertodd.org", "testnet-seed.nautiluscoin.petertodd.org"));
         vSeeds.push_back(CDNSSeedData("bluematt.me", "testnet-seed.bluematt.me"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(111);

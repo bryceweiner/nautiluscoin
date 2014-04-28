@@ -72,12 +72,12 @@ MSYS shell:
 	mkdir miniupnpc
 	cp *.h miniupnpc/
 
-DigiByte
+Nautiluscoin
 -------
 MSYS shell:
 
-	cd \digibyte
+	cd \nautiluscoin
 	sh autogen.sh
 	sh configure
 	mingw32-make
-	strip digibyted.exe
+	strip nautiluscoind.exe

@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2013 The DigiByte developers
+// Copyright (c) 2011-2013 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -6,7 +6,7 @@
 
 #include "addressbookpage.h"
 #include "askpassphrasedialog.h"
-#include "digibytegui.h"
+#include "nautiluscoingui.h"
 #include "clientmodel.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
@@ -77,7 +77,7 @@ WalletView::~WalletView()
 {
 }
 
-void WalletView::setDigiByteGUI(DigiByteGUI *gui)
+void WalletView::setNautiluscoinGUI(NautiluscoinGUI *gui)
 {
     if (gui)
     {

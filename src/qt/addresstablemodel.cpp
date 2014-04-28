@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2013 The DigiByte developers
+// Copyright (c) 2011-2013 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -81,7 +81,7 @@ public:
             LOCK(wallet->cs_wallet);
             BOOST_FOREACH(const PAIRTYPE(CTxDestination, CAddressBookData)& item, wallet->mapAddressBook)
             {
-                const CDigiByteAddress& address = item.first;
+                const CNautiluscoinAddress& address = item.first;
                 bool fMine = IsMine(*wallet, address.Get());
                 AddressTableEntry::Type addressType = translateTransactionType(
                         QString::fromStdString(item.second.purpose), fMine);
@@ -216,7 +216,7 @@ QVariant AddressTableModel::data(const QModelIndex &index, int role) const
         QFont font;
         if(index.column() == Address)
         {
-            font = GUIUtil::digibyteAddressFont();
+            font = GUIUtil::nautiluscoinAddressFont();
         }
         return font;
     }
@@ -246,7 +246,7 @@ bool AddressTableModel::setData(const QModelIndex &index, const QVariant &value,
     if(role == Qt::EditRole)
     {
         LOCK(wallet->cs_wallet); /* For SetAddressBook / DelAddressBook */
-        CTxDestination curAddress = CDigiByteAddress(rec->address.toStdString()).Get();
+        CTxDestination curAddress = CNautiluscoinAddress(rec->address.toStdString()).Get();
         if(index.column() == Label)
         {
             // Do nothing, if old label == new label
@@ -257,7 +257,7 @@ bool AddressTableModel::setData(const QModelIndex &index, const QVariant &value,
             }
             wallet->SetAddressBook(curAddress, value.toString().toStdString(), strPurpose);
         } else if(index.column() == Address) {
-            CTxDestination newAddress = CDigiByteAddress(value.toString().toStdString()).Get();
+            CTxDestination newAddress = CNautiluscoinAddress(value.toString().toStdString()).Get();
             // Refuse to set invalid address, set error status and return false
             if(boost::get<CNoDestination>(&newAddress))
             {
@@ -337,7 +337,7 @@ QModelIndex AddressTableModel::index(int row, int column, const QModelIndex &par
 void AddressTableModel::updateEntry(const QString &address,
         const QString &label, bool isMine, const QString &purpose, int status)
 {
-    // Update address book model from DigiByte core
+    // Update address book model from Nautiluscoin core
     priv->updateEntry(address, label, isMine, purpose, status);
 }
 
@@ -358,7 +358,7 @@ QString AddressTableModel::addRow(const QString &type, const QString &label, con
         // Check for duplicate addresses
         {
             LOCK(wallet->cs_wallet);
-            if(wallet->mapAddressBook.count(CDigiByteAddress(strAddress).Get()))
+            if(wallet->mapAddressBook.count(CNautiluscoinAddress(strAddress).Get()))
             {
                 editStatus = DUPLICATE_ADDRESS;
                 return QString();
@@ -384,7 +384,7 @@ QString AddressTableModel::addRow(const QString &type, const QString &label, con
                 return QString();
             }
         }
-        strAddress = CDigiByteAddress(newKey.GetID()).ToString();
+        strAddress = CNautiluscoinAddress(newKey.GetID()).ToString();
     }
     else
     {
@@ -394,7 +394,7 @@ QString AddressTableModel::addRow(const QString &type, const QString &label, con
     // Add entry
     {
         LOCK(wallet->cs_wallet);
-        wallet->SetAddressBook(CDigiByteAddress(strAddress).Get(), strLabel,
+        wallet->SetAddressBook(CNautiluscoinAddress(strAddress).Get(), strLabel,
                                (type == Send ? "send" : "receive"));
     }
     return QString::fromStdString(strAddress);
@@ -412,7 +412,7 @@ bool AddressTableModel::removeRows(int row, int count, const QModelIndex &parent
     }
     {
         LOCK(wallet->cs_wallet);
-        wallet->DelAddressBook(CDigiByteAddress(rec->address.toStdString()).Get());
+        wallet->DelAddressBook(CNautiluscoinAddress(rec->address.toStdString()).Get());
     }
     return true;
 }
@@ -423,7 +423,7 @@ QString AddressTableModel::labelForAddress(const QString &address) const
 {
     {
         LOCK(wallet->cs_wallet);
-        CDigiByteAddress address_parsed(address.toStdString());
+        CNautiluscoinAddress address_parsed(address.toStdString());
         std::map<CTxDestination, CAddressBookData>::iterator mi = wallet->mapAddressBook.find(address_parsed.Get());
         if (mi != wallet->mapAddressBook.end())
         {

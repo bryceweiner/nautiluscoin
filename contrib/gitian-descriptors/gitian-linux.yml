@@ -1,5 +1,5 @@
 ---
-name: "digibyte"
+name: "nautiluscoin"
 suites:
 - "precise"
 architectures:
@@ -18,11 +18,11 @@ packages:
 - "bsdmainutils"
 reference_datetime: "2013-06-01 00:00:00"
 remotes:
-- "url": "https://github.com/digibyte/DigiByteProject.git"
-  "dir": "digibyte"
+- "url": "https://github.com/nautiluscoin/NautiluscoinProject.git"
+  "dir": "nautiluscoin"
 files:
-- "digibyte-deps-linux32-gitian-r5.zip"
-- "digibyte-deps-linux64-gitian-r5.zip"
+- "nautiluscoin-deps-linux32-gitian-r5.zip"
+- "nautiluscoin-deps-linux64-gitian-r5.zip"
 - "boost-linux32-1.55.0-gitian-r1.zip"
 - "boost-linux64-1.55.0-gitian-r1.zip"
 script: |
@@ -36,7 +36,7 @@ script: |
   #
   mkdir -p $STAGING
   cd $STAGING
-  unzip ../build/digibyte-deps-linux${GBUILD_BITS}-gitian-r5.zip
+  unzip ../build/nautiluscoin-deps-linux${GBUILD_BITS}-gitian-r5.zip
   unzip ../build/boost-linux${GBUILD_BITS}-1.55.0-gitian-r1.zip
   cd ../build
 
@@ -44,11 +44,11 @@ script: |
     ./configure "$@" --enable-upnp-default --prefix=$STAGING --with-protoc-bindir=$STAGING/host/bin --with-boost=$STAGING --disable-maintainer-mode --disable-dependency-tracking PKG_CONFIG_PATH="$STAGING/lib/pkgconfig" CPPFLAGS="-I$STAGING/include ${OPTFLAGS}" LDFLAGS="-L$STAGING/lib ${OPTFLAGS}" CXXFLAGS="-frandom-seed=bitcoin ${OPTFLAGS}" BOOST_CHRONO_EXTRALIBS="-lrt"
   }
   #
-  cd digibyte
+  cd nautiluscoin
   ./autogen.sh
   do_configure
   make dist
-  DISTNAME=`echo digibyte-*.tar.gz`
+  DISTNAME=`echo nautiluscoin-*.tar.gz`
 
   # Build dynamic versions of everything
   # (with static linking to boost and openssl as well a some non-OS deps)
@@ -70,12 +70,12 @@ script: |
   do_configure --bindir=$STATIC_BINDIR --disable-tests --enable-upnp-default --without-gui --disable-hardening
   make $MAKEOPTS
   make $MAKEOPTS install-strip
-  cp $STATIC_BINDIR/digibyted $BINDIR/digibyted.static
-  cp $STATIC_BINDIR/digibyte-cli $BINDIR/digibyte-cli.static
+  cp $STATIC_BINDIR/nautiluscoind $BINDIR/nautiluscoind.static
+  cp $STATIC_BINDIR/nautiluscoin-cli $BINDIR/nautiluscoin-cli.static
   
   # sort distribution tar file and normalize user/group/mtime information for deterministic output
   mkdir -p $OUTDIR/src
   rm -rf $TEMPDIR
   mkdir -p $TEMPDIR
   cd $TEMPDIR
-  tar -xvf $HOME/build/digibyte/$DISTNAME | sort | tar --no-recursion -cT /dev/stdin --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 --mtime="$REFERENCE_DATETIME" | gzip -n > $OUTDIR/src/$DISTNAME
+  tar -xvf $HOME/build/nautiluscoin/$DISTNAME | sort | tar --no-recursion -cT /dev/stdin --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 --mtime="$REFERENCE_DATETIME" | gzip -n > $OUTDIR/src/$DISTNAME

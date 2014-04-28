@@ -15,8 +15,8 @@ reference_datetime: "2011-01-30 00:00:00"
 remotes: []
 files:
 - "qt-everywhere-opensource-src-5.2.0.tar.gz"
-- "digibyte-deps-win32-gitian-r12.zip"
-- "digibyte-deps-win64-gitian-r12.zip"
+- "nautiluscoin-deps-win32-gitian-r12.zip"
+- "nautiluscoin-deps-win64-gitian-r12.zip"
 script: |
   # Defines
   export TZ=UTC
@@ -46,9 +46,9 @@ script: |
     #
     mkdir -p $INSTALLPREFIX $INSTALLPREFIX/host/bin $DEPSDIR $BUILDDIR
     #
-    # Need mingw-compiled openssl from digibyte-deps:
+    # Need mingw-compiled openssl from nautiluscoin-deps:
     cd $DEPSDIR
-    unzip $INDIR/digibyte-deps-win${BITS}-gitian-r12.zip
+    unzip $INDIR/nautiluscoin-deps-win${BITS}-gitian-r12.zip
     #
     cd $BUILDDIR
     #

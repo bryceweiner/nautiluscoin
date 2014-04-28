@@ -1,4 +1,4 @@
-DigiByte 2.9.1 BETA
+Nautiluscoin 2.9.1 BETA
 
 Copyright (c) 2009-2014 Bitcoin Core Developers
 

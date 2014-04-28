@@ -4,21 +4,21 @@ SUBDIRS = src
 
 GZIP_ENV="-9n"
 
-DIGIBYTED_BIN=$(top_builddir)/src/digibyted$(EXEEXT)
-DIGIBYTE_QT_BIN=$(top_builddir)/src/qt/digibyte-qt$(EXEEXT)
-DIGIBYTE_CLI_BIN=$(top_builddir)/src/digibyte-cli$(EXEEXT)
+DIGIBYTED_BIN=$(top_builddir)/src/nautiluscoind$(EXEEXT)
+DIGIBYTE_QT_BIN=$(top_builddir)/src/qt/nautiluscoin-qt$(EXEEXT)
+DIGIBYTE_CLI_BIN=$(top_builddir)/src/nautiluscoin-cli$(EXEEXT)
 DIGIBYTE_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
 
-OSX_APP=DigiByte-Qt.app
-OSX_DMG=DigiByte-Qt.dmg
+OSX_APP=Nautiluscoin-Qt.app
+OSX_DMG=Nautiluscoin-Qt.dmg
 OSX_DEPLOY_SCRIPT=$(top_srcdir)/contrib/macdeploy/macdeployqtplus
 OSX_FANCY_PLIST=$(top_srcdir)/contrib/macdeploy/fancy.plist
-OSX_INSTALLER_ICONS=$(top_srcdir)/src/qt/res/icons/digibyte.icns
+OSX_INSTALLER_ICONS=$(top_srcdir)/src/qt/res/icons/nautiluscoin.icns
 OSX_PLIST=$(top_srcdir)/share/qt/Info.plist #not installed
 
 DIST_DOCS = $(wildcard doc/*.md) $(wildcard doc/release-notes/*.md)
 
-WINDOWS_PACKAGING = $(top_srcdir)/share/pixmaps/digibyte.ico \
+WINDOWS_PACKAGING = $(top_srcdir)/share/pixmaps/nautiluscoin.ico \
   $(top_srcdir)/share/pixmaps/nsis-header.bmp \
   $(top_srcdir)/share/pixmaps/nsis-wizard.bmp \
   $(top_srcdir)/doc/README_windows.txt
@@ -27,9 +27,9 @@ OSX_PACKAGING = $(OSX_DEPLOY_SCRIPT) $(OSX_FANCY_PLIST) $(OSX_INSTALLER_ICONS) \
   $(top_srcdir)/contrib/macdeploy/background.png
 
 COVERAGE_INFO = baseline_filtered_combined.info baseline.info block_test.info \
-  leveldb_baseline.info test_digibyte_filtered.info total_coverage.info \
+  leveldb_baseline.info test_nautiluscoin_filtered.info total_coverage.info \
   baseline_filtered.info block_test_filtered.info \
-  leveldb_baseline_filtered.info test_digibyte_coverage.info test_digibyte.info
+  leveldb_baseline_filtered.info test_nautiluscoin_coverage.info test_nautiluscoin.info
 
 dist-hook:
 	-$(MAKE) -C $(top_distdir)/src/leveldb clean
@@ -66,17 +66,17 @@ $(OSX_APP)/Contents/Info.plist: $(OSX_PLIST)
 	$(MKDIR_P) $(@D)
 	$(INSTALL) $< $@
 
-$(OSX_APP)/Contents/Resources/digibyte.icns: $(OSX_INSTALLER_ICONS)
+$(OSX_APP)/Contents/Resources/nautiluscoin.icns: $(OSX_INSTALLER_ICONS)
 	$(MKDIR_P) $(@D)
 	$(INSTALL) $< $@
 
-$(OSX_APP)/Contents/MacOS/DigiByte-Qt: $(DIGIBYTE_QT_BIN)
+$(OSX_APP)/Contents/MacOS/Nautiluscoin-Qt: $(DIGIBYTE_QT_BIN)
 	$(MKDIR_P) $(@D)
 	$(INSTALL_STRIP_PROGRAM)  $< $@
 
 OSX_APP_BUILT=$(OSX_APP)/Contents/PkgInfo $(OSX_APP)/Contents/Resources/empty.lproj \
-  $(OSX_APP)/Contents/Resources/digibyte.icns $(OSX_APP)/Contents/Info.plist \
-  $(OSX_APP)/Contents/MacOS/DigiByte-Qt
+  $(OSX_APP)/Contents/Resources/nautiluscoin.icns $(OSX_APP)/Contents/Info.plist \
+  $(OSX_APP)/Contents/MacOS/Nautiluscoin-Qt
 
 $(OSX_DMG): $(OSX_APP_BUILT) $(OSX_PACKAGING)
 	$(OSX_DEPLOY_SCRIPT) $(OSX_APP) -add-qt-tr da,de,es,hu,ru,uk,zh_CN,zh_TW -dmg -fancy $(OSX_FANCY_PLIST) -verbose 2
@@ -107,32 +107,32 @@ leveldb_baseline_filtered.info: leveldb_baseline.info
 baseline_filtered_combined.info: leveldb_baseline_filtered.info baseline_filtered.info
 	$(LCOV) -a leveldb_baseline_filtered.info -a baseline_filtered.info -o $@
 
-test_digibyte.info: baseline_filtered_combined.info
+test_nautiluscoin.info: baseline_filtered_combined.info
 	$(MAKE) -C src/ check
-	$(LCOV) -c -d $(abs_builddir)/src -t test_digibyte -o $@
+	$(LCOV) -c -d $(abs_builddir)/src -t test_nautiluscoin -o $@
 	$(LCOV) -z -d $(abs_builddir)/src
 	$(LCOV) -z -d $(abs_builddir)/src/leveldb
 
-test_digibyte_filtered.info: test_digibyte.info
+test_nautiluscoin_filtered.info: test_nautiluscoin.info
 	$(LCOV) -r $< "/usr/include/*" -o $@
 
-block_test.info: test_digibyte_filtered.info
+block_test.info: test_nautiluscoin_filtered.info
 	$(MKDIR_P) qa/tmp
-	-@TIMEOUT=15 qa/pull-tester/run-digibyted-for-test.sh $(JAVA) -jar $(JAVA_COMPARISON_TOOL) qa/tmp/compTool 0
-	$(LCOV) -c -d $(abs_builddir)/src --t DigiByteJBlockTest -o $@
+	-@TIMEOUT=15 qa/pull-tester/run-nautiluscoind-for-test.sh $(JAVA) -jar $(JAVA_COMPARISON_TOOL) qa/tmp/compTool 0
+	$(LCOV) -c -d $(abs_builddir)/src --t NautiluscoinJBlockTest -o $@
 	$(LCOV) -z -d $(abs_builddir)/src
 	$(LCOV) -z -d $(abs_builddir)/src/leveldb
 
 block_test_filtered.info: block_test.info
 	$(LCOV) -r $< "/usr/include/*" -o $@
 
-test_digibyte_coverage.info: baseline_filtered_combined.info test_digibyte_filtered.info
-	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_digibyte_filtered.info -o $@
+test_nautiluscoin_coverage.info: baseline_filtered_combined.info test_nautiluscoin_filtered.info
+	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_nautiluscoin_filtered.info -o $@
 
-total_coverage.info:  baseline_filtered_combined.info test_digibyte_filtered.info block_test_filtered.info
-	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_digibyte_filtered.info -a block_test_filtered.info -o $@ | $(GREP) "\%" | $(AWK) '{ print substr($$3,2,50) "/" $$5 }' > coverage_percent.txt
+total_coverage.info:  baseline_filtered_combined.info test_nautiluscoin_filtered.info block_test_filtered.info
+	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_nautiluscoin_filtered.info -a block_test_filtered.info -o $@ | $(GREP) "\%" | $(AWK) '{ print substr($$3,2,50) "/" $$5 }' > coverage_percent.txt
 
-test_digibyte.coverage/.dirstamp:  test_digibyte_coverage.info
+test_nautiluscoin.coverage/.dirstamp:  test_nautiluscoin_coverage.info
 	$(GENHTML) -s $< -o $(@D)
 	@touch $@
 
@@ -140,14 +140,14 @@ total.coverage/.dirstamp: total_coverage.info
 	$(GENHTML) -s $< -o $(@D)
 	@touch $@
 
-cov: test_digibyte.coverage/.dirstamp total.coverage/.dirstamp
+cov: test_nautiluscoin.coverage/.dirstamp total.coverage/.dirstamp
 
 endif
 
 if USE_COMPARISON_TOOL
 check-local:
 	$(MKDIR_P) qa/tmp
-	@qa/pull-tester/run-digibyted-for-test.sh $(JAVA) -jar $(JAVA_COMPARISON_TOOL) qa/tmp/compTool $(COMPARISON_TOOL_REORG_TESTS)
+	@qa/pull-tester/run-nautiluscoind-for-test.sh $(JAVA) -jar $(JAVA_COMPARISON_TOOL) qa/tmp/compTool $(COMPARISON_TOOL_REORG_TESTS)
 endif
 
 EXTRA_DIST = $(top_srcdir)/share/genbuild.sh qa/pull-tester/pull-tester.sh $(DIST_DOCS) $(WINDOWS_PACKAGING) $(OSX_PACKAGING)
@@ -157,4 +157,4 @@ CLEANFILES = $(OSX_DMG) $(OSX_APP) $(DIGIBYTEDIGIBYTE_WIN_INSTALLER)
 .INTERMEDIATE: $(COVERAGE_INFO)
 
 clean-local:
-	rm -rf test_digibyte.coverage/ total.coverage/
+	rm -rf test_nautiluscoin.coverage/ total.coverage/

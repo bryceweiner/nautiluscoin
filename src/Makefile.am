@@ -3,27 +3,27 @@ include Makefile.include
 AM_CPPFLAGS += -I$(builddir)
 
 noinst_LIBRARIES = \
-  libdigibyte_server.a \
-  libdigibyte_common.a \
-  libdigibyte_cli.a
+  libnautiluscoin_server.a \
+  libnautiluscoin_common.a \
+  libnautiluscoin_cli.a
 if ENABLE_WALLET
-noinst_LIBRARIES += libdigibyte_wallet.a
+noinst_LIBRARIES += libnautiluscoin_wallet.a
 endif
 
 bin_PROGRAMS =
 
 if BUILD_DIGIBYTED
-  bin_PROGRAMS += digibyted
+  bin_PROGRAMS += nautiluscoind
 endif
 
 if BUILD_DIGIBYTE_CLI
-  bin_PROGRAMS += digibyte-cli
+  bin_PROGRAMS += nautiluscoin-cli
 endif
 
 SUBDIRS = . $(BUILD_QT) $(BUILD_TEST)
 DIST_SUBDIRS = . qt test
 .PHONY: FORCE
-# digibyte core #
+# nautiluscoin core #
 DIGIBYTE_CORE_H = \
   addrman.h \
   alert.h \
@@ -88,7 +88,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 version.o: obj/build.h
 
-libdigibyte_server_a_SOURCES = \
+libnautiluscoin_server_a_SOURCES = \
   addrman.cpp \
   alert.cpp \
   rpcserver.cpp \
@@ -113,7 +113,7 @@ libdigibyte_server_a_SOURCES = \
   $(JSON_H) \
   $(DIGIBYTE_CORE_H)
 
-libdigibyte_wallet_a_SOURCES = \
+libnautiluscoin_wallet_a_SOURCES = \
   db.cpp \
   crypter.cpp \
   rpcdump.cpp \
@@ -122,7 +122,7 @@ libdigibyte_wallet_a_SOURCES = \
   walletdb.cpp \
   $(DIGIBYTE_CORE_H)
 
-libdigibyte_common_a_SOURCES = \
+libnautiluscoin_common_a_SOURCES = \
   allocators.cpp \
   chainparams.cpp \
   core.cpp \
@@ -138,43 +138,43 @@ libdigibyte_common_a_SOURCES = \
   version.cpp \
   $(DIGIBYTE_CORE_H)
 
-libdigibyte_cli_a_SOURCES = \
+libnautiluscoin_cli_a_SOURCES = \
   rpcclient.cpp \
   $(DIGIBYTE_CORE_H)
 
-nodist_libdigibyte_common_a_SOURCES = $(top_srcdir)/src/obj/build.h
+nodist_libnautiluscoin_common_a_SOURCES = $(top_srcdir)/src/obj/build.h
 #
 
-# digibyted binary #
-digibyted_LDADD = \
-  libdigibyte_server.a \
-  libdigibyte_cli.a \
-  libdigibyte_common.a \
+# nautiluscoind binary #
+nautiluscoind_LDADD = \
+  libnautiluscoin_server.a \
+  libnautiluscoin_cli.a \
+  libnautiluscoin_common.a \
   $(LIBLEVELDB) \
   $(LIBMEMENV)
 if ENABLE_WALLET
-digibyted_LDADD += libdigibyte_wallet.a
+nautiluscoind_LDADD += libnautiluscoin_wallet.a
 endif
-digibyted_SOURCES = digibyted.cpp
+nautiluscoind_SOURCES = nautiluscoind.cpp
 #
 
 if TARGET_WINDOWS
-digibyted_SOURCES += digibyted-res.rc
+nautiluscoind_SOURCES += nautiluscoind-res.rc
 endif
 
 AM_CPPFLAGS += $(BDB_CPPFLAGS)
-digibyted_LDADD += $(BOOST_LIBS) $(BDB_LIBS)
+nautiluscoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS)
 
-# digibyte-cli binary #
-digibyte_cli_LDADD = \
-  libdigibyte_cli.a \
-  libdigibyte_common.a \
+# nautiluscoin-cli binary #
+nautiluscoin_cli_LDADD = \
+  libnautiluscoin_cli.a \
+  libnautiluscoin_common.a \
   $(BOOST_LIBS)
-digibyte_cli_SOURCES = digibyte-cli.cpp
+nautiluscoin_cli_SOURCES = nautiluscoin-cli.cpp
 #
 
 if TARGET_WINDOWS
-digibyte_cli_SOURCES += digibyte-cli-res.rc
+nautiluscoin_cli_SOURCES += nautiluscoin-cli-res.rc
 endif
 
 # NOTE: This dependency is not strictly necessary, but without it make may try to build both in parallel, which breaks the LevelDB build system in a race
@@ -185,7 +185,7 @@ leveldb/%.a:
 	  CC="$(CC)" PLATFORM=$(TARGET_OS) AR="$(AR)" $(LEVELDB_TARGET_FLAGS) \
 	  OPT="$(CXXFLAGS) $(CPPFLAGS)"
 
-qt/digibytestrings.cpp: $(libdigibyte_server_a_SOURCES) $(libdigibyte_common_a_SOURCES) $(libdigibyte_cli_a_SOURCES)
+qt/nautiluscoinstrings.cpp: $(libnautiluscoin_server_a_SOURCES) $(libnautiluscoin_common_a_SOURCES) $(libnautiluscoin_cli_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	@cd $(top_srcdir); XGETTEXT=$(XGETTEXT) share/qt/extract_strings_qt.py
 

@@ -1,4 +1,4 @@
-test_digibyte_qt-test_main.o: test_main.cpp ../../../src/digibyte-config.h \
+test_nautiluscoin_qt-test_main.o: test_main.cpp ../../../src/nautiluscoin-config.h \
  paymentservertests.h ../paymentserver.h ../paymentrequestplus.h \
  ../paymentrequest.pb.h /usr/include/c++/4.6/string \
  /usr/include/c++/4.6/x86_64-linux-gnu/./bits/c++config.h \
@@ -403,7 +403,7 @@ test_digibyte_qt-test_main.o: test_main.cpp ../../../src/digibyte-config.h \
  /usr/include/boost/utility/swap.hpp \
  /usr/include/boost/type_traits/is_fundamental.hpp ../../../src/uint256.h \
  ../../../src/version.h ../../../src/clientversion.h \
- ../../../src/digibyte-config.h /usr/include/openssl/bn.h \
+ ../../../src/nautiluscoin-config.h /usr/include/openssl/bn.h \
  ../../../src/chainparams.h ../../../src/hash.h \
  /usr/include/openssl/ripemd.h /usr/include/openssl/sha.h \
  ../../../src/key.h ../../../src/script.h ../../../src/util.h \
@@ -879,7 +879,7 @@ test_digibyte_qt-test_main.o: test_main.cpp ../../../src/digibyte-config.h \
  /usr/include/qt4/QtCore/QCoreApplication \
  /usr/include/qt4/QtCore/qcoreapplication.h
 
-../../../src/digibyte-config.h:
+../../../src/nautiluscoin-config.h:
 
 paymentservertests.h:
 
@@ -1829,7 +1829,7 @@ paymentservertests.h:
 
 ../../../src/clientversion.h:
 
-../../../src/digibyte-config.h:
+../../../src/nautiluscoin-config.h:
 
 /usr/include/openssl/bn.h:
 

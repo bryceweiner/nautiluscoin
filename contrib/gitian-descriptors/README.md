@@ -20,7 +20,7 @@ Sanity checks:
 
 Once you've got the right hardware and software:
 
-    git clone git://github.com/digibyte/DigiByteProject.git
+    git clone git://github.com/nautiluscoin/NautiluscoinProject.git
     git clone git://github.com/devrandom/gitian-builder.git
     mkdir gitian-builder/inputs
     cd gitian-builder/inputs
@@ -35,20 +35,20 @@ Once you've got the right hardware and software:
     cd ..
 
     # Build Linux release:
-    cd DigiByteProject
+    cd NautiluscoinProject
     git pull
     cd ../gitian-builder
     git pull
-    ./bin/gbuild --commit digibyte=HEAD ../digibyte/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gbuild --commit nautiluscoin=HEAD ../nautiluscoin/contrib/gitian-descriptors/gitian-linux.yml
 
     # Build Win32 dependencies: (only needs to be done once, or when dependency versions change)
-    ./bin/gbuild --commit digibyte=HEAD ../DigiByteProject/contrib/gitian-descriptors/boost-win32.yml
-    ./bin/gbuild --commit digibyte=HEAD ../DigiByteProject/contrib/gitian-descriptors/deps-win32.yml
-    ./bin/gbuild --commit digibyte=HEAD ../DigiByteProject/contrib/gitian-descriptors/qt-win32.yml
-    ./bin/gbuild --commit digibyte=HEAD ../DigiByteProject/contrib/gitian-descriptors/protobuf-win32.yml
+    ./bin/gbuild --commit nautiluscoin=HEAD ../NautiluscoinProject/contrib/gitian-descriptors/boost-win32.yml
+    ./bin/gbuild --commit nautiluscoin=HEAD ../NautiluscoinProject/contrib/gitian-descriptors/deps-win32.yml
+    ./bin/gbuild --commit nautiluscoin=HEAD ../NautiluscoinProject/contrib/gitian-descriptors/qt-win32.yml
+    ./bin/gbuild --commit nautiluscoin=HEAD ../NautiluscoinProject/contrib/gitian-descriptors/protobuf-win32.yml
 
     # Build Win32 release:
-    ./bin/gbuild --commit digibyte=HEAD ../DigiByteProject/contrib/gitian-descriptors/gitian-win32.yml
+    ./bin/gbuild --commit nautiluscoin=HEAD ../NautiluscoinProject/contrib/gitian-descriptors/gitian-win32.yml
 
 ---------------------
 
@@ -76,5 +76,5 @@ Here's a description of Gavin's setup on OSX 10.6:
 5. Still inside Ubuntu, tell gitian-builder to use LXC, then follow the "Once you've got the right hardware and software" instructions above:
 
 	export USE_LXC=1
-	git clone git://github.com/digibyte/DigiByteProject.git
+	git clone git://github.com/nautiluscoin/NautiluscoinProject.git
 	... etc

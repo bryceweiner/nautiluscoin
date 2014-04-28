@@ -1,10 +1,10 @@
-// Copyright (c) 2011-2014 The DigiByte developers
+// Copyright (c) 2011-2014 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "digibytegui.h"
+#include "nautiluscoingui.h"
 
-#include "digibyteunits.h"
+#include "nautiluscoinunits.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
@@ -55,9 +55,9 @@
 #include <QUrlQuery>
 #endif
 
-const QString DigiByteGUI::DEFAULT_WALLET = "~Default";
+const QString NautiluscoinGUI::DEFAULT_WALLET = "~Default";
 
-DigiByteGUI::DigiByteGUI(bool fIsTestnet, QWidget *parent) :
+NautiluscoinGUI::NautiluscoinGUI(bool fIsTestnet, QWidget *parent) :
     QMainWindow(parent),
     clientModel(0),
     walletFrame(0),
@@ -72,7 +72,7 @@ DigiByteGUI::DigiByteGUI(bool fIsTestnet, QWidget *parent) :
 {
     GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 550), this);
 
-    QString windowTitle = tr("DigiByte Core") + " - ";
+    QString windowTitle = tr("Nautiluscoin Core") + " - ";
 #ifdef ENABLE_WALLET
     /* if compiled with wallet support, -disablewallet can still disable the wallet */
     bool enableWallet = !GetBoolArg("-disablewallet", false);
@@ -89,20 +89,20 @@ DigiByteGUI::DigiByteGUI(bool fIsTestnet, QWidget *parent) :
     if (!fIsTestnet)
     {
 #ifndef Q_OS_MAC
-        QApplication::setWindowIcon(QIcon(":icons/digibyte"));
-        setWindowIcon(QIcon(":icons/digibyte"));
+        QApplication::setWindowIcon(QIcon(":icons/nautiluscoin"));
+        setWindowIcon(QIcon(":icons/nautiluscoin"));
 #else
-        MacDockIconHandler::instance()->setIcon(QIcon(":icons/digibyte"));
+        MacDockIconHandler::instance()->setIcon(QIcon(":icons/nautiluscoin"));
 #endif
     }
     else
     {
         windowTitle += " " + tr("[testnet]");
 #ifndef Q_OS_MAC
-        QApplication::setWindowIcon(QIcon(":icons/digibyte_testnet"));
-        setWindowIcon(QIcon(":icons/digibyte_testnet"));
+        QApplication::setWindowIcon(QIcon(":icons/nautiluscoin_testnet"));
+        setWindowIcon(QIcon(":icons/nautiluscoin_testnet"));
 #else
-        MacDockIconHandler::instance()->setIcon(QIcon(":icons/digibyte_testnet"));
+        MacDockIconHandler::instance()->setIcon(QIcon(":icons/nautiluscoin_testnet"));
 #endif
     }
     setWindowTitle(windowTitle);
@@ -201,7 +201,7 @@ DigiByteGUI::DigiByteGUI(bool fIsTestnet, QWidget *parent) :
     subscribeToCoreSignals();
 }
 
-DigiByteGUI::~DigiByteGUI()
+NautiluscoinGUI::~NautiluscoinGUI()
 {
     // Unsubscribe from notifications from core
     unsubscribeFromCoreSignals();
@@ -215,7 +215,7 @@ DigiByteGUI::~DigiByteGUI()
 #endif
 }
 
-void DigiByteGUI::createActions(bool fIsTestnet)
+void NautiluscoinGUI::createActions(bool fIsTestnet)
 {
     QActionGroup *tabGroup = new QActionGroup(this);
 
@@ -227,14 +227,14 @@ void DigiByteGUI::createActions(bool fIsTestnet)
     tabGroup->addAction(overviewAction);
 
     sendCoinsAction = new QAction(QIcon(":/icons/send"), tr("&Send"), this);
-    sendCoinsAction->setStatusTip(tr("Send coins to a DigiByte address"));
+    sendCoinsAction->setStatusTip(tr("Send coins to a Nautiluscoin address"));
     sendCoinsAction->setToolTip(sendCoinsAction->statusTip());
     sendCoinsAction->setCheckable(true);
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
     tabGroup->addAction(sendCoinsAction);
 
     receiveCoinsAction = new QAction(QIcon(":/icons/receiving_addresses"), tr("&Receive"), this);
-    receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and digibyte: URIs)"));
+    receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and nautiluscoin: URIs)"));
     receiveCoinsAction->setToolTip(receiveCoinsAction->statusTip());
     receiveCoinsAction->setCheckable(true);
     receiveCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_3));
@@ -263,10 +263,10 @@ void DigiByteGUI::createActions(bool fIsTestnet)
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
     if (!fIsTestnet)
-        aboutAction = new QAction(QIcon(":/icons/digibyte"), tr("&About DigiByte Core"), this);
+        aboutAction = new QAction(QIcon(":/icons/nautiluscoin"), tr("&About Nautiluscoin Core"), this);
     else
-        aboutAction = new QAction(QIcon(":/icons/digibyte_testnet"), tr("&About DigiByte Core"), this);
-    aboutAction->setStatusTip(tr("Show information about DigiByte"));
+        aboutAction = new QAction(QIcon(":/icons/nautiluscoin_testnet"), tr("&About Nautiluscoin Core"), this);
+    aboutAction->setStatusTip(tr("Show information about Nautiluscoin"));
     aboutAction->setMenuRole(QAction::AboutRole);
 #if QT_VERSION < 0x050000
     aboutQtAction = new QAction(QIcon(":/trolltech/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), this);
@@ -276,12 +276,12 @@ void DigiByteGUI::createActions(bool fIsTestnet)
     aboutQtAction->setStatusTip(tr("Show information about Qt"));
     aboutQtAction->setMenuRole(QAction::AboutQtRole);
     optionsAction = new QAction(QIcon(":/icons/options"), tr("&Options..."), this);
-    optionsAction->setStatusTip(tr("Modify configuration options for DigiByte"));
+    optionsAction->setStatusTip(tr("Modify configuration options for Nautiluscoin"));
     optionsAction->setMenuRole(QAction::PreferencesRole);
     if (!fIsTestnet)
-        toggleHideAction = new QAction(QIcon(":/icons/digibyte"), tr("&Show / Hide"), this);
+        toggleHideAction = new QAction(QIcon(":/icons/nautiluscoin"), tr("&Show / Hide"), this);
     else
-        toggleHideAction = new QAction(QIcon(":/icons/digibyte_testnet"), tr("&Show / Hide"), this);
+        toggleHideAction = new QAction(QIcon(":/icons/nautiluscoin_testnet"), tr("&Show / Hide"), this);
     toggleHideAction->setStatusTip(tr("Show or hide the main Window"));
 
     encryptWalletAction = new QAction(QIcon(":/icons/lock_closed"), tr("&Encrypt Wallet..."), this);
@@ -292,9 +292,9 @@ void DigiByteGUI::createActions(bool fIsTestnet)
     changePassphraseAction = new QAction(QIcon(":/icons/key"), tr("&Change Passphrase..."), this);
     changePassphraseAction->setStatusTip(tr("Change the passphrase used for wallet encryption"));
     signMessageAction = new QAction(QIcon(":/icons/edit"), tr("Sign &message..."), this);
-    signMessageAction->setStatusTip(tr("Sign messages with your DigiByte addresses to prove you own them"));
+    signMessageAction->setStatusTip(tr("Sign messages with your Nautiluscoin addresses to prove you own them"));
     verifyMessageAction = new QAction(QIcon(":/icons/transaction_0"), tr("&Verify message..."), this);
-    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified DigiByte addresses"));
+    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified Nautiluscoin addresses"));
 
     openRPCConsoleAction = new QAction(QIcon(":/icons/debugwindow"), tr("&Debug window"), this);
     openRPCConsoleAction->setStatusTip(tr("Open debugging and diagnostic console"));
@@ -305,10 +305,10 @@ void DigiByteGUI::createActions(bool fIsTestnet)
     usedReceivingAddressesAction->setStatusTip(tr("Show the list of used receiving addresses and labels"));
 
     openAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_FileIcon), tr("Open &URI..."), this);
-    openAction->setStatusTip(tr("Open a digibyte: URI or payment request"));
+    openAction->setStatusTip(tr("Open a nautiluscoin: URI or payment request"));
 
     showHelpMessageAction = new QAction(QApplication::style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("&Command-line options"), this);
-    showHelpMessageAction->setStatusTip(tr("Show the DigiByte Core help message to get a list with possible DigiByte command-line options"));
+    showHelpMessageAction->setStatusTip(tr("Show the Nautiluscoin Core help message to get a list with possible Nautiluscoin command-line options"));
 
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
     connect(aboutAction, SIGNAL(triggered()), this, SLOT(aboutClicked()));
@@ -331,7 +331,7 @@ void DigiByteGUI::createActions(bool fIsTestnet)
 #endif
 }
 
-void DigiByteGUI::createMenuBar()
+void NautiluscoinGUI::createMenuBar()
 {
 #ifdef Q_OS_MAC
     // Create a decoupled menu bar on Mac which stays even if the window is closed
@@ -376,7 +376,7 @@ void DigiByteGUI::createMenuBar()
     help->addAction(aboutQtAction);
 }
 
-void DigiByteGUI::createToolBars()
+void NautiluscoinGUI::createToolBars()
 {
     if(walletFrame)
     {
@@ -390,7 +390,7 @@ void DigiByteGUI::createToolBars()
     }
 }
 
-void DigiByteGUI::setClientModel(ClientModel *clientModel)
+void NautiluscoinGUI::setClientModel(ClientModel *clientModel)
 {
     this->clientModel = clientModel;
     if(clientModel)
@@ -420,7 +420,7 @@ void DigiByteGUI::setClientModel(ClientModel *clientModel)
 }
 
 #ifdef ENABLE_WALLET
-bool DigiByteGUI::addWallet(const QString& name, WalletModel *walletModel)
+bool NautiluscoinGUI::addWallet(const QString& name, WalletModel *walletModel)
 {
     if(!walletFrame)
         return false;
@@ -428,14 +428,14 @@ bool DigiByteGUI::addWallet(const QString& name, WalletModel *walletModel)
     return walletFrame->addWallet(name, walletModel);
 }
 
-bool DigiByteGUI::setCurrentWallet(const QString& name)
+bool NautiluscoinGUI::setCurrentWallet(const QString& name)
 {
     if(!walletFrame)
         return false;
     return walletFrame->setCurrentWallet(name);
 }
 
-void DigiByteGUI::removeAllWallets()
+void NautiluscoinGUI::removeAllWallets()
 {
     if(!walletFrame)
         return;
@@ -444,7 +444,7 @@ void DigiByteGUI::removeAllWallets()
 }
 #endif
 
-void DigiByteGUI::setWalletActionsEnabled(bool enabled)
+void NautiluscoinGUI::setWalletActionsEnabled(bool enabled)
 {
     overviewAction->setEnabled(enabled);
     sendCoinsAction->setEnabled(enabled);
@@ -460,19 +460,19 @@ void DigiByteGUI::setWalletActionsEnabled(bool enabled)
     openAction->setEnabled(enabled);
 }
 
-void DigiByteGUI::createTrayIcon(bool fIsTestnet)
+void NautiluscoinGUI::createTrayIcon(bool fIsTestnet)
 {
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
 
     if (!fIsTestnet)
     {
-        trayIcon->setToolTip(tr("DigiByte client"));
+        trayIcon->setToolTip(tr("Nautiluscoin client"));
         trayIcon->setIcon(QIcon(":/icons/toolbar"));
     }
     else
     {
-        trayIcon->setToolTip(tr("DigiByte client") + " " + tr("[testnet]"));
+        trayIcon->setToolTip(tr("Nautiluscoin client") + " " + tr("[testnet]"));
         trayIcon->setIcon(QIcon(":/icons/toolbar_testnet"));
     }
 
@@ -482,7 +482,7 @@ void DigiByteGUI::createTrayIcon(bool fIsTestnet)
     notificator = new Notificator(QApplication::applicationName(), trayIcon, this);
 }
 
-void DigiByteGUI::createTrayIconMenu()
+void NautiluscoinGUI::createTrayIconMenu()
 {
     QMenu *trayIconMenu;
 #ifndef Q_OS_MAC
@@ -520,7 +520,7 @@ void DigiByteGUI::createTrayIconMenu()
 }
 
 #ifndef Q_OS_MAC
-void DigiByteGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
+void NautiluscoinGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 {
     if(reason == QSystemTrayIcon::Trigger)
     {
@@ -530,7 +530,7 @@ void DigiByteGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 }
 #endif
 
-void DigiByteGUI::optionsClicked()
+void NautiluscoinGUI::optionsClicked()
 {
     if(!clientModel || !clientModel->getOptionsModel())
         return;
@@ -540,7 +540,7 @@ void DigiByteGUI::optionsClicked()
     dlg.exec();
 }
 
-void DigiByteGUI::aboutClicked()
+void NautiluscoinGUI::aboutClicked()
 {
     if(!clientModel)
         return;
@@ -550,7 +550,7 @@ void DigiByteGUI::aboutClicked()
     dlg.exec();
 }
 
-void DigiByteGUI::showHelpMessageClicked()
+void NautiluscoinGUI::showHelpMessageClicked()
 {
     HelpMessageDialog *help = new HelpMessageDialog(this);
     help->setAttribute(Qt::WA_DeleteOnClose);
@@ -558,7 +558,7 @@ void DigiByteGUI::showHelpMessageClicked()
 }
 
 #ifdef ENABLE_WALLET
-void DigiByteGUI::openClicked()
+void NautiluscoinGUI::openClicked()
 {
     OpenURIDialog dlg(this);
     if(dlg.exec())
@@ -567,42 +567,42 @@ void DigiByteGUI::openClicked()
     }
 }
 
-void DigiByteGUI::gotoOverviewPage()
+void NautiluscoinGUI::gotoOverviewPage()
 {
     overviewAction->setChecked(true);
     if (walletFrame) walletFrame->gotoOverviewPage();
 }
 
-void DigiByteGUI::gotoHistoryPage()
+void NautiluscoinGUI::gotoHistoryPage()
 {
     historyAction->setChecked(true);
     if (walletFrame) walletFrame->gotoHistoryPage();
 }
 
-void DigiByteGUI::gotoReceiveCoinsPage()
+void NautiluscoinGUI::gotoReceiveCoinsPage()
 {
     receiveCoinsAction->setChecked(true);
     if (walletFrame) walletFrame->gotoReceiveCoinsPage();
 }
 
-void DigiByteGUI::gotoSendCoinsPage(QString addr)
+void NautiluscoinGUI::gotoSendCoinsPage(QString addr)
 {
     sendCoinsAction->setChecked(true);
     if (walletFrame) walletFrame->gotoSendCoinsPage(addr);
 }
 
-void DigiByteGUI::gotoSignMessageTab(QString addr)
+void NautiluscoinGUI::gotoSignMessageTab(QString addr)
 {
     if (walletFrame) walletFrame->gotoSignMessageTab(addr);
 }
 
-void DigiByteGUI::gotoVerifyMessageTab(QString addr)
+void NautiluscoinGUI::gotoVerifyMessageTab(QString addr)
 {
     if (walletFrame) walletFrame->gotoVerifyMessageTab(addr);
 }
 #endif
 
-void DigiByteGUI::setNumConnections(int count)
+void NautiluscoinGUI::setNumConnections(int count)
 {
     QString icon;
     switch(count)
@@ -614,10 +614,10 @@ void DigiByteGUI::setNumConnections(int count)
     default: icon = ":/icons/connect_4"; break;
     }
     labelConnectionsIcon->setPixmap(QIcon(icon).pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to DigiByte network", "", count));
+    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Nautiluscoin network", "", count));
 }
 
-void DigiByteGUI::setNumBlocks(int count, int nTotalBlocks)
+void NautiluscoinGUI::setNumBlocks(int count, int nTotalBlocks)
 {
     // Prevent orphan statusbar messages (e.g. hover Quit in main menu, wait until chain-sync starts -> garbelled text)
     statusBar()->clearMessage();
@@ -721,9 +721,9 @@ void DigiByteGUI::setNumBlocks(int count, int nTotalBlocks)
     progressBar->setToolTip(tooltip);
 }
 
-void DigiByteGUI::message(const QString &title, const QString &message, unsigned int style, bool *ret)
+void NautiluscoinGUI::message(const QString &title, const QString &message, unsigned int style, bool *ret)
 {
-    QString strTitle = tr("DigiByte"); // default title
+    QString strTitle = tr("Nautiluscoin"); // default title
     // Default to information icon
     int nMBoxIcon = QMessageBox::Information;
     int nNotifyIcon = Notificator::Information;
@@ -749,7 +749,7 @@ void DigiByteGUI::message(const QString &title, const QString &message, unsigned
             break;
         }
     }
-    // Append title to "DigiByte - "
+    // Append title to "Nautiluscoin - "
     if (!msgType.isEmpty())
         strTitle += " - " + msgType;
 
@@ -784,7 +784,7 @@ void DigiByteGUI::message(const QString &title, const QString &message, unsigned
         notificator->notify((Notificator::Class)nNotifyIcon, strTitle, message);
 }
 
-void DigiByteGUI::changeEvent(QEvent *e)
+void NautiluscoinGUI::changeEvent(QEvent *e)
 {
     QMainWindow::changeEvent(e);
 #ifndef Q_OS_MAC // Ignored on Mac
@@ -803,7 +803,7 @@ void DigiByteGUI::changeEvent(QEvent *e)
 #endif
 }
 
-void DigiByteGUI::closeEvent(QCloseEvent *event)
+void NautiluscoinGUI::closeEvent(QCloseEvent *event)
 {
     if(clientModel)
     {
@@ -819,7 +819,7 @@ void DigiByteGUI::closeEvent(QCloseEvent *event)
 }
 
 #ifdef ENABLE_WALLET
-void DigiByteGUI::incomingTransaction(const QString& date, int unit, qint64 amount, const QString& type, const QString& address)
+void NautiluscoinGUI::incomingTransaction(const QString& date, int unit, qint64 amount, const QString& type, const QString& address)
 {
     // On new transaction, make an info balloon
     message((amount)<0 ? tr("Sent transaction") : tr("Incoming transaction"),
@@ -828,20 +828,20 @@ void DigiByteGUI::incomingTransaction(const QString& date, int unit, qint64 amou
                 "Type: %3\n"
                 "Address: %4\n")
                   .arg(date)
-                  .arg(DigiByteUnits::formatWithUnit(unit, amount, true))
+                  .arg(NautiluscoinUnits::formatWithUnit(unit, amount, true))
                   .arg(type)
                   .arg(address), CClientUIInterface::MSG_INFORMATION);
 }
 #endif
 
-void DigiByteGUI::dragEnterEvent(QDragEnterEvent *event)
+void NautiluscoinGUI::dragEnterEvent(QDragEnterEvent *event)
 {
     // Accept only URIs
     if(event->mimeData()->hasUrls())
         event->acceptProposedAction();
 }
 
-void DigiByteGUI::dropEvent(QDropEvent *event)
+void NautiluscoinGUI::dropEvent(QDropEvent *event)
 {
     if(event->mimeData()->hasUrls())
     {
@@ -853,7 +853,7 @@ void DigiByteGUI::dropEvent(QDropEvent *event)
     event->acceptProposedAction();
 }
 
-bool DigiByteGUI::eventFilter(QObject *object, QEvent *event)
+bool NautiluscoinGUI::eventFilter(QObject *object, QEvent *event)
 {
     // Catch status tip events
     if (event->type() == QEvent::StatusTip)
@@ -866,7 +866,7 @@ bool DigiByteGUI::eventFilter(QObject *object, QEvent *event)
 }
 
 #ifdef ENABLE_WALLET
-bool DigiByteGUI::handlePaymentRequest(const SendCoinsRecipient& recipient)
+bool NautiluscoinGUI::handlePaymentRequest(const SendCoinsRecipient& recipient)
 {
     // URI has to be valid
     if (walletFrame && walletFrame->handlePaymentRequest(recipient))
@@ -879,7 +879,7 @@ bool DigiByteGUI::handlePaymentRequest(const SendCoinsRecipient& recipient)
         return false;
 }
 
-void DigiByteGUI::setEncryptionStatus(int status)
+void NautiluscoinGUI::setEncryptionStatus(int status)
 {
     switch(status)
     {
@@ -909,7 +909,7 @@ void DigiByteGUI::setEncryptionStatus(int status)
 }
 #endif
 
-void DigiByteGUI::showNormalIfMinimized(bool fToggleHidden)
+void NautiluscoinGUI::showNormalIfMinimized(bool fToggleHidden)
 {
     // activateWindow() (sometimes) helps with keyboard focus on Windows
     if (isHidden())
@@ -931,12 +931,12 @@ void DigiByteGUI::showNormalIfMinimized(bool fToggleHidden)
         hide();
 }
 
-void DigiByteGUI::toggleHidden()
+void NautiluscoinGUI::toggleHidden()
 {
     showNormalIfMinimized(true);
 }
 
-void DigiByteGUI::detectShutdown()
+void NautiluscoinGUI::detectShutdown()
 {
     if (ShutdownRequested())
     {
@@ -946,7 +946,7 @@ void DigiByteGUI::detectShutdown()
     }
 }
 
-static bool ThreadSafeMessageBox(DigiByteGUI *gui, const std::string& message, const std::string& caption, unsigned int style)
+static bool ThreadSafeMessageBox(NautiluscoinGUI *gui, const std::string& message, const std::string& caption, unsigned int style)
 {
     bool modal = (style & CClientUIInterface::MODAL);
     bool ret = false;
@@ -960,13 +960,13 @@ static bool ThreadSafeMessageBox(DigiByteGUI *gui, const std::string& message, c
     return ret;
 }
 
-void DigiByteGUI::subscribeToCoreSignals()
+void NautiluscoinGUI::subscribeToCoreSignals()
 {
     // Connect signals to client
     uiInterface.ThreadSafeMessageBox.connect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));
 }
 
-void DigiByteGUI::unsubscribeFromCoreSignals()
+void NautiluscoinGUI::unsubscribeFromCoreSignals()
 {
     // Disconnect signals from client
     uiInterface.ThreadSafeMessageBox.disconnect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));

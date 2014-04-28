@@ -5,84 +5,84 @@ AM_CPPFLAGS += -I$(top_srcdir)/src \
   -I$(top_builddir)/src/qt/forms \
   $(PROTOBUF_CFLAGS) \
   $(QR_CFLAGS)
-bin_PROGRAMS = digibyte-qt
-noinst_LIBRARIES = libdigibyteqt.a
+bin_PROGRAMS = nautiluscoin-qt
+noinst_LIBRARIES = libnautiluscoinqt.a
 SUBDIRS = $(BUILD_TEST_QT)
 DIST_SUBDIRS = test
 
-# digibyte qt core #
+# nautiluscoin qt core #
 QT_TS = \
-  locale/digibyte_ach.ts \
-  locale/digibyte_af_ZA.ts \
-  locale/digibyte_ar.ts \
-  locale/digibyte_be_BY.ts \
-  locale/digibyte_bg.ts \
-  locale/digibyte_bs.ts \
-  locale/digibyte_ca_ES.ts \
-  locale/digibyte_ca.ts \
-  locale/digibyte_ca@valencia.ts \
-  locale/digibyte_cmn.ts \
-  locale/digibyte_cs.ts \
-  locale/digibyte_cy.ts \
-  locale/digibyte_da.ts \
-  locale/digibyte_de_AT.ts \
-  locale/digibyte_de.ts \
-  locale/digibyte_el_GR.ts \
-  locale/digibyte_en.ts \
-  locale/digibyte_eo.ts \
-  locale/digibyte_es_CL.ts \
-  locale/digibyte_es_DO.ts \
-  locale/digibyte_es_MX.ts \
-  locale/digibyte_es.ts \
-  locale/digibyte_es_UY.ts \
-  locale/digibyte_et.ts \
-  locale/digibyte_eu_ES.ts \
-  locale/digibyte_fa_IR.ts \
-  locale/digibyte_fa.ts \
-  locale/digibyte_fi.ts \
-  locale/digibyte_fr_CA.ts \
-  locale/digibyte_fr.ts \
-  locale/digibyte_gl.ts \
-  locale/digibyte_gu_IN.ts \
-  locale/digibyte_he.ts \
-  locale/digibyte_hi_IN.ts \
-  locale/digibyte_hr.ts \
-  locale/digibyte_hu.ts \
-  locale/digibyte_id_ID.ts \
-  locale/digibyte_it.ts \
-  locale/digibyte_ja.ts \
-  locale/digibyte_ka.ts \
-  locale/digibyte_kk_KZ.ts \
-  locale/digibyte_ko_KR.ts \
-  locale/digibyte_ky.ts \
-  locale/digibyte_la.ts \
-  locale/digibyte_lt.ts \
-  locale/digibyte_lv_LV.ts \
-  locale/digibyte_ms_MY.ts \
-  locale/digibyte_nb.ts \
-  locale/digibyte_nl.ts \
-  locale/digibyte_pam.ts \
-  locale/digibyte_pl.ts \
-  locale/digibyte_pt_BR.ts \
-  locale/digibyte_pt_PT.ts \
-  locale/digibyte_ro_RO.ts \
-  locale/digibyte_ru.ts \
-  locale/digibyte_sah.ts \
-  locale/digibyte_sk.ts \
-  locale/digibyte_sl_SI.ts \
-  locale/digibyte_sq.ts \
-  locale/digibyte_sr.ts \
-  locale/digibyte_sv.ts \
-  locale/digibyte_th_TH.ts \
-  locale/digibyte_tr.ts \
-  locale/digibyte_uk.ts \
-  locale/digibyte_ur_PK.ts \
-  locale/digibyte_uz@Cyrl.ts \
-  locale/digibyte_vi.ts \
-  locale/digibyte_vi_VN.ts \
-  locale/digibyte_zh_CN.ts \
-  locale/digibyte_zh_HK.ts \
-  locale/digibyte_zh_TW.ts
+  locale/nautiluscoin_ach.ts \
+  locale/nautiluscoin_af_ZA.ts \
+  locale/nautiluscoin_ar.ts \
+  locale/nautiluscoin_be_BY.ts \
+  locale/nautiluscoin_bg.ts \
+  locale/nautiluscoin_bs.ts \
+  locale/nautiluscoin_ca_ES.ts \
+  locale/nautiluscoin_ca.ts \
+  locale/nautiluscoin_ca@valencia.ts \
+  locale/nautiluscoin_cmn.ts \
+  locale/nautiluscoin_cs.ts \
+  locale/nautiluscoin_cy.ts \
+  locale/nautiluscoin_da.ts \
+  locale/nautiluscoin_de_AT.ts \
+  locale/nautiluscoin_de.ts \
+  locale/nautiluscoin_el_GR.ts \
+  locale/nautiluscoin_en.ts \
+  locale/nautiluscoin_eo.ts \
+  locale/nautiluscoin_es_CL.ts \
+  locale/nautiluscoin_es_DO.ts \
+  locale/nautiluscoin_es_MX.ts \
+  locale/nautiluscoin_es.ts \
+  locale/nautiluscoin_es_UY.ts \
+  locale/nautiluscoin_et.ts \
+  locale/nautiluscoin_eu_ES.ts \
+  locale/nautiluscoin_fa_IR.ts \
+  locale/nautiluscoin_fa.ts \
+  locale/nautiluscoin_fi.ts \
+  locale/nautiluscoin_fr_CA.ts \
+  locale/nautiluscoin_fr.ts \
+  locale/nautiluscoin_gl.ts \
+  locale/nautiluscoin_gu_IN.ts \
+  locale/nautiluscoin_he.ts \
+  locale/nautiluscoin_hi_IN.ts \
+  locale/nautiluscoin_hr.ts \
+  locale/nautiluscoin_hu.ts \
+  locale/nautiluscoin_id_ID.ts \
+  locale/nautiluscoin_it.ts \
+  locale/nautiluscoin_ja.ts \
+  locale/nautiluscoin_ka.ts \
+  locale/nautiluscoin_kk_KZ.ts \
+  locale/nautiluscoin_ko_KR.ts \
+  locale/nautiluscoin_ky.ts \
+  locale/nautiluscoin_la.ts \
+  locale/nautiluscoin_lt.ts \
+  locale/nautiluscoin_lv_LV.ts \
+  locale/nautiluscoin_ms_MY.ts \
+  locale/nautiluscoin_nb.ts \
+  locale/nautiluscoin_nl.ts \
+  locale/nautiluscoin_pam.ts \
+  locale/nautiluscoin_pl.ts \
+  locale/nautiluscoin_pt_BR.ts \
+  locale/nautiluscoin_pt_PT.ts \
+  locale/nautiluscoin_ro_RO.ts \
+  locale/nautiluscoin_ru.ts \
+  locale/nautiluscoin_sah.ts \
+  locale/nautiluscoin_sk.ts \
+  locale/nautiluscoin_sl_SI.ts \
+  locale/nautiluscoin_sq.ts \
+  locale/nautiluscoin_sr.ts \
+  locale/nautiluscoin_sv.ts \
+  locale/nautiluscoin_th_TH.ts \
+  locale/nautiluscoin_tr.ts \
+  locale/nautiluscoin_uk.ts \
+  locale/nautiluscoin_ur_PK.ts \
+  locale/nautiluscoin_uz@Cyrl.ts \
+  locale/nautiluscoin_vi.ts \
+  locale/nautiluscoin_vi_VN.ts \
+  locale/nautiluscoin_zh_CN.ts \
+  locale/nautiluscoin_zh_HK.ts \
+  locale/nautiluscoin_zh_TW.ts
 
 QT_FORMS_UI = \
   forms/aboutdialog.ui \
@@ -107,10 +107,10 @@ QT_MOC_CPP = \
   moc_addressbookpage.cpp \
   moc_addresstablemodel.cpp \
   moc_askpassphrasedialog.cpp \
-  moc_digibyteaddressvalidator.cpp \
-  moc_digibyteamountfield.cpp \
-  moc_digibytegui.cpp \
-  moc_digibyteunits.cpp \
+  moc_nautiluscoinaddressvalidator.cpp \
+  moc_nautiluscoinamountfield.cpp \
+  moc_nautiluscoingui.cpp \
+  moc_nautiluscoinunits.cpp \
   moc_clientmodel.cpp \
   moc_coincontroldialog.cpp \
   moc_coincontroltreewidget.cpp \
@@ -153,13 +153,13 @@ DIGIBYTE_MM = \
   macnotificationhandler.mm
 
 QT_MOC = \
-  digibyte.moc \
+  nautiluscoin.moc \
   intro.moc \
   overviewpage.moc \
   rpcconsole.moc
 
-QT_QRC_CPP = qrc_digibyte.cpp
-QT_QRC = digibyte.qrc
+QT_QRC_CPP = qrc_nautiluscoin.cpp
+QT_QRC = nautiluscoin.qrc
 
 PROTOBUF_CC = paymentrequest.pb.cc
 PROTOBUF_H = paymentrequest.pb.h
@@ -169,10 +169,10 @@ DIGIBYTE_QT_H = \
   addressbookpage.h \
   addresstablemodel.h \
   askpassphrasedialog.h \
-  digibyteaddressvalidator.h \
-  digibyteamountfield.h \
-  digibytegui.h \
-  digibyteunits.h \
+  nautiluscoinaddressvalidator.h \
+  nautiluscoinamountfield.h \
+  nautiluscoingui.h \
+  nautiluscoinunits.h \
   clientmodel.h \
   coincontroldialog.h \
   coincontroltreewidget.h \
@@ -217,10 +217,10 @@ DIGIBYTE_QT_H = \
 RES_ICONS = \
   res/icons/add.png \
   res/icons/address-book.png \
-  res/icons/digibyte.ico \
-  res/icons/digibyte.png \
-  res/icons/digibyte_testnet.ico \
-  res/icons/digibyte_testnet.png \
+  res/icons/nautiluscoin.ico \
+  res/icons/nautiluscoin.png \
+  res/icons/nautiluscoin_testnet.ico \
+  res/icons/nautiluscoin_testnet.png \
   res/icons/clock1.png \
   res/icons/clock2.png \
   res/icons/clock3.png \
@@ -260,11 +260,11 @@ RES_ICONS = \
   res/icons/tx_mined.png
 
 DIGIBYTE_QT_CPP = \
-  digibyte.cpp \
-  digibyteaddressvalidator.cpp \
-  digibyteamountfield.cpp \
-  digibytegui.cpp \
-  digibyteunits.cpp \
+  nautiluscoin.cpp \
+  nautiluscoinaddressvalidator.cpp \
+  nautiluscoinamountfield.cpp \
+  nautiluscoingui.cpp \
+  nautiluscoinunits.cpp \
   clientmodel.cpp \
   csvmodelwriter.cpp \
   guiutil.cpp \
@@ -317,40 +317,40 @@ RES_IMAGES = \
 
 RES_MOVIES = $(wildcard res/movies/spinner-*.png)
 
-DIGIBYTE_RC = res/digibyte-qt-res.rc
+DIGIBYTE_RC = res/nautiluscoin-qt-res.rc
 
-libdigibyteqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
+libnautiluscoinqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
   -I$(top_srcdir)/src/qt/forms $(QT_DBUS_INCLUDES)
-libdigibyteqt_a_SOURCES = $(DIGIBYTE_QT_CPP) $(DIGIBYTE_QT_H) $(QT_FORMS_UI) \
+libnautiluscoinqt_a_SOURCES = $(DIGIBYTE_QT_CPP) $(DIGIBYTE_QT_H) $(QT_FORMS_UI) \
   $(QT_QRC) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES)
 
-nodist_libdigibyteqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
+nodist_libnautiluscoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
   $(PROTOBUF_H) $(QT_QRC_CPP)
 
-BUILT_SOURCES = $(nodist_libdigibyteqt_a_SOURCES)
+BUILT_SOURCES = $(nodist_libnautiluscoinqt_a_SOURCES)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# digibyte-qt binary #
-digibyte_qt_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
+# nautiluscoin-qt binary #
+nautiluscoin_qt_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
   -I$(top_srcdir)/src/qt/forms
-digibyte_qt_SOURCES = digibyte.cpp
+nautiluscoin_qt_SOURCES = nautiluscoin.cpp
 if TARGET_DARWIN
-  digibyte_qt_SOURCES += $(DIGIBYTE_MM)
+  nautiluscoin_qt_SOURCES += $(DIGIBYTE_MM)
 endif
 if TARGET_WINDOWS
-  digibyte_qt_SOURCES += $(DIGIBYTE_RC)
+  nautiluscoin_qt_SOURCES += $(DIGIBYTE_RC)
 endif
-digibyte_qt_LDADD = libdigibyteqt.a $(LIBDIGIBYTE_SERVER)
+nautiluscoin_qt_LDADD = libnautiluscoinqt.a $(LIBDIGIBYTE_SERVER)
 if ENABLE_WALLET
-digibyte_qt_LDADD += $(LIBDIGIBYTE_WALLET)
+nautiluscoin_qt_LDADD += $(LIBDIGIBYTE_WALLET)
 endif
-digibyte_qt_LDADD += $(LIBDIGIBYTE_CLI) $(LIBDIGIBYTE_COMMON) $(LIBLEVELDB) $(LIBMEMENV) \
+nautiluscoin_qt_LDADD += $(LIBDIGIBYTE_CLI) $(LIBDIGIBYTE_COMMON) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS)
-digibyte_qt_LDFLAGS = $(QT_LDFLAGS)
+nautiluscoin_qt_LDFLAGS = $(QT_LDFLAGS)
 
 # forms/foo.h -> forms/ui_foo.h
 QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:.ui=.h))))
@@ -361,15 +361,15 @@ QT_QM=$(QT_TS:.ts=.qm)
 .PHONY: FORCE
 .SECONDARY: $(QT_QM)
 
-digibytestrings.cpp: FORCE
-	$(MAKE) -C $(top_srcdir)/src qt/digibytestrings.cpp
+nautiluscoinstrings.cpp: FORCE
+	$(MAKE) -C $(top_srcdir)/src qt/nautiluscoinstrings.cpp
 
-translate: digibytestrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(DIGIBYTE_QT_CPP) $(DIGIBYTE_QT_H) $(DIGIBYTE_MM)
+translate: nautiluscoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(DIGIBYTE_QT_CPP) $(DIGIBYTE_QT_H) $(DIGIBYTE_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	@QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts locale/digibyte_en.ts
+	@QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts locale/nautiluscoin_en.ts
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_QM) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(PROTOBUF_H)
-	@cd $(abs_srcdir); test -f $(RCC) && QT_SELECT=$(QT_SELECT) $(RCC) -name digibyte -o $(abs_builddir)/$@ $< || \
+	@cd $(abs_srcdir); test -f $(RCC) && QT_SELECT=$(QT_SELECT) $(RCC) -name nautiluscoin -o $(abs_builddir)/$@ $< || \
 	  echo error: could not build $@
 	$(SED) -i.bak -e '/^\*\*.*Created:/d' $@ && rm $@.bak
 	$(SED) -i.bak -e '/^\*\*.*by:/d' $@ && rm $@.bak

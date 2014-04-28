@@ -1,10 +1,10 @@
 #!/bin/sh
 # Helper script for pull-tester.
-#Param 1: path to digibyte srcroot
+#Param 1: path to nautiluscoin srcroot
 #Param ...: arguments for build-test.sh
 
 if [ $# -lt 1 ]; then
-  echo "usage: $0 [digibyte srcroot] build-test arguments..."
+  echo "usage: $0 [nautiluscoin srcroot] build-test arguments..."
 fi
 
 cd $1

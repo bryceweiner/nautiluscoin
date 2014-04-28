@@ -18,4 +18,4 @@ FORMS += \
     ../src/qt/forms/transactiondescdialog.ui \
 
 RESOURCES += \
-    ../src/qt/digibyte.qrc
+    ../src/qt/nautiluscoin.qrc

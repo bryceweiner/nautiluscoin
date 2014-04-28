@@ -18,10 +18,10 @@ if [ $# -lt 2 ]; then
   exit 1
 fi
 
-DISTDIR=digibyte-2.9.0
+DISTDIR=nautiluscoin-2.9.0
 
 # Cross-compile for windows first (breaking the mingw/windows build is most common)
-cd /home/scott/Desktop/digibyte
+cd /home/scott/Desktop/nautiluscoin
 make distdir
 mkdir -p win32-build
 rsync -av $DISTDIR/ win32-build/
@@ -36,7 +36,7 @@ fi
 make -j$JOBS
 
 # And compile for Linux:
-cd /home/scott/Desktop/digibyte
+cd /home/scott/Desktop/nautiluscoin
 make distdir
 mkdir -p linux-build
 rsync -av $DISTDIR/ linux-build/
@@ -54,38 +54,38 @@ make -j$JOBS
 if [ -d "$OUT_DIR" -a -w "$OUT_DIR" ]; then
   set +e
   # Windows:
-  cp /home/scott/Desktop/digibyte/win32-build/src/digibyted.exe $OUT_DIR/digibyted.exe
-  cp /home/scott/Desktop/digibyte/win32-build/src/test/test_digibyte.exe $OUT_DIR/test_digibyte.exe
-  cp /home/scott/Desktop/digibyte/win32-build/src/qt/digibyted-qt.exe $OUT_DIR/digibyte-qt.exe
+  cp /home/scott/Desktop/nautiluscoin/win32-build/src/nautiluscoind.exe $OUT_DIR/nautiluscoind.exe
+  cp /home/scott/Desktop/nautiluscoin/win32-build/src/test/test_nautiluscoin.exe $OUT_DIR/test_nautiluscoin.exe
+  cp /home/scott/Desktop/nautiluscoin/win32-build/src/qt/nautiluscoind-qt.exe $OUT_DIR/nautiluscoin-qt.exe
   # Linux:
-  cp /home/scott/Desktop/digibyte/linux-build/src/digibyted $OUT_DIR/digibyted
-  cp /home/scott/Desktop/digibyte/linux-build/src/test/test_digibyte $OUT_DIR/test_digibyte
-  cp /home/scott/Desktop/digibyte/linux-build/src/qt/digibyted-qt $OUT_DIR/digibyte-qt
+  cp /home/scott/Desktop/nautiluscoin/linux-build/src/nautiluscoind $OUT_DIR/nautiluscoind
+  cp /home/scott/Desktop/nautiluscoin/linux-build/src/test/test_nautiluscoin $OUT_DIR/test_nautiluscoin
+  cp /home/scott/Desktop/nautiluscoin/linux-build/src/qt/nautiluscoind-qt $OUT_DIR/nautiluscoin-qt
   set -e
 fi
 
 # Run unit tests and blockchain-tester on Linux:
-cd /home/scott/Desktop/digibyte/linux-build
+cd /home/scott/Desktop/nautiluscoin/linux-build
 make check
 
 # Run RPC integration test on Linux:
-/home/scott/Desktop/digibyte/qa/rpc-tests/wallet.sh /home/scott/Desktop/digibyte/linux-build/src
+/home/scott/Desktop/nautiluscoin/qa/rpc-tests/wallet.sh /home/scott/Desktop/nautiluscoin/linux-build/src
 
 if [ $RUN_EXPENSIVE_TESTS = 1 ]; then
   # Run unit tests and blockchain-tester on Windows:
-  cd /home/scott/Desktop/digibyte/win32-build
+  cd /home/scott/Desktop/nautiluscoin/win32-build
   make check
 fi
 
 # Clean up builds (pull-tester machine doesn't have infinite disk space)
-cd /home/scott/Desktop/digibyte/linux-build
+cd /home/scott/Desktop/nautiluscoin/linux-build
 make clean
-cd /home/scott/Desktop/digibyte/win32-build
+cd /home/scott/Desktop/nautiluscoin/win32-build
 make clean
 
 # TODO: Fix code coverage builds on pull-tester machine
 # # Test code coverage
-# cd /home/scott/Desktop/digibyte
+# cd /home/scott/Desktop/nautiluscoin
 # make distdir
 # mv $DISTDIR linux-coverage-build
 # cd linux-coverage-build

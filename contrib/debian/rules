@@ -1,33 +1,33 @@
 #!/usr/bin/make -f
 # -*- mode: makefile; coding: utf-8 -*-
 
-#DEB_MAKE_CHECK_TARGET = test_digibyte
-#build/digibyted::
-#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_digibyte)
+#DEB_MAKE_CHECK_TARGET = test_nautiluscoin
+#build/nautiluscoind::
+#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_nautiluscoin)
 
-DEB_INSTALL_EXAMPLES_digibyted += debian/examples/*
-DEB_INSTALL_MANPAGES_digibyted += debian/manpages/*
+DEB_INSTALL_EXAMPLES_nautiluscoind += debian/examples/*
+DEB_INSTALL_MANPAGES_nautiluscoind += debian/manpages/*
 
 %:
 	dh --with bash-completion $@
 
 override_dh_auto_build:
-	cd src; $(MAKE) -f makefile.unix digibyted
+	cd src; $(MAKE) -f makefile.unix nautiluscoind
 	$(MAKE)
 
 override_dh_auto_clean:
-	if [ -f Makefile ]; then $(MAKE) clean; else rm -rf build/; rm -f digibyte-qt; fi
+	if [ -f Makefile ]; then $(MAKE) clean; else rm -rf build/; rm -f nautiluscoin-qt; fi
 	cd src; $(MAKE) -f makefile.unix clean
 
 override_dh_auto_configure:
-	qmake digibyte-qt.pro USE_QRCODE=1
+	qmake nautiluscoin-qt.pro USE_QRCODE=1
 
 override_dh_auto_test:
-	cd src; $(MAKE) -f makefile.unix test_digibyte
-	src/test_digibyte
+	cd src; $(MAKE) -f makefile.unix test_nautiluscoin
+	src/test_nautiluscoin
 
 # Ensure wrapper is set executable
-binary-post-install/digibyted:
-	chmod +x $(cdbs_curdestdir)usr/bin/digibyted
-binary-post-install/digibyte-qt:
-	chmod +x $(cdbs_curdestdir)usr/bin/digibyte-qt
+binary-post-install/nautiluscoind:
+	chmod +x $(cdbs_curdestdir)usr/bin/nautiluscoind
+binary-post-install/nautiluscoin-qt:
+	chmod +x $(cdbs_curdestdir)usr/bin/nautiluscoin-qt

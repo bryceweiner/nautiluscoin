@@ -1,27 +1,27 @@
-DigiByte Core version 2.9.0 is now available from:
+Nautiluscoin Core version 2.9.0 is now available from:
 
-  http://digibyte.co
+  http://nautiluscoin.co
 
 This is a release candidate for a new major version. A major version brings
 both new features and bug fixes.
 
 Please report bugs using the issue tracker at github:
 
-  https://github.com/digibyte/DigiByteProject/issues
+  https://github.com/nautiluscoin/NautiluscoinProject/issues
 
 How to Upgrade
 --------------
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), uninstall all
-earlier versions of DigiByte, then run the installer (on Windows) or just copy
-over /Applications/DigiByte-Qt (on Mac) or digibyted/digibyte-qt (on Linux).
+earlier versions of Nautiluscoin, then run the installer (on Windows) or just copy
+over /Applications/Nautiluscoin-Qt (on Mac) or nautiluscoind/nautiluscoin-qt (on Linux).
 
 If you are upgrading from version 0.7.2 or earlier, the first time you run
 2.9.0 your blockchain files will be re-indexed, which will take anywhere from 
 30 minutes to several hours, depending on the speed of your machine.
 
-On Windows, do not forget to uninstall all earlier versions of the DigiByte
+On Windows, do not forget to uninstall all earlier versions of the Nautiluscoin
 client first, especially if you are switching to the 64-bit version.
 
 Windows 64-bit installer
@@ -59,11 +59,11 @@ Also, the first time you run a 0.8.x release on a 2.9 wallet it will rescan
 the blockchain for missing spent coins, which will take a long time (tens
 of minutes on a typical machine).
 
-Rebranding to DigiByte Core
+Rebranding to Nautiluscoin Core
 ---------------------------
 
-To reduce confusion between DigiByte-the-network and DigiByte-the-software we
-have renamed the reference client to DigiByte Core.
+To reduce confusion between Nautiluscoin-the-network and Nautiluscoin-the-software we
+have renamed the reference client to Nautiluscoin Core.
 
 Autotools build system
 -----------------------
@@ -71,20 +71,20 @@ Autotools build system
 For 0.9.0 we switched to an autotools-based build system instead of individual
 (q)makefiles.
 
-Using the standard "./autogen.sh; ./configure; make" to build DigiByte-Qt and
-digibyted makes it easier for experienced open source developers to contribute 
+Using the standard "./autogen.sh; ./configure; make" to build Nautiluscoin-Qt and
+nautiluscoind makes it easier for experienced open source developers to contribute 
 to the project.
 
 Be sure to check doc/build-*.md for your platform before building from source.
 
-DigiByte-cli
+Nautiluscoin-cli
 -------------
 
-Another change in the 0.9 release is moving away from the digibyted executable
+Another change in the 0.9 release is moving away from the nautiluscoind executable
 functioning both as a server and as a RPC client. The RPC client functionality
-("tell the running digibyte daemon to do THIS") was split into a separate
-executable, 'digibyte-cli'. The RPC client code will eventually be removed from
-digibyted, but will be kept for backwards compatibility for a release or two.
+("tell the running nautiluscoin daemon to do THIS") was split into a separate
+executable, 'nautiluscoin-cli'. The RPC client code will eventually be removed from
+nautiluscoind, but will be kept for backwards compatibility for a release or two.
 
 `walletpassphrase` RPC
 -----------------------
@@ -183,13 +183,13 @@ Command-line options:
 - New option: -nospendzeroconfchange to never spend unconfirmed change outputs
 - New option: -zapwallettxes to rebuild the wallet's transaction information
 - Rename option '-tor' to '-onion' to better reflect what it does
-- Add '-disablewallet' mode to let digibyted run entirely without wallet (when
+- Add '-disablewallet' mode to let nautiluscoind run entirely without wallet (when
   built with wallet)
 - Update default '-rpcsslciphers' to include TLSv1.2
 - make '-logtimestamps' default on and rework help-message
 - RPC client option: '-rpcwait', to wait for server start
 - Remove '-logtodebugger'
-- Allow `-noserver` with digibyted
+- Allow `-noserver` with nautiluscoind
 
 Block-chain handling and storage:
 
@@ -240,7 +240,7 @@ Protocol and network:
 - Improve logging of failed connections
 - Bump protocol version to 70002
 - Add some additional logging to give extra network insight
-- Added new DNS seed from digibytestats.com
+- Added new DNS seed from nautiluscoinstats.com
 
 Validation:
 
@@ -281,18 +281,18 @@ GUI:
 - Add Coin Control Features
 - Improve receive coins workflow: make the 'Receive' tab into a form to request
   payments, and move historical address list functionality to File menu.
-- Rebrand to `DigiByte Core`
+- Rebrand to `Nautiluscoin Core`
 - Move initialization/shutdown to a thread. This prevents "Not responding"
   messages during startup. Also show a window during shutdown.
 - Don't regenerate autostart link on every client startup
-- Show and store message of normal digibyte:URI
+- Show and store message of normal nautiluscoin:URI
 - Fix richtext detection hang issue on very old Qt versions
 - OS X: Make use of the 10.8+ user notification center to display Growl-like 
   notifications
 - OS X: Added NSHighResolutionCapable flag to Info.plist for better font
   rendering on Retina displays.
-- OS X: Fix digibyte-qt startup crash when clicking dock icon
-- Linux: Fix Gnome digibyte: URI handler
+- OS X: Fix nautiluscoin-qt startup crash when clicking dock icon
+- Linux: Fix Gnome nautiluscoin: URI handler
 
 Miscellaneous:
 
@@ -300,7 +300,7 @@ Miscellaneous:
 - Add '-regtest' mode, similar to testnet but private with instant block
   generation with 'setgenerate' RPC.
 - Add 'linearize.py' script to contrib, for creating bootstrap.dat
-- Add separate digibyte-cli client
+- Add separate nautiluscoin-cli client
 
 Credits
 --------

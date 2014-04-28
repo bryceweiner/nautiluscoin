@@ -9,7 +9,7 @@ Release Process
 ###update (commit) version in sources
 
 
-	digibyte-qt.pro
+	nautiluscoin-qt.pro
 	contrib/verifysfbinaries/verify.sh
 	doc/README*
 	share/setup.nsi
@@ -27,7 +27,7 @@ Release Process
 
 ###setup gitian builds
 
- 	git clone git://github.com/digibyte/DigiByteProject.git
+ 	git clone git://github.com/nautiluscoin/NautiluscoinProject.git
     	git clone git://github.com/devrandom/gitian-builder.git
  	
  	cd gitian-builder
@@ -37,11 +37,11 @@ Release Process
 
 ##perform gitian builds
 
- From a directory containing the digibyte source, gitian-builder and gitian.sigs
+ From a directory containing the nautiluscoin source, gitian-builder and gitian.sigs
   
 	export SIGNER=(your gitian key, ie bluematt, sipa, etc)
 	export VERSION=(new version, e.g. 2.9.1)
-	pushd ./DigiByteProject
+	pushd ./NautiluscoinProject
 	git checkout v${VERSION}
 	popd
 	pushd ./gitian-builder
@@ -61,55 +61,55 @@ Release Process
 	wget 'https://download.qt-project.org/official_releases/qt/5.2/5.2.0/single/qt-everywhere-opensource-src-5.2.0.tar.gz'
 	wget 'https://protobuf.googlecode.com/files/protobuf-2.5.0.tar.bz2'
 	cd ..
-	./bin/gbuild ../DigiByteProject/contrib/gitian-descriptors/boost-linux.yml
+	./bin/gbuild ../NautiluscoinProject/contrib/gitian-descriptors/boost-linux.yml
 	mv build/out/boost-*.zip inputs/
-	./bin/gbuild ../DigiByteProject/contrib/gitian-descriptors/deps-linux.yml
-	mv build/out/digibyte-deps-*.zip inputs/
-	./bin/gbuild ../DigiByteProject/contrib/gitian-descriptors/boost-win.yml
+	./bin/gbuild ../NautiluscoinProject/contrib/gitian-descriptors/deps-linux.yml
+	mv build/out/nautiluscoin-deps-*.zip inputs/
+	./bin/gbuild ../NautiluscoinProject/contrib/gitian-descriptors/boost-win.yml
 	mv build/out/boost-*.zip inputs/
-	./bin/gbuild ../DigiByteProject/contrib/gitian-descriptors/deps-win.yml
-	mv build/out/digibyte-deps-*.zip inputs/
-	./bin/gbuild ../DigiByteProject/contrib/gitian-descriptors/qt-win.yml
+	./bin/gbuild ../NautiluscoinProject/contrib/gitian-descriptors/deps-win.yml
+	mv build/out/nautiluscoin-deps-*.zip inputs/
+	./bin/gbuild ../NautiluscoinProject/contrib/gitian-descriptors/qt-win.yml
 	mv build/out/qt-*.zip inputs/
-	./bin/gbuild ../DigiByteProject/contrib/gitian-descriptors/protobuf-win.yml
+	./bin/gbuild ../NautiluscoinProject/contrib/gitian-descriptors/protobuf-win.yml
 	mv build/out/protobuf-*.zip inputs/
 
- Build digibyted and digibyte-qt on Linux32, Linux64, and Win32:
+ Build nautiluscoind and nautiluscoin-qt on Linux32, Linux64, and Win32:
   
-	./bin/gbuild --commit digibyte=v${VERSION} ../DigiByteProject/contrib/gitian-descriptors/gitian-linux.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION} --destination ../gitian.sigs/ ../DigiByteProject/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gbuild --commit nautiluscoin=v${VERSION} ../NautiluscoinProject/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION} --destination ../gitian.sigs/ ../NautiluscoinProject/contrib/gitian-descriptors/gitian-linux.yml
 	pushd build/out
-	zip -r digibyte-${VERSION}-linux-gitian.zip *
-	mv digibyte-${VERSION}-linux-gitian.zip ../../../
+	zip -r nautiluscoin-${VERSION}-linux-gitian.zip *
+	mv nautiluscoin-${VERSION}-linux-gitian.zip ../../../
 	popd
-	./bin/gbuild --commit digibyte=v${VERSION} ../DigiByteProject/contrib/gitian-descriptors/gitian-win.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-win --destination ../gitian.sigs/ ../DigiByteProject/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gbuild --commit nautiluscoin=v${VERSION} ../NautiluscoinProject/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-win --destination ../gitian.sigs/ ../NautiluscoinProject/contrib/gitian-descriptors/gitian-win.yml
 	pushd build/out
-	zip -r digibyte-${VERSION}-win-gitian.zip *
-	mv digibyte-${VERSION}-win-gitian.zip ../../../
+	zip -r nautiluscoin-${VERSION}-win-gitian.zip *
+	mv nautiluscoin-${VERSION}-win-gitian.zip ../../../
 	popd
 	popd
 
   Build output expected:
 
-  1. linux 32-bit and 64-bit binaries + source (digibyte-${VERSION}-linux-gitian.zip)
-  2. windows 32-bit and 64-bit binaries + installer + source (digibyte-${VERSION}-win-gitian.zip)
+  1. linux 32-bit and 64-bit binaries + source (nautiluscoin-${VERSION}-linux-gitian.zip)
+  2. windows 32-bit and 64-bit binaries + installer + source (nautiluscoin-${VERSION}-win-gitian.zip)
   3. Gitian signatures (in gitian.sigs/${VERSION}[-win]/(your gitian key)/
 
 repackage gitian builds for release as stand-alone zip/tar/installer exe
 
 **Linux .tar.gz:**
 
-	unzip digibyte-${VERSION}-linux-gitian.zip -d digibyte-${VERSION}-linux
-	tar czvf digibyte-${VERSION}-linux.tar.gz digibyte-${VERSION}-linux
-	rm -rf digibyte-${VERSION}-linux
+	unzip nautiluscoin-${VERSION}-linux-gitian.zip -d nautiluscoin-${VERSION}-linux
+	tar czvf nautiluscoin-${VERSION}-linux.tar.gz nautiluscoin-${VERSION}-linux
+	rm -rf nautiluscoin-${VERSION}-linux
 
 **Windows .zip and setup.exe:**
 
-	unzip digibyte-${VERSION}-win-gitian.zip -d digibyte-${VERSION}-win
-	mv digibyte-${VERSION}-win/digibyte-*-setup.exe .
-	zip -r digibyte-${VERSION}-win.zip digibyte-${VERSION}-win
-	rm -rf digibyte-${VERSION}-win
+	unzip nautiluscoin-${VERSION}-win-gitian.zip -d nautiluscoin-${VERSION}-win
+	mv nautiluscoin-${VERSION}-win/nautiluscoin-*-setup.exe .
+	zip -r nautiluscoin-${VERSION}-win.zip nautiluscoin-${VERSION}-win
+	rm -rf nautiluscoin-${VERSION}-win
 
 **Perform Mac build:**
 
@@ -122,9 +122,9 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 	export QTDIR=/opt/local/share/qt4  # needed to find translations/qt_*.qm files
 	T=$(contrib/qt_translations.py $QTDIR/translations src/qt/locale)
         export CODESIGNARGS='--keychain ...path_to_keychain --sign "Developer ID Application: BITCOIN FOUNDATION, INC., THE"'
-	python2.7 contrib/macdeploy/macdeployqtplus DigiByte-Qt.app -sign -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
+	python2.7 contrib/macdeploy/macdeployqtplus Nautiluscoin-Qt.app -sign -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
 
- Build output expected: DigiByte-Qt.dmg
+ Build output expected: Nautiluscoin-Qt.dmg
 
 ###Next steps:
 
@@ -159,44 +159,44 @@ Commit your signature to gitian.sigs:
 
 ### After 3 or more people have gitian-built, repackage gitian-signed zips:
 
-From a directory containing digibyte source, gitian.sigs and gitian zips
+From a directory containing nautiluscoin source, gitian.sigs and gitian zips
 
 	export VERSION=(new version, e.g. 0.8.0)
-	mkdir digibyte-${VERSION}-linux-gitian
-	pushd digibyte-${VERSION}-linux-gitian
-	unzip ../digibyte-${VERSION}-linux-gitian.zip
+	mkdir nautiluscoin-${VERSION}-linux-gitian
+	pushd nautiluscoin-${VERSION}-linux-gitian
+	unzip ../nautiluscoin-${VERSION}-linux-gitian.zip
 	mkdir gitian
-	cp ../digibyte/contrib/gitian-downloader/*.pgp ./gitian/
+	cp ../nautiluscoin/contrib/gitian-downloader/*.pgp ./gitian/
 	for signer in $(ls ../gitian.sigs/${VERSION}/); do
-	 cp ../gitian.sigs/${VERSION}/${signer}/digibyte-build.assert ./gitian/${signer}-build.assert
-	 cp ../gitian.sigs/${VERSION}/${signer}/digibyte-build.assert.sig ./gitian/${signer}-build.assert.sig
+	 cp ../gitian.sigs/${VERSION}/${signer}/nautiluscoin-build.assert ./gitian/${signer}-build.assert
+	 cp ../gitian.sigs/${VERSION}/${signer}/nautiluscoin-build.assert.sig ./gitian/${signer}-build.assert.sig
 	done
-	zip -r digibyte-${VERSION}-linux-gitian.zip *
-	cp digibyte-${VERSION}-linux-gitian.zip ../
+	zip -r nautiluscoin-${VERSION}-linux-gitian.zip *
+	cp nautiluscoin-${VERSION}-linux-gitian.zip ../
 	popd
-	mkdir digibyte-${VERSION}-win-gitian
-	pushd digibyte-${VERSION}-win-gitian
-	unzip ../digibyte-${VERSION}-win-gitian.zip
+	mkdir nautiluscoin-${VERSION}-win-gitian
+	pushd nautiluscoin-${VERSION}-win-gitian
+	unzip ../nautiluscoin-${VERSION}-win-gitian.zip
 	mkdir gitian
-	cp ../digibyte/contrib/gitian-downloader/*.pgp ./gitian/
+	cp ../nautiluscoin/contrib/gitian-downloader/*.pgp ./gitian/
 	for signer in $(ls ../gitian.sigs/${VERSION}-win/); do
-	 cp ../gitian.sigs/${VERSION}-win/${signer}/digibyte-build.assert ./gitian/${signer}-build.assert
-	 cp ../gitian.sigs/${VERSION}-win/${signer}/digibyte-build.assert.sig ./gitian/${signer}-build.assert.sig
+	 cp ../gitian.sigs/${VERSION}-win/${signer}/nautiluscoin-build.assert ./gitian/${signer}-build.assert
+	 cp ../gitian.sigs/${VERSION}-win/${signer}/nautiluscoin-build.assert.sig ./gitian/${signer}-build.assert.sig
 	done
-	zip -r digibyte-${VERSION}-win-gitian.zip *
-	cp digibyte-${VERSION}-win-gitian.zip ../
+	zip -r nautiluscoin-${VERSION}-win-gitian.zip *
+	cp nautiluscoin-${VERSION}-win-gitian.zip ../
 	popd
 
 - Upload gitian zips to SourceForge
 
 - Announce the release:
 
-  - Add the release to bitcoin.org: https://github.com/digibyte/bitcoin.org/tree/master/_releases
+  - Add the release to bitcoin.org: https://github.com/nautiluscoin/bitcoin.org/tree/master/_releases
 
-  - Release sticky on digibytetalk: https://bitcointalk.org/index.php?board=1.0
+  - Release sticky on nautiluscointalk: https://bitcointalk.org/index.php?board=1.0
 
-  - DigiByte-development mailing list
+  - Nautiluscoin-development mailing list
 
-  - Optionally reddit /r/DigiByte, ...
+  - Optionally reddit /r/Nautiluscoin, ...
 
 - Celebrate 

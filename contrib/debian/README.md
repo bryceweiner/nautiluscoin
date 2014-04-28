@@ -1,21 +1,21 @@
 
 Debian
 ====================
-This directory contains files used to package digibyted/digibyte-qt
-for Debian-based Linux systems. If you compile digibyted/digibyte-qt yourself, there are some useful files here.
+This directory contains files used to package nautiluscoind/nautiluscoin-qt
+for Debian-based Linux systems. If you compile nautiluscoind/nautiluscoin-qt yourself, there are some useful files here.
 
-## digibyte: URI support ##
+## nautiluscoin: URI support ##
 
 
-digibyte-qt.desktop  (Gnome / Open Desktop)
+nautiluscoin-qt.desktop  (Gnome / Open Desktop)
 To install:
 
-	sudo desktop-file-install digibyte-qt.desktop
+	sudo desktop-file-install nautiluscoin-qt.desktop
 	sudo update-desktop-database
 
 If you build yourself, you will either need to modify the paths in
-the .desktop file or copy or symlink your digibyte-qt binary to `/usr/bin`
-and the `../../share/pixmaps/digibyte128.png` to `/usr/share/pixmaps`
+the .desktop file or copy or symlink your nautiluscoin-qt binary to `/usr/bin`
+and the `../../share/pixmaps/nautiluscoin128.png` to `/usr/share/pixmaps`
 
-digibyte-qt.protocol (KDE)
+nautiluscoin-qt.protocol (KDE)
 

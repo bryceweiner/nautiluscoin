@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Copyright (c) 2011-2012 Litecoin Developers
-// Copyright (c) 2013 DigiByte Developers
+// Copyright (c) 2013 Nautiluscoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -295,14 +295,14 @@ void ThreadIRCSeed2(void* parg)
         }
         
         if (fTestNet) {
-            Send(hSocket, "JOIN #digibyteTEST3\r");
-            Send(hSocket, "WHO #digibyteTEST3\r");
+            Send(hSocket, "JOIN #nautiluscoinTEST3\r");
+            Send(hSocket, "WHO #nautiluscoinTEST3\r");
         } else {
-            // randomly join #digibyte00-#digibyte99
+            // randomly join #nautiluscoin00-#nautiluscoin99
             int channel_number = GetRandInt(100);
-            channel_number = 0; // DigiByte: for now, just use one channel
-            Send(hSocket, strprintf("JOIN #digibyte%02d\r", channel_number).c_str());
-            Send(hSocket, strprintf("WHO #digibyte%02d\r", channel_number).c_str());
+            channel_number = 0; // Nautiluscoin: for now, just use one channel
+            Send(hSocket, strprintf("JOIN #nautiluscoin%02d\r", channel_number).c_str());
+            Send(hSocket, strprintf("WHO #nautiluscoin%02d\r", channel_number).c_str());
         }
 
         int64 nStart = GetTime();

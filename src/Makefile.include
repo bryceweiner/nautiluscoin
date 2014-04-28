@@ -12,11 +12,11 @@ AM_CPPFLAGS =  $(INCLUDES) \
 AM_CPPFLAGS += $(LEVELDB_CPPFLAGS)
 AM_LDFLAGS = $(PTHREAD_CFLAGS)
 
-LIBDIGIBYTE_SERVER=$(top_builddir)/src/libdigibyte_server.a
-LIBDIGIBYTE_WALLET=$(top_builddir)/src/libdigibyte_wallet.a
-LIBDIGIBYTE_COMMON=$(top_builddir)/src/libdigibyte_common.a
-LIBDIGIBYTE_CLI=$(top_builddir)/src/libdigibyte_cli.a
-LIBDIGIBYTEQT=$(top_builddir)/src/qt/libdigibyteqt.a
+LIBDIGIBYTE_SERVER=$(top_builddir)/src/libnautiluscoin_server.a
+LIBDIGIBYTE_WALLET=$(top_builddir)/src/libnautiluscoin_wallet.a
+LIBDIGIBYTE_COMMON=$(top_builddir)/src/libnautiluscoin_common.a
+LIBDIGIBYTE_CLI=$(top_builddir)/src/libnautiluscoin_cli.a
+LIBDIGIBYTEQT=$(top_builddir)/src/qt/libnautiluscoinqt.a
 
 $(LIBDIGIBYTE):
 	$(MAKE) -C $(top_builddir)/src $(@F)

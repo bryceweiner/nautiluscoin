@@ -1,14 +1,14 @@
-// Copyright (c) 2011-2014 The DigiByte developers
+// Copyright (c) 2011-2014 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "digibyte-config.h"
+#include "nautiluscoin-config.h"
 #endif
 
 #include "optionsmodel.h"
 
-#include "digibyteunits.h"
+#include "nautiluscoinunits.h"
 #include "guiutil.h"
 
 #include "init.h"
@@ -51,7 +51,7 @@ void OptionsModel::Init()
 
     // Display
     if (!settings.contains("nDisplayUnit"))
-        settings.setValue("nDisplayUnit", DigiByteUnits::DGB);
+        settings.setValue("nDisplayUnit", NautiluscoinUnits::PHI);
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
 
     if (!settings.contains("bDisplayAddresses"))

@@ -20,8 +20,8 @@ fi
 
 set -f
 
-DIGIBYTED=${1}/digibyted
-CLI=${1}/digibyte-cli
+DIGIBYTED=${1}/nautiluscoind
+CLI=${1}/nautiluscoin-cli
 
 DIR="${BASH_SOURCE%/*}"
 SENDANDWAIT="${DIR}/send.sh"

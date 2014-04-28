@@ -36,8 +36,8 @@ if [ $# -lt 1 ]; then
         exit 1
 fi
 
-DIGIBYTED=${1}/digibyted
-CLI=${1}/digibyte-cli
+DIGIBYTED=${1}/nautiluscoind
+CLI=${1}/nautiluscoin-cli
 
 DIR="${BASH_SOURCE%/*}"
 SENDANDWAIT="${DIR}/send.sh"
@@ -61,7 +61,7 @@ B4PID=$!
 function CreateConfDir {
   DIR=$1
   mkdir -p $DIR
-  CONF=$DIR/digibyte.conf
+  CONF=$DIR/nautiluscoin.conf
   echo "regtest=1" >> $CONF
   echo "rpcuser=rt" >> $CONF
   echo "rpcpassword=rt" >> $CONF

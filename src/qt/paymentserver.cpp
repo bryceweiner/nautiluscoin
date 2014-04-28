@@ -1,10 +1,10 @@
-// Copyright (c) 2011-2013 The DigiByte developers
+// Copyright (c) 2011-2013 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "paymentserver.h"
 
-#include "digibyteunits.h"
+#include "nautiluscoinunits.h"
 #include "guiconstants.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
@@ -47,10 +47,10 @@
 using namespace boost;
 
 const int DIGIBYTE_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
-const QString DIGIBYTE_IPC_PREFIX("digibyte:");
-const char* DIGIBYTE_REQUEST_MIMETYPE = "application/digibyte-paymentrequest";
-const char* DIGIBYTE_PAYMENTACK_MIMETYPE = "application/digibyte-paymentack";
-const char* DIGIBYTE_PAYMENTACK_CONTENTTYPE = "application/digibyte-payment";
+const QString DIGIBYTE_IPC_PREFIX("nautiluscoin:");
+const char* DIGIBYTE_REQUEST_MIMETYPE = "application/nautiluscoin-paymentrequest";
+const char* DIGIBYTE_PAYMENTACK_MIMETYPE = "application/nautiluscoin-paymentack";
+const char* DIGIBYTE_PAYMENTACK_CONTENTTYPE = "application/nautiluscoin-payment";
 
 X509_STORE* PaymentServer::certStore = NULL;
 void PaymentServer::freeCertStore()
@@ -69,7 +69,7 @@ void PaymentServer::freeCertStore()
 //
 static QString ipcServerName()
 {
-    QString name("DigiByteQt");
+    QString name("NautiluscoinQt");
 
     // Append a simple hash of the datadir
     // Note that GetDataDir(true) returns a different path
@@ -186,14 +186,14 @@ bool PaymentServer::ipcParseCommandLine(int argc, char* argv[])
         if (arg.startsWith("-"))
             continue;
 
-        if (arg.startsWith(DIGIBYTE_IPC_PREFIX, Qt::CaseInsensitive)) // digibyte: URI
+        if (arg.startsWith(DIGIBYTE_IPC_PREFIX, Qt::CaseInsensitive)) // nautiluscoin: URI
         {
             savedPaymentRequests.append(arg);
 
             SendCoinsRecipient r;
-            if (GUIUtil::parseDigiByteURI(arg, &r))
+            if (GUIUtil::parseNautiluscoinURI(arg, &r))
             {
-                CDigiByteAddress address(r.address.toStdString());
+                CNautiluscoinAddress address(r.address.toStdString());
 
                 SelectParams(CChainParams::MAIN);
                 if (!address.IsValid())
@@ -273,7 +273,7 @@ PaymentServer::PaymentServer(QObject* parent, bool startLocalServer) :
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
     // Install global event filter to catch QFileOpenEvents
-    // on Mac: sent when you click digibyte: links
+    // on Mac: sent when you click nautiluscoin: links
     // other OSes: helpful when dealing with payment request files (in the future)
     if (parent)
         parent->installEventFilter(this);
@@ -290,7 +290,7 @@ PaymentServer::PaymentServer(QObject* parent, bool startLocalServer) :
         if (!uriServer->listen(name)) {
             // constructor is called early in init, so don't use "emit message()" here
             QMessageBox::critical(0, tr("Payment request error"),
-                tr("Cannot start digibyte: click-to-pay handler"));
+                tr("Cannot start nautiluscoin: click-to-pay handler"));
         }
         else {
             connect(uriServer, SIGNAL(newConnection()), this, SLOT(handleURIConnection()));
@@ -305,12 +305,12 @@ PaymentServer::~PaymentServer()
 }
 
 //
-// OSX-specific way of handling digibyte: URIs and
+// OSX-specific way of handling nautiluscoin: URIs and
 // PaymentRequest mime types
 //
 bool PaymentServer::eventFilter(QObject *object, QEvent *event)
 {
-    // clicking on digibyte: URIs creates FileOpen events on the Mac
+    // clicking on nautiluscoin: URIs creates FileOpen events on the Mac
     if (event->type() == QEvent::FileOpen)
     {
         QFileOpenEvent *fileEvent = static_cast<QFileOpenEvent*>(event);
@@ -332,7 +332,7 @@ void PaymentServer::initNetManager()
     if (netManager != NULL)
         delete netManager;
 
-    // netManager is used to fetch paymentrequests given in digibyte: URIs
+    // netManager is used to fetch paymentrequests given in nautiluscoin: URIs
     netManager = new QNetworkAccessManager(this);
 
     QNetworkProxy proxy;
@@ -378,7 +378,7 @@ void PaymentServer::handleURIOrFile(const QString& s)
         return;
     }
 
-    if (s.startsWith(DIGIBYTE_IPC_PREFIX, Qt::CaseInsensitive)) // digibyte: URI
+    if (s.startsWith(DIGIBYTE_IPC_PREFIX, Qt::CaseInsensitive)) // nautiluscoin: URI
     {
 #if QT_VERSION < 0x050000
         QUrl uri(s);
@@ -410,11 +410,11 @@ void PaymentServer::handleURIOrFile(const QString& s)
         else // normal URI
         {
             SendCoinsRecipient recipient;
-            if (GUIUtil::parseDigiByteURI(s, &recipient))
+            if (GUIUtil::parseNautiluscoinURI(s, &recipient))
                 emit receivedPaymentRequest(recipient);
             else
                 emit message(tr("URI handling"),
-                    tr("URI can not be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters."),
+                    tr("URI can not be parsed! This can be caused by an invalid Nautiluscoin address or malformed URI parameters."),
                     CClientUIInterface::ICON_WARNING);
 
             return;
@@ -495,10 +495,10 @@ bool PaymentServer::processPaymentRequest(PaymentRequestPlus& request, SendCoins
         CTxDestination dest;
         if (ExtractDestination(sendingTo.first, dest)) {
             // Append destination address
-            addresses.append(QString::fromStdString(CDigiByteAddress(dest).ToString()));
+            addresses.append(QString::fromStdString(CNautiluscoinAddress(dest).ToString()));
         }
         else if (!recipient.authenticatedMerchant.isEmpty()){
-            // Insecure payments to custom digibyte addresses are not supported
+            // Insecure payments to custom nautiluscoin addresses are not supported
             // (there is no good way to tell the user where they are paying in a way
             // they'd have a chance of understanding).
             emit message(tr("Payment request error"),
@@ -511,7 +511,7 @@ bool PaymentServer::processPaymentRequest(PaymentRequestPlus& request, SendCoins
         CTxOut txOut(sendingTo.second, sendingTo.first);
         if (txOut.IsDust(CTransaction::nMinRelayTxFee)) {
             QString msg = tr("Requested payment amount of %1 is too small (considered dust).")
-                .arg(DigiByteUnits::formatWithUnit(optionsModel->getDisplayUnit(), sendingTo.second));
+                .arg(NautiluscoinUnits::formatWithUnit(optionsModel->getDisplayUnit(), sendingTo.second));
 
             qDebug() << "PaymentServer::processPaymentRequest : " << msg;
             emit message(tr("Payment request error"), msg, CClientUIInterface::MSG_ERROR);

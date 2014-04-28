@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The DigiByte developers
+// Copyright (c) 2009-2013 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -253,25 +253,25 @@ public:
     bool operator> (const CBase58Data& b58) const { return CompareTo(b58) >  0; }
 };
 
-/** base58-encoded DigiByte addresses.
+/** base58-encoded Nautiluscoin addresses.
  * Public-key-hash-addresses have version 0 (or 111 testnet).
  * The data vector contains RIPEMD160(SHA256(pubkey)), where pubkey is the serialized public key.
  * Script-hash-addresses have version 5 (or 196 testnet).
  * The data vector contains RIPEMD160(SHA256(cscript)), where cscript is the serialized redemption script.
  */
-class CDigiByteAddress;
-class CDigiByteAddressVisitor : public boost::static_visitor<bool>
+class CNautiluscoinAddress;
+class CNautiluscoinAddressVisitor : public boost::static_visitor<bool>
 {
 private:
-    CDigiByteAddress *addr;
+    CNautiluscoinAddress *addr;
 public:
-    CDigiByteAddressVisitor(CDigiByteAddress *addrIn) : addr(addrIn) { }
+    CNautiluscoinAddressVisitor(CNautiluscoinAddress *addrIn) : addr(addrIn) { }
     bool operator()(const CKeyID &id) const;
     bool operator()(const CScriptID &id) const;
     bool operator()(const CNoDestination &no) const;
 };
 
-class CDigiByteAddress : public CBase58Data
+class CNautiluscoinAddress : public CBase58Data
 {
 public:
     bool Set(const CKeyID &id) {
@@ -286,7 +286,7 @@ public:
 
     bool Set(const CTxDestination &dest)
     {
-        return boost::apply_visitor(CDigiByteAddressVisitor(this), dest);
+        return boost::apply_visitor(CNautiluscoinAddressVisitor(this), dest);
     }
 
     bool IsValid() const
@@ -297,21 +297,21 @@ public:
         return fCorrectSize && fKnownVersion;
     }
 
-    CDigiByteAddress()
+    CNautiluscoinAddress()
     {
     }
 
-    CDigiByteAddress(const CTxDestination &dest)
+    CNautiluscoinAddress(const CTxDestination &dest)
     {
         Set(dest);
     }
 
-    CDigiByteAddress(const std::string& strAddress)
+    CNautiluscoinAddress(const std::string& strAddress)
     {
         SetString(strAddress);
     }
 
-    CDigiByteAddress(const char* pszAddress)
+    CNautiluscoinAddress(const char* pszAddress)
     {
         SetString(pszAddress);
     }
@@ -343,12 +343,12 @@ public:
     }
 };
 
-bool inline CDigiByteAddressVisitor::operator()(const CKeyID &id) const         { return addr->Set(id); }
-bool inline CDigiByteAddressVisitor::operator()(const CScriptID &id) const      { return addr->Set(id); }
-bool inline CDigiByteAddressVisitor::operator()(const CNoDestination &id) const { return false; }
+bool inline CNautiluscoinAddressVisitor::operator()(const CKeyID &id) const         { return addr->Set(id); }
+bool inline CNautiluscoinAddressVisitor::operator()(const CScriptID &id) const      { return addr->Set(id); }
+bool inline CNautiluscoinAddressVisitor::operator()(const CNoDestination &id) const { return false; }
 
 /** A base58-encoded secret key */
-class CDigiByteSecret : public CBase58Data
+class CNautiluscoinSecret : public CBase58Data
 {
 public:
     void SetKey(const CKey& vchSecret)
@@ -383,18 +383,18 @@ public:
         return SetString(strSecret.c_str());
     }
 
-    CDigiByteSecret(const CKey& vchSecret)
+    CNautiluscoinSecret(const CKey& vchSecret)
     {
         SetKey(vchSecret);
     }
 
-    CDigiByteSecret()
+    CNautiluscoinSecret()
     {
     }
 };
 
 
-template<typename K, int Size, CChainParams::Base58Type Type> class CDigiByteExtKeyBase : public CBase58Data
+template<typename K, int Size, CChainParams::Base58Type Type> class CNautiluscoinExtKeyBase : public CBase58Data
 {
 public:
     void SetKey(const K &key) {
@@ -409,14 +409,14 @@ public:
         return ret;
     }
 
-    CDigiByteExtKeyBase(const K &key) {
+    CNautiluscoinExtKeyBase(const K &key) {
         SetKey(key);
     }
 
-    CDigiByteExtKeyBase() {}
+    CNautiluscoinExtKeyBase() {}
 };
 
-typedef CDigiByteExtKeyBase<CExtKey, 74, CChainParams::EXT_SECRET_KEY> CDigiByteExtKey;
-typedef CDigiByteExtKeyBase<CExtPubKey, 74, CChainParams::EXT_PUBLIC_KEY> CDigiByteExtPubKey;
+typedef CNautiluscoinExtKeyBase<CExtKey, 74, CChainParams::EXT_SECRET_KEY> CNautiluscoinExtKey;
+typedef CNautiluscoinExtKeyBase<CExtPubKey, 74, CChainParams::EXT_PUBLIC_KEY> CNautiluscoinExtPubKey;
 
 #endif // DIGIBYTE_BASE58_H

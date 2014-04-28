@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2013 The DigiByte developers
+// Copyright (c) 2011-2013 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,16 +12,16 @@ class QDoubleSpinBox;
 class QValueComboBox;
 QT_END_NAMESPACE
 
-/** Widget for entering digibyte amounts.
+/** Widget for entering nautiluscoin amounts.
   */
-class DigiByteAmountField: public QWidget
+class NautiluscoinAmountField: public QWidget
 {
     Q_OBJECT
 
     Q_PROPERTY(qint64 value READ value WRITE setValue NOTIFY textChanged USER true)
 
 public:
-    explicit DigiByteAmountField(QWidget *parent = 0);
+    explicit NautiluscoinAmountField(QWidget *parent = 0);
 
     qint64 value(bool *valid=0) const;
     void setValue(qint64 value);

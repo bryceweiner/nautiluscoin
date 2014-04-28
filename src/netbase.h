@@ -1,4 +1,4 @@
-// Copyright (c) 2009-2013 The DigiByte developers
+// Copyright (c) 2009-2013 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -6,7 +6,7 @@
 #define DIGIBYTE_NETBASE_H
 
 #if defined(HAVE_CONFIG_H)
-#include "digibyte-config.h"
+#include "nautiluscoin-config.h"
 #endif
 
 #include "compat.h"

@@ -1,12 +1,12 @@
-// Copyright (c) 2011-2014 The DigiByte developers
+// Copyright (c) 2011-2014 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "digibyte-config.h"
+#include "nautiluscoin-config.h"
 #endif
 
-#include "digibytegui.h"
+#include "nautiluscoingui.h"
 
 #include "clientmodel.h"
 #include "guiconstants.h"
@@ -70,7 +70,7 @@ static void InitMessage(const std::string &message)
  */
 static std::string Translate(const char* psz)
 {
-    return QCoreApplication::translate("digibyte-core", psz).toStdString();
+    return QCoreApplication::translate("nautiluscoin-core", psz).toStdString();
 }
 
 /** Set up translations */
@@ -110,11 +110,11 @@ static void initTranslations(QTranslator &qtTranslatorBase, QTranslator &qtTrans
     if (qtTranslator.load("qt_" + lang_territory, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         QApplication::installTranslator(&qtTranslator);
 
-    // Load e.g. digibyte_de.qm (shortcut "de" needs to be defined in digibyte.qrc)
+    // Load e.g. nautiluscoin_de.qm (shortcut "de" needs to be defined in nautiluscoin.qrc)
     if (translatorBase.load(lang, ":/translations/"))
         QApplication::installTranslator(&translatorBase);
 
-    // Load e.g. digibyte_de_DE.qm (shortcut "de_DE" needs to be defined in digibyte.qrc)
+    // Load e.g. nautiluscoin_de_DE.qm (shortcut "de_DE" needs to be defined in nautiluscoin.qrc)
     if (translator.load(lang_territory, ":/translations/"))
         QApplication::installTranslator(&translator);
 }
@@ -135,14 +135,14 @@ void DebugMessageHandler(QtMsgType type, const QMessageLogContext& context, cons
 }
 #endif
 
-/** Class encapsulating DigiByte Core startup and shutdown.
+/** Class encapsulating Nautiluscoin Core startup and shutdown.
  * Allows running startup and shutdown in a different thread from the UI thread.
  */
-class DigiByteCore: public QObject
+class NautiluscoinCore: public QObject
 {
     Q_OBJECT
 public:
-    explicit DigiByteCore();
+    explicit NautiluscoinCore();
 
 public slots:
     void initialize();
@@ -160,13 +160,13 @@ private:
     void handleRunawayException(std::exception *e);
 };
 
-/** Main DigiByte application object */
-class DigiByteApplication: public QApplication
+/** Main Nautiluscoin application object */
+class NautiluscoinApplication: public QApplication
 {
     Q_OBJECT
 public:
-    explicit DigiByteApplication(int &argc, char **argv);
-    ~DigiByteApplication();
+    explicit NautiluscoinApplication(int &argc, char **argv);
+    ~NautiluscoinApplication();
 
 #ifdef ENABLE_WALLET
     /// Create payment server
@@ -203,7 +203,7 @@ private:
     QThread *coreThread;
     OptionsModel *optionsModel;
     ClientModel *clientModel;
-    DigiByteGUI *window;
+    NautiluscoinGUI *window;
     QTimer *pollShutdownTimer;
 #ifdef ENABLE_WALLET
     PaymentServer* paymentServer;
@@ -214,20 +214,20 @@ private:
     void startThread();
 };
 
-#include "digibyte.moc"
+#include "nautiluscoin.moc"
 
-DigiByteCore::DigiByteCore():
+NautiluscoinCore::NautiluscoinCore():
     QObject()
 {
 }
 
-void DigiByteCore::handleRunawayException(std::exception *e)
+void NautiluscoinCore::handleRunawayException(std::exception *e)
 {
     PrintExceptionContinue(e, "Runaway exception");
     emit runawayException(QString::fromStdString(strMiscWarning));
 }
 
-void DigiByteCore::initialize()
+void NautiluscoinCore::initialize()
 {
     try
     {
@@ -248,7 +248,7 @@ void DigiByteCore::initialize()
     }
 }
 
-void DigiByteCore::shutdown()
+void NautiluscoinCore::shutdown()
 {
     try
     {
@@ -265,7 +265,7 @@ void DigiByteCore::shutdown()
     }
 }
 
-DigiByteApplication::DigiByteApplication(int &argc, char **argv):
+NautiluscoinApplication::NautiluscoinApplication(int &argc, char **argv):
     QApplication(argc, argv),
     coreThread(0),
     optionsModel(0),
@@ -282,7 +282,7 @@ DigiByteApplication::DigiByteApplication(int &argc, char **argv):
     startThread();
 }
 
-DigiByteApplication::~DigiByteApplication()
+NautiluscoinApplication::~NautiluscoinApplication()
 {
     LogPrintf("Stopping thread\n");
     emit stopThread();
@@ -300,27 +300,27 @@ DigiByteApplication::~DigiByteApplication()
 }
 
 #ifdef ENABLE_WALLET
-void DigiByteApplication::createPaymentServer()
+void NautiluscoinApplication::createPaymentServer()
 {
     paymentServer = new PaymentServer(this);
 }
 #endif
 
-void DigiByteApplication::createOptionsModel()
+void NautiluscoinApplication::createOptionsModel()
 {
     optionsModel = new OptionsModel();
 }
 
-void DigiByteApplication::createWindow(bool isaTestNet)
+void NautiluscoinApplication::createWindow(bool isaTestNet)
 {
-    window = new DigiByteGUI(isaTestNet, 0);
+    window = new NautiluscoinGUI(isaTestNet, 0);
 
     pollShutdownTimer = new QTimer(window);
     connect(pollShutdownTimer, SIGNAL(timeout()), window, SLOT(detectShutdown()));
     pollShutdownTimer->start(200);
 }
 
-void DigiByteApplication::createSplashScreen(bool isaTestNet)
+void NautiluscoinApplication::createSplashScreen(bool isaTestNet)
 {
     SplashScreen *splash = new SplashScreen(QPixmap(), 0, isaTestNet);
     splash->setAttribute(Qt::WA_DeleteOnClose);
@@ -328,10 +328,10 @@ void DigiByteApplication::createSplashScreen(bool isaTestNet)
     connect(this, SIGNAL(splashFinished(QWidget*)), splash, SLOT(slotFinish(QWidget*)));
 }
 
-void DigiByteApplication::startThread()
+void NautiluscoinApplication::startThread()
 {
     coreThread = new QThread(this);
-    DigiByteCore *executor = new DigiByteCore();
+    NautiluscoinCore *executor = new NautiluscoinCore();
     executor->moveToThread(coreThread);
 
     /*  communication to and from thread */
@@ -347,13 +347,13 @@ void DigiByteApplication::startThread()
     coreThread->start();
 }
 
-void DigiByteApplication::requestInitialize()
+void NautiluscoinApplication::requestInitialize()
 {
     LogPrintf("Requesting initialize\n");
     emit requestedInitialize();
 }
 
-void DigiByteApplication::requestShutdown()
+void NautiluscoinApplication::requestShutdown()
 {
     LogPrintf("Requesting shutdown\n");
     window->hide();
@@ -375,7 +375,7 @@ void DigiByteApplication::requestShutdown()
     emit requestedShutdown();
 }
 
-void DigiByteApplication::initializeResult(int retval)
+void NautiluscoinApplication::initializeResult(int retval)
 {
     LogPrintf("Initialization result: %i\n", retval);
     // Set exit result: 0 if successful, 1 if failure
@@ -416,7 +416,7 @@ void DigiByteApplication::initializeResult(int retval)
         }
 #ifdef ENABLE_WALLET
         // Now that initialization/startup is done, process any command-line
-        // digibyte: URIs or payment requests:
+        // nautiluscoin: URIs or payment requests:
         connect(paymentServer, SIGNAL(receivedPaymentRequest(SendCoinsRecipient)),
                          window, SLOT(handlePaymentRequest(SendCoinsRecipient)));
         connect(window, SIGNAL(receivedURI(QString)),
@@ -430,15 +430,15 @@ void DigiByteApplication::initializeResult(int retval)
     }
 }
 
-void DigiByteApplication::shutdownResult(int retval)
+void NautiluscoinApplication::shutdownResult(int retval)
 {
     LogPrintf("Shutdown result: %i\n", retval);
     quit(); // Exit main loop after shutdown finished
 }
 
-void DigiByteApplication::handleRunawayException(const QString &message)
+void NautiluscoinApplication::handleRunawayException(const QString &message)
 {
-    QMessageBox::critical(0, "Runaway exception", DigiByteGUI::tr("A fatal error occurred. DigiByte can no longer continue safely and will quit.") + QString("\n\n") + message);
+    QMessageBox::critical(0, "Runaway exception", NautiluscoinGUI::tr("A fatal error occurred. Nautiluscoin can no longer continue safely and will quit.") + QString("\n\n") + message);
     ::exit(1);
 }
 
@@ -458,8 +458,8 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForCStrings(QTextCodec::codecForTr());
 #endif
 
-    Q_INIT_RESOURCE(digibyte);
-    DigiByteApplication app(argc, argv);
+    Q_INIT_RESOURCE(nautiluscoin);
+    NautiluscoinApplication app(argc, argv);
 #if QT_VERSION > 0x050100
     // Generate high-dpi pixmaps
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
@@ -497,11 +497,11 @@ int main(int argc, char *argv[])
     // User language is set up: pick a data directory
     Intro::pickDataDirectory();
 
-    /// 6. Determine availability of data directory and parse digibyte.conf
+    /// 6. Determine availability of data directory and parse nautiluscoin.conf
     /// - Do not call GetDataDir(true) before this step finishes
     if (!boost::filesystem::is_directory(GetDataDir(false)))
     {
-        QMessageBox::critical(0, QObject::tr("DigiByte"),
+        QMessageBox::critical(0, QObject::tr("Nautiluscoin"),
                               QObject::tr("Error: Specified data directory \"%1\" does not exist.").arg(QString::fromStdString(mapArgs["-datadir"])));
         return 1;
     }
@@ -515,7 +515,7 @@ int main(int argc, char *argv[])
 
     // Check for -testnet or -regtest parameter (Params() calls are only valid after this clause)
     if (!SelectParamsFromCommandLine()) {
-        QMessageBox::critical(0, QObject::tr("DigiByte"), QObject::tr("Error: Invalid combination of -regtest and -testnet."));
+        QMessageBox::critical(0, QObject::tr("Nautiluscoin"), QObject::tr("Error: Invalid combination of -regtest and -testnet."));
         return 1;
     }
 #ifdef ENABLE_WALLET
@@ -543,7 +543,7 @@ int main(int argc, char *argv[])
         exit(0);
 
     // Start up the payment server early, too, so impatient users that click on
-    // digibyte: links repeatedly have their payment requests routed to this process:
+    // nautiluscoin: links repeatedly have their payment requests routed to this process:
     app.createPaymentServer();
 #endif
 

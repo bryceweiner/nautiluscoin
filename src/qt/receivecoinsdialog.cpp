@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2014 The DigiByte developers
+// Copyright (c) 2011-2014 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -6,7 +6,7 @@
 #include "ui_receivecoinsdialog.h"
 
 #include "walletmodel.h"
-#include "digibyteunits.h"
+#include "nautiluscoinunits.h"
 #include "addressbookpage.h"
 #include "optionsmodel.h"
 #include "guiutil.h"

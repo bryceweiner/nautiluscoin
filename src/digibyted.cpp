@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The DigiByte developers
+// Copyright (c) 2009-2013 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,8 +20,8 @@
  *
  * \section intro_sec Introduction
  *
- * This is the developer documentation of the reference client for an experimental new digital currency called DigiByte (http://www.bitcoin.org/),
- * which enables instant payments to anyone, anywhere in the world. DigiByte uses peer-to-peer technology to operate
+ * This is the developer documentation of the reference client for an experimental new digital currency called Nautiluscoin (http://www.bitcoin.org/),
+ * which enables instant payments to anyone, anywhere in the world. Nautiluscoin uses peer-to-peer technology to operate
  * with no central authority: managing transactions and issuing money are carried out collectively by the network.
  *
  * The software is a community-driven open source project, released under the MIT license.
@@ -63,7 +63,7 @@ bool AppInit(int argc, char* argv[])
         //
         // Parameters
         //
-        // If Qt is used, parameters/digibyte.conf are parsed in qt/digibyte.cpp's main()
+        // If Qt is used, parameters/nautiluscoin.conf are parsed in qt/nautiluscoin.cpp's main()
         ParseParameters(argc, argv);
         if (!boost::filesystem::is_directory(GetDataDir(false)))
         {
@@ -79,14 +79,14 @@ bool AppInit(int argc, char* argv[])
 
         if (mapArgs.count("-?") || mapArgs.count("--help"))
         {
-            // First part of help message is specific to digibyted / RPC client
-            std::string strUsage = _("DigiByte Core Daemon") + " " + _("version") + " " + FormatFullVersion() + "\n\n" +
+            // First part of help message is specific to nautiluscoind / RPC client
+            std::string strUsage = _("Nautiluscoin Core Daemon") + " " + _("version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
-                  "  digibyted [options]                     " + _("Start DigiByte server") + "\n" +
-                _("Usage (deprecated, use digibyte-cli):") + "\n" +
-                  "  digibyted [options] <command> [params]  " + _("Send command to DigiByte server") + "\n" +
-                  "  digibyted [options] help                " + _("List commands") + "\n" +
-                  "  digibyted [options] help <command>      " + _("Get help for a command") + "\n";
+                  "  nautiluscoind [options]                     " + _("Start Nautiluscoin server") + "\n" +
+                _("Usage (deprecated, use nautiluscoin-cli):") + "\n" +
+                  "  nautiluscoind [options] <command> [params]  " + _("Send command to Nautiluscoin server") + "\n" +
+                  "  nautiluscoind [options] help                " + _("List commands") + "\n" +
+                  "  nautiluscoind [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessage(HMM_DIGIBYTED);
             strUsage += "\n" + HelpMessageCli(false);
@@ -98,7 +98,7 @@ bool AppInit(int argc, char* argv[])
         // Command-line RPC
         bool fCommandLine = false;
         for (int i = 1; i < argc; i++)
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "digibyte:"))
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "nautiluscoin:"))
                 fCommandLine = true;
 
         if (fCommandLine)
@@ -110,7 +110,7 @@ bool AppInit(int argc, char* argv[])
         fDaemon = GetBoolArg("-daemon", false);
         if (fDaemon)
         {
-            fprintf(stdout, "DigiByte server starting\n");
+            fprintf(stdout, "Nautiluscoin server starting\n");
 
             // Daemonize
             pid_t pid = fork();
@@ -168,7 +168,7 @@ int main(int argc, char* argv[])
 {
     bool fRet = false;
 
-    // Connect digibyted signal handlers
+    // Connect nautiluscoind signal handlers
     noui_connect();
 
     fRet = AppInit(argc, argv);

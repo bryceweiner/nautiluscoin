@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2014 The DigiByte developers
+// Copyright (c) 2011-2014 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -146,7 +146,7 @@ void WalletModel::updateAddressBook(const QString &address, const QString &label
 
 bool WalletModel::validateAddress(const QString &address)
 {
-    CDigiByteAddress addressParsed(address.toStdString());
+    CNautiluscoinAddress addressParsed(address.toStdString());
     return addressParsed.IsValid();
 }
 
@@ -187,7 +187,7 @@ WalletModel::SendCoinsReturn WalletModel::prepareTransaction(WalletModelTransact
             total += subtotal;
         }
         else
-        {   // User-entered digibyte address / amount:
+        {   // User-entered nautiluscoin address / amount:
             if(!validateAddress(rcp.address))
             {
                 return InvalidAddress;
@@ -200,7 +200,7 @@ WalletModel::SendCoinsReturn WalletModel::prepareTransaction(WalletModelTransact
             ++nAddresses;
 
             CScript scriptPubKey;
-            scriptPubKey.SetDestination(CDigiByteAddress(rcp.address.toStdString()).Get());
+            scriptPubKey.SetDestination(CNautiluscoinAddress(rcp.address.toStdString()).Get());
             vecSend.push_back(std::pair<CScript, int64_t>(scriptPubKey, rcp.amount));
 
             total += rcp.amount;
@@ -269,7 +269,7 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(WalletModelTransaction &tran
                 rcp.paymentRequest.SerializeToString(&value);
                 newTx->vOrderForm.push_back(make_pair(key, value));
             }
-            else if (!rcp.message.isEmpty()) // Message from normal digibyte:URI (digibyte:123...?message=example)
+            else if (!rcp.message.isEmpty()) // Message from normal nautiluscoin:URI (nautiluscoin:123...?message=example)
                 newTx->vOrderForm.push_back(make_pair("Message", rcp.message.toStdString()));
         }
 
@@ -291,7 +291,7 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(WalletModelTransaction &tran
         if (!rcp.paymentRequest.IsInitialized())
         {
             std::string strAddress = rcp.address.toStdString();
-            CTxDestination dest = CDigiByteAddress(strAddress).Get();
+            CTxDestination dest = CNautiluscoinAddress(strAddress).Get();
             std::string strLabel = rcp.label.toStdString();
             {
                 LOCK(wallet->cs_wallet);
@@ -406,7 +406,7 @@ static void NotifyAddressBookChanged(WalletModel *walletmodel, CWallet *wallet,
         const CTxDestination &address, const std::string &label, bool isMine,
         const std::string &purpose, ChangeType status)
 {
-    QString strAddress = QString::fromStdString(CDigiByteAddress(address).ToString());
+    QString strAddress = QString::fromStdString(CNautiluscoinAddress(address).ToString());
     QString strLabel = QString::fromStdString(label);
     QString strPurpose = QString::fromStdString(purpose);
 
@@ -539,7 +539,7 @@ void WalletModel::listCoins(std::map<QString, std::vector<COutput> >& mapCoins) 
 
         CTxDestination address;
         if(!ExtractDestination(cout.tx->vout[cout.i].scriptPubKey, address)) continue;
-        mapCoins[CDigiByteAddress(address).ToString().c_str()].push_back(out);
+        mapCoins[CNautiluscoinAddress(address).ToString().c_str()].push_back(out);
     }
 }
 
@@ -578,7 +578,7 @@ void WalletModel::loadReceiveRequests(std::vector<std::string>& vReceiveRequests
 
 bool WalletModel::saveReceiveRequest(const std::string &sAddress, const int64_t nId, const std::string &sRequest)
 {
-    CTxDestination dest = CDigiByteAddress(sAddress).Get();
+    CTxDestination dest = CNautiluscoinAddress(sAddress).Get();
 
     std::stringstream ss;
     ss << nId;

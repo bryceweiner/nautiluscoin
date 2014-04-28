@@ -1,5 +1,5 @@
-/* src/digibyte-config.h.  Generated from digibyte-config.h.in by configure.  */
-/* src/digibyte-config.h.in.  Generated from configure.ac by autoheader.  */
+/* src/nautiluscoin-config.h.  Generated from nautiluscoin-config.h.in by configure.  */
+/* src/nautiluscoin-config.h.in.  Generated from configure.ac by autoheader.  */
 
 #ifndef DIGIBYTE_CONFIG_H
 
@@ -192,16 +192,16 @@
 /* #undef HAVE_WORKING_BOOST_SLEEP_FOR */
 
 /* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT "support@digibyte.co"
+#define PACKAGE_BUGREPORT "support@nautiluscoin.co"
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "DigiByte Core"
+#define PACKAGE_NAME "Nautiluscoin Core"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "DigiByte Core 2.9.1"
+#define PACKAGE_STRING "Nautiluscoin Core 2.9.1"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "digibyte"
+#define PACKAGE_TARNAME "nautiluscoin"
 
 /* Define to the home page for this package. */
 #define PACKAGE_URL ""

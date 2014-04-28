@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2013 The DigiByte developers
+// Copyright (c) 2011-2013 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -21,7 +21,7 @@ class QUrl;
 class QWidget;
 QT_END_NAMESPACE
 
-/** Utility functions used by the DigiByte Qt UI.
+/** Utility functions used by the Nautiluscoin Qt UI.
  */
 namespace GUIUtil
 {
@@ -29,17 +29,17 @@ namespace GUIUtil
     QString dateTimeStr(const QDateTime &datetime);
     QString dateTimeStr(qint64 nTime);
 
-    // Render DigiByte addresses in monospace font
-    QFont digibyteAddressFont();
+    // Render Nautiluscoin addresses in monospace font
+    QFont nautiluscoinAddressFont();
 
     // Set up widgets for address and amounts
     void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent);
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
-    // Parse "digibyte:" URI into recipient object, return true on successful parsing
-    bool parseDigiByteURI(const QUrl &uri, SendCoinsRecipient *out);
-    bool parseDigiByteURI(QString uri, SendCoinsRecipient *out);
-    QString formatDigiByteURI(const SendCoinsRecipient &info);
+    // Parse "nautiluscoin:" URI into recipient object, return true on successful parsing
+    bool parseNautiluscoinURI(const QUrl &uri, SendCoinsRecipient *out);
+    bool parseNautiluscoinURI(QString uri, SendCoinsRecipient *out);
+    QString formatNautiluscoinURI(const SendCoinsRecipient &info);
 
     // Returns true if given address+amount meets "dust" definition
     bool isDust(const QString& address, qint64 amount);

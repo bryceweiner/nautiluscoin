@@ -8,7 +8,7 @@ import glob
 import operator
 import os
 
-OUT_CPP="src/qt/digibytestrings.cpp"
+OUT_CPP="src/qt/nautiluscoinstrings.cpp"
 EMPTY=['""']
 
 def parse_po(text):
@@ -68,10 +68,10 @@ f.write("""
 #define UNUSED
 #endif
 """)
-f.write('static const char UNUSED *digibyte_strings[] = {\n')
+f.write('static const char UNUSED *nautiluscoin_strings[] = {\n')
 messages.sort(key=operator.itemgetter(0))
 for (msgid, msgstr) in messages:
     if msgid != EMPTY:
-        f.write('QT_TRANSLATE_NOOP("digibyte-core", %s),\n' % ('\n'.join(msgid)))
+        f.write('QT_TRANSLATE_NOOP("nautiluscoin-core", %s),\n' % ('\n'.join(msgid)))
 f.write('};\n')
 f.close()

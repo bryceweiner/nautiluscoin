@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2013 The DigiByte developers
+// Copyright (c) 2011-2013 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,24 +8,24 @@
 #include <QAbstractListModel>
 #include <QString>
 
-/** DigiByte unit definitions. Encapsulates parsing and formatting
+/** Nautiluscoin unit definitions. Encapsulates parsing and formatting
    and serves as list model for drop-down selection boxes.
 */
-class DigiByteUnits: public QAbstractListModel
+class NautiluscoinUnits: public QAbstractListModel
 {
     Q_OBJECT
 
 public:
-    explicit DigiByteUnits(QObject *parent);
+    explicit NautiluscoinUnits(QObject *parent);
 
-    /** DigiByte units.
+    /** Nautiluscoin units.
       @note Source: https://en.bitcoin.it/wiki/Units . Please add only sensible ones
      */
     enum Unit
     {
-        DGB,
-        mDGB,
-        uDGB
+        PHI,
+        mPHI,
+        uPHI
     };
 
     //! @name Static API
@@ -68,8 +68,8 @@ public:
     ///@}
 
 private:
-    QList<DigiByteUnits::Unit> unitlist;
+    QList<NautiluscoinUnits::Unit> unitlist;
 };
-typedef DigiByteUnits::Unit DigiByteUnit;
+typedef NautiluscoinUnits::Unit NautiluscoinUnit;
 
 #endif // DIGIBYTEUNITS_H

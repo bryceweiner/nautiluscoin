@@ -1,12 +1,12 @@
 #!/bin/bash
-DATADIR="/home/scott/Desktop/digibyte/.digibyte"
+DATADIR="/home/scott/Desktop/nautiluscoin/.nautiluscoin"
 rm -rf "$DATADIR"
 mkdir -p "$DATADIR"/regtest
 touch "$DATADIR/regtest/debug.log"
 tail -q -n 1 -F "$DATADIR/regtest/debug.log" | grep -m 1 -q "Done loading" &
 WAITER=$!
 PORT=`expr $BASHPID + 10000`
-"/home/scott/Desktop/digibyte/src/digibyted" -connect=0.0.0.0 -datadir="$DATADIR" -rpcuser=user -rpcpassword=pass -listen -keypool=3 -debug -debug=net -logtimestamps -port=$PORT -regtest -rpcport=`expr $PORT + 1` &
+"/home/scott/Desktop/nautiluscoin/src/nautiluscoind" -connect=0.0.0.0 -datadir="$DATADIR" -rpcuser=user -rpcpassword=pass -listen -keypool=3 -debug -debug=net -logtimestamps -port=$PORT -regtest -rpcport=`expr $PORT + 1` &
 DIGIBYTED=$!
 
 #Install a watchdog.

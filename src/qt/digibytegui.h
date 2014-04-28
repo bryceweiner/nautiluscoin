@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2014 The DigiByte developers
+// Copyright (c) 2011-2014 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -6,7 +6,7 @@
 #define DIGIBYTEGUI_H
 
 #if defined(HAVE_CONFIG_H)
-#include "digibyte-config.h"
+#include "nautiluscoin-config.h"
 #endif
 
 #include <QMainWindow>
@@ -29,18 +29,18 @@ class QProgressBar;
 QT_END_NAMESPACE
 
 /**
-  DigiByte GUI main class. This class represents the main window of the DigiByte UI. It communicates with both the client and
+  Nautiluscoin GUI main class. This class represents the main window of the Nautiluscoin UI. It communicates with both the client and
   wallet models to give the user an up-to-date view of the current core state.
 */
-class DigiByteGUI : public QMainWindow
+class NautiluscoinGUI : public QMainWindow
 {
     Q_OBJECT
 
 public:
     static const QString DEFAULT_WALLET;
 
-    explicit DigiByteGUI(bool fIsTestnet = false, QWidget *parent = 0);
-    ~DigiByteGUI();
+    explicit NautiluscoinGUI(bool fIsTestnet = false, QWidget *parent = 0);
+    ~NautiluscoinGUI();
 
     /** Set the client model.
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
@@ -49,7 +49,7 @@ public:
 
 #ifdef ENABLE_WALLET
     /** Set the wallet model.
-        The wallet model represents a digibyte wallet, and offers access to the list of transactions, address book and sending
+        The wallet model represents a nautiluscoin wallet, and offers access to the list of transactions, address book and sending
         functionality.
     */
     bool addWallet(const QString& name, WalletModel *walletModel);

@@ -1,8 +1,8 @@
 Regression tests of RPC interface
 =================================
 
-python-digibyterpc: git subtree of https://github.com/jgarzik/python-digibyterpc
-Changes to python-digibyterpc should be made upstream, and then
+python-nautiluscoinrpc: git subtree of https://github.com/jgarzik/python-nautiluscoinrpc
+Changes to python-nautiluscoinrpc should be made upstream, and then
 pulled here using git subtree
 
 skeleton.py : Copy this to create new regression tests.
@@ -33,4 +33,4 @@ test state.
 If you get into a bad state, you should be able
 to recover with:
   rm -rf cache
-  killall digibyted
+  killall nautiluscoind

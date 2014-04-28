@@ -1,10 +1,10 @@
-// Copyright (c) 2011-2014 The DigiByte developers
+// Copyright (c) 2011-2014 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "digibyteamountfield.h"
+#include "nautiluscoinamountfield.h"
 
-#include "digibyteunits.h"
+#include "nautiluscoinunits.h"
 #include "guiconstants.h"
 #include "qvaluecombobox.h"
 
@@ -14,7 +14,7 @@
 #include <QKeyEvent>
 #include <qmath.h> // for qPow()
 
-DigiByteAmountField::DigiByteAmountField(QWidget *parent) :
+NautiluscoinAmountField::NautiluscoinAmountField(QWidget *parent) :
     QWidget(parent),
     amount(0),
     currentUnit(-1)
@@ -29,7 +29,7 @@ DigiByteAmountField::DigiByteAmountField(QWidget *parent) :
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->addWidget(amount);
     unit = new QValueComboBox(this);
-    unit->setModel(new DigiByteUnits(this));
+    unit->setModel(new NautiluscoinUnits(this));
     layout->addWidget(unit);
     layout->addStretch(1);
     layout->setContentsMargins(0,0,0,0);
@@ -47,7 +47,7 @@ DigiByteAmountField::DigiByteAmountField(QWidget *parent) :
     unitChanged(unit->currentIndex());
 }
 
-void DigiByteAmountField::setText(const QString &text)
+void NautiluscoinAmountField::setText(const QString &text)
 {
     if (text.isEmpty())
         amount->clear();
@@ -55,20 +55,20 @@ void DigiByteAmountField::setText(const QString &text)
         amount->setValue(text.toDouble());
 }
 
-void DigiByteAmountField::clear()
+void NautiluscoinAmountField::clear()
 {
     amount->clear();
     unit->setCurrentIndex(0);
 }
 
-bool DigiByteAmountField::validate()
+bool NautiluscoinAmountField::validate()
 {
     bool valid = true;
     if (amount->value() == 0.0)
         valid = false;
-    else if (!DigiByteUnits::parse(currentUnit, text(), 0))
+    else if (!NautiluscoinUnits::parse(currentUnit, text(), 0))
         valid = false;
-    else if (amount->value() > DigiByteUnits::maxAmount(currentUnit))
+    else if (amount->value() > NautiluscoinUnits::maxAmount(currentUnit))
         valid = false;
 
     setValid(valid);
@@ -76,7 +76,7 @@ bool DigiByteAmountField::validate()
     return valid;
 }
 
-void DigiByteAmountField::setValid(bool valid)
+void NautiluscoinAmountField::setValid(bool valid)
 {
     if (valid)
         amount->setStyleSheet("");
@@ -84,7 +84,7 @@ void DigiByteAmountField::setValid(bool valid)
         amount->setStyleSheet(STYLE_INVALID);
 }
 
-QString DigiByteAmountField::text() const
+QString NautiluscoinAmountField::text() const
 {
     if (amount->text().isEmpty())
         return QString();
@@ -92,7 +92,7 @@ QString DigiByteAmountField::text() const
         return amount->text();
 }
 
-bool DigiByteAmountField::eventFilter(QObject *object, QEvent *event)
+bool NautiluscoinAmountField::eventFilter(QObject *object, QEvent *event)
 {
     if (event->type() == QEvent::FocusIn)
     {
@@ -113,17 +113,17 @@ bool DigiByteAmountField::eventFilter(QObject *object, QEvent *event)
     return QWidget::eventFilter(object, event);
 }
 
-QWidget *DigiByteAmountField::setupTabChain(QWidget *prev)
+QWidget *NautiluscoinAmountField::setupTabChain(QWidget *prev)
 {
     QWidget::setTabOrder(prev, amount);
     QWidget::setTabOrder(amount, unit);
     return unit;
 }
 
-qint64 DigiByteAmountField::value(bool *valid_out) const
+qint64 NautiluscoinAmountField::value(bool *valid_out) const
 {
     qint64 val_out = 0;
-    bool valid = DigiByteUnits::parse(currentUnit, text(), &val_out);
+    bool valid = NautiluscoinUnits::parse(currentUnit, text(), &val_out);
     if (valid_out)
     {
         *valid_out = valid;
@@ -131,24 +131,24 @@ qint64 DigiByteAmountField::value(bool *valid_out) const
     return val_out;
 }
 
-void DigiByteAmountField::setValue(qint64 value)
+void NautiluscoinAmountField::setValue(qint64 value)
 {
-    setText(DigiByteUnits::format(currentUnit, value));
+    setText(NautiluscoinUnits::format(currentUnit, value));
 }
 
-void DigiByteAmountField::setReadOnly(bool fReadOnly)
+void NautiluscoinAmountField::setReadOnly(bool fReadOnly)
 {
     amount->setReadOnly(fReadOnly);
     unit->setEnabled(!fReadOnly);
 }
 
-void DigiByteAmountField::unitChanged(int idx)
+void NautiluscoinAmountField::unitChanged(int idx)
 {
     // Use description tooltip for current unit for the combobox
     unit->setToolTip(unit->itemData(idx, Qt::ToolTipRole).toString());
 
     // Determine new unit ID
-    int newUnit = unit->itemData(idx, DigiByteUnits::UnitRole).toInt();
+    int newUnit = unit->itemData(idx, NautiluscoinUnits::UnitRole).toInt();
 
     // Parse current value and convert to new unit
     bool valid = false;
@@ -157,9 +157,9 @@ void DigiByteAmountField::unitChanged(int idx)
     currentUnit = newUnit;
 
     // Set max length after retrieving the value, to prevent truncation
-    amount->setDecimals(DigiByteUnits::decimals(currentUnit));
-    amount->setMaximum(qPow(10, DigiByteUnits::amountDigits(currentUnit)) - qPow(10, -amount->decimals()));
-    amount->setSingleStep((double)nSingleStep / (double)DigiByteUnits::factor(currentUnit));
+    amount->setDecimals(NautiluscoinUnits::decimals(currentUnit));
+    amount->setMaximum(qPow(10, NautiluscoinUnits::amountDigits(currentUnit)) - qPow(10, -amount->decimals()));
+    amount->setSingleStep((double)nSingleStep / (double)NautiluscoinUnits::factor(currentUnit));
 
     if (valid)
     {
@@ -174,12 +174,12 @@ void DigiByteAmountField::unitChanged(int idx)
     setValid(true);
 }
 
-void DigiByteAmountField::setDisplayUnit(int newUnit)
+void NautiluscoinAmountField::setDisplayUnit(int newUnit)
 {
     unit->setValue(newUnit);
 }
 
-void DigiByteAmountField::setSingleStep(qint64 step)
+void NautiluscoinAmountField::setSingleStep(qint64 step)
 {
     nSingleStep = step;
     unitChanged(unit->currentIndex());

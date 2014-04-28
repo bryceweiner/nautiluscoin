@@ -1,4 +1,4 @@
-test_digibyte_qt-uritests.o: uritests.cpp uritests.h \
+test_nautiluscoin_qt-uritests.o: uritests.cpp uritests.h \
  /usr/include/qt4/QtCore/QObject /usr/include/qt4/QtCore/qobject.h \
  /usr/include/qt4/QtCore/qobjectdefs.h \
  /usr/include/qt4/QtCore/qnamespace.h /usr/include/qt4/QtCore/qglobal.h \
@@ -454,7 +454,7 @@ test_digibyte_qt-uritests.o: uritests.cpp uritests.h \
  /usr/include/boost/utility/swap.hpp \
  /usr/include/boost/type_traits/is_fundamental.hpp ../../../src/uint256.h \
  ../../../src/version.h ../../../src/clientversion.h \
- ../../../src/digibyte-config.h /usr/include/openssl/bn.h \
+ ../../../src/nautiluscoin-config.h /usr/include/openssl/bn.h \
  ../../../src/chainparams.h ../../../src/hash.h \
  /usr/include/openssl/ripemd.h /usr/include/openssl/sha.h \
  ../../../src/key.h ../../../src/script.h ../../../src/util.h \
@@ -2004,7 +2004,7 @@ uritests.h:
 
 ../../../src/clientversion.h:
 
-../../../src/digibyte-config.h:
+../../../src/nautiluscoin-config.h:
 
 /usr/include/openssl/bn.h:
 

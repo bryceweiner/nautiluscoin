@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The DigiByte developers
+// Copyright (c) 2009-2014 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -27,7 +27,7 @@ using namespace std;
 using namespace boost;
 
 #if defined(NDEBUG)
-# error "DigiByte cannot be compiled without assertions."
+# error "Nautiluscoin cannot be compiled without assertions."
 #endif
 
 //
@@ -71,7 +71,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "DigiByte Signed Message:\n";
+const string strMessageMagic = "Nautiluscoin Signed Message:\n";
 
 // Internal stuff
 namespace {
@@ -1094,7 +1094,7 @@ void static PruneOrphanBlocks()
 static const int64_t nDiffChangeTarget = 67200; // Patch effective @ block 67200
 static const int64_t patchBlockRewardDuration = 10080; // 10080 blocks main net change
 
-int64_t GetDGBSubsidy(int nHeight) {
+int64_t GetPHISubsidy(int nHeight) {
    // thanks to RealSolid & WDC for helping out with this code
    int64_t qSubsidy = 8000*COIN;
    int blocks = nHeight - nDiffChangeTarget;
@@ -1124,10 +1124,10 @@ int64_t GetBlockValue(int nHeight, int64_t nFees)
       
    } else {
       //patch takes effect after 67,200 blocks solved
-      nSubsidy = GetDGBSubsidy(nHeight);
+      nSubsidy = GetPHISubsidy(nHeight);
    }
 
-   //make sure the reward is at least 1 DGB
+   //make sure the reward is at least 1 PHI
    if(nSubsidy < COIN) {
       nSubsidy = COIN;
    }
@@ -1224,7 +1224,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
         return pindexLast->nBits;
     }
 
-    // DigiByte: This fixes an issue where a 51% attack can change difficulty at will.
+    // Nautiluscoin: This fixes an issue where a 51% attack can change difficulty at will.
     // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
     blockstogoback = retargetInterval-1;
     if ((pindexLast->nHeight+1) != retargetInterval) blockstogoback = retargetInterval;
@@ -1697,7 +1697,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("digibyte-scriptch");
+    RenameThread("nautiluscoin-scriptch");
     scriptcheckqueue.Thread();
 }
 

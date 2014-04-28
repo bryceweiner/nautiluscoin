@@ -3,13 +3,13 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About DigiByte Core</source>
-        <translation>À propos de DigiByte Core</translation>
+        <source>About Nautiluscoin Core</source>
+        <translation>À propos de Nautiluscoin Core</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;DigiByte Core&lt;/b&gt; version</source>
-        <translation>Version de &lt;b&gt;DigiByte Core&lt;/b&gt; </translation>
+        <source>&lt;b&gt;Nautiluscoin Core&lt;/b&gt; version</source>
+        <translation>Version de &lt;b&gt;Nautiluscoin Core&lt;/b&gt; </translation>
     </message>
     <message>
         <location line="+57"/>
@@ -33,8 +33,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+0"/>
-        <source>The DigiByte Core developers</source>
-        <translation>Les développeurs DigiByte Core</translation>
+        <source>The Nautiluscoin Core developers</source>
+        <translation>Les développeurs Nautiluscoin Core</translation>
     </message>
 </context>
 <context>
@@ -121,13 +121,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+7"/>
-        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Voici vos adresses DigiByte pour envoyer des paiements. Vérifiez toujours le montant et l&apos;adresse du destinataire avant d&apos;envoyer des pièces.</translation>
+        <source>These are your Nautiluscoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Voici vos adresses Nautiluscoin pour envoyer des paiements. Vérifiez toujours le montant et l&apos;adresse du destinataire avant d&apos;envoyer des pièces.</translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Voici vos adresses DigiByte pour recevoir des paiements. Il est recommandé d&apos;utiliser une nouvelle adresse de réception pour chaque transaction.</translation>
+        <source>These are your Nautiluscoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Voici vos adresses Nautiluscoin pour recevoir des paiements. Il est recommandé d&apos;utiliser une nouvelle adresse de réception pour chaque transaction.</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -274,8 +274,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-56"/>
-        <source>DigiByte will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
-        <translation>DigiByte va à présent se fermer pour terminer le chiffrement. N&apos;oubliez pas que le chiffrement de votre portefeuille n&apos;est pas une protection totale contre le vol par des logiciels malveillants qui infecteraient votre ordinateur.</translation>
+        <source>Nautiluscoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your nautiluscoins from being stolen by malware infecting your computer.</source>
+        <translation>Nautiluscoin va à présent se fermer pour terminer le chiffrement. N&apos;oubliez pas que le chiffrement de votre portefeuille n&apos;est pas une protection totale contre le vol par des logiciels malveillants qui infecteraient votre ordinateur.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -320,9 +320,9 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
 </context>
 <context>
-    <name>DigiByteGUI</name>
+    <name>NautiluscoinGUI</name>
     <message>
-        <location filename="../digibytegui.cpp" line="+295"/>
+        <location filename="../nautiluscoingui.cpp" line="+295"/>
         <source>Sign &amp;message...</source>
         <translation>&amp;Signer le message...</translation>
     </message>
@@ -368,8 +368,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+7"/>
-        <source>Show information about DigiByte</source>
-        <translation>Afficher des informations à propos de DigiByte</translation>
+        <source>Show information about Nautiluscoin</source>
+        <translation>Afficher des informations à propos de Nautiluscoin</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -429,13 +429,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-405"/>
-        <source>Send coins to a DigiByte address</source>
-        <translation>Envoyer des pièces à une adresse DigiByte</translation>
+        <source>Send coins to a Nautiluscoin address</source>
+        <translation>Envoyer des pièces à une adresse Nautiluscoin</translation>
     </message>
     <message>
         <location line="+49"/>
-        <source>Modify configuration options for DigiByte</source>
-        <translation>Modifier les options de configuration de DigiByte</translation>
+        <source>Modify configuration options for Nautiluscoin</source>
+        <translation>Modifier les options de configuration de Nautiluscoin</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -464,8 +464,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+430"/>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Nautiluscoin</source>
+        <translation>Nautiluscoin</translation>
     </message>
     <message>
         <location line="-643"/>
@@ -500,13 +500,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your DigiByte addresses to prove you own them</source>
-        <translation>Signer les messages avec vos adresses DigiByte pour prouver que vous les détenez</translation>
+        <source>Sign messages with your Nautiluscoin addresses to prove you own them</source>
+        <translation>Signer les messages avec vos adresses Nautiluscoin pour prouver que vous les détenez</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
-        <translation>Vérifier les messages pour vous assurer qu&apos;ils ont été signés avec les adresses DigiByte spécifiées</translation>
+        <source>Verify messages to ensure they were signed with specified Nautiluscoin addresses</source>
+        <translation>Vérifier les messages pour vous assurer qu&apos;ils ont été signés avec les adresses Nautiluscoin spécifiées</translation>
     </message>
     <message>
         <location line="+48"/>
@@ -536,19 +536,19 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-401"/>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
+        <source>Nautiluscoin Core</source>
+        <translation>Nautiluscoin Core</translation>
     </message>
     <message>
         <location line="+163"/>
-        <source>Request payments (generates QR codes and digibyte: URIs)</source>
-        <translation>Demander des paiements (génère des codes QR et des URIs digibyte:)</translation>
+        <source>Request payments (generates QR codes and nautiluscoin: URIs)</source>
+        <translation>Demander des paiements (génère des codes QR et des URIs nautiluscoin:)</translation>
     </message>
     <message>
         <location line="+29"/>
         <location line="+2"/>
-        <source>&amp;About DigiByte Core</source>
-        <translation>À &amp;propos de DigiByte Core</translation>
+        <source>&amp;About Nautiluscoin Core</source>
+        <translation>À &amp;propos de Nautiluscoin Core</translation>
     </message>
     <message>
         <location line="+35"/>
@@ -562,8 +562,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+3"/>
-        <source>Open a digibyte: URI or payment request</source>
-        <translation>Ouvrir un URI digibyte: ou une demande de paiement</translation>
+        <source>Open a nautiluscoin: URI or payment request</source>
+        <translation>Ouvrir un URI nautiluscoin: ou une demande de paiement</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -572,19 +572,19 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+1"/>
-        <source>Show the DigiByte Core help message to get a list with possible DigiByte command-line options</source>
-        <translation>Afficher le message d&apos;aide de DigiByte Core pour obtenir une liste des options de ligne de commande DigiByte possibles.</translation>
+        <source>Show the Nautiluscoin Core help message to get a list with possible Nautiluscoin command-line options</source>
+        <translation>Afficher le message d&apos;aide de Nautiluscoin Core pour obtenir une liste des options de ligne de commande Nautiluscoin possibles.</translation>
     </message>
     <message>
         <location line="+159"/>
         <location line="+5"/>
-        <source>DigiByte client</source>
-        <translation>Client DigiByte</translation>
+        <source>Nautiluscoin client</source>
+        <translation>Client Nautiluscoin</translation>
     </message>
     <message numerus="yes">
         <location line="+142"/>
-        <source>%n active connection(s) to DigiByte network</source>
-        <translation><numerusform>%n connexion active avec le réseau DigiByte</numerusform><numerusform>%n connexions actives avec le réseau DigiByte</numerusform></translation>
+        <source>%n active connection(s) to Nautiluscoin network</source>
+        <translation><numerusform>%n connexion active avec le réseau Nautiluscoin</numerusform><numerusform>%n connexions actives avec le réseau Nautiluscoin</numerusform></translation>
     </message>
     <message>
         <location line="+22"/>
@@ -690,9 +690,9 @@ Adresse : %4
         <translation>Le portefeuille est &lt;b&gt;chiffré&lt;/b&gt; et actuellement &lt;b&gt;verrouillé&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../digibyte.cpp" line="+438"/>
-        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
-        <translation>Une erreur fatale est survenue. DigiByte ne peut plus continuer de façon sûre et va s&apos;arrêter.</translation>
+        <location filename="../nautiluscoin.cpp" line="+438"/>
+        <source>A fatal error occurred. Nautiluscoin can no longer continue safely and will quit.</source>
+        <translation>Une erreur fatale est survenue. Nautiluscoin ne peut plus continuer de façon sûre et va s&apos;arrêter.</translation>
     </message>
 </context>
 <context>
@@ -1049,8 +1049,8 @@ Adresse : %4
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid DigiByte address.</source>
-        <translation>L&apos;adresse fournie « %1 » n&apos;est pas une adresse DigiByte valide.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Nautiluscoin address.</source>
+        <translation>L&apos;adresse fournie « %1 » n&apos;est pas une adresse Nautiluscoin valide.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1095,13 +1095,13 @@ Adresse : %4
     <name>HelpMessageDialog</name>
     <message>
         <location filename="../forms/helpmessagedialog.ui" line="+19"/>
-        <source>DigiByte Core - Command-line options</source>
-        <translation>DigiByte Core - Options de ligne de commande</translation>
+        <source>Nautiluscoin Core - Command-line options</source>
+        <translation>Nautiluscoin Core - Options de ligne de commande</translation>
     </message>
     <message>
         <location filename="../utilitydialog.cpp" line="+38"/>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
+        <source>Nautiluscoin Core</source>
+        <translation>Nautiluscoin Core</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1153,18 +1153,18 @@ Adresse : %4
     </message>
     <message>
         <location line="+9"/>
-        <source>Welcome to DigiByte Core.</source>
-        <translation>Bienvenue à DigiByte Core.</translation>
+        <source>Welcome to Nautiluscoin Core.</source>
+        <translation>Bienvenue à Nautiluscoin Core.</translation>
     </message>
     <message>
         <location line="+26"/>
-        <source>As this is the first time the program is launched, you can choose where DigiByte Core will store its data.</source>
-        <translation>Comme c&apos;est la première fois que le logiciel est lancé, vous pouvez choisir où DigiByte Core stockera ses données.</translation>
+        <source>As this is the first time the program is launched, you can choose where Nautiluscoin Core will store its data.</source>
+        <translation>Comme c&apos;est la première fois que le logiciel est lancé, vous pouvez choisir où Nautiluscoin Core stockera ses données.</translation>
     </message>
     <message>
         <location line="+10"/>
-        <source>DigiByte Core will download and store a copy of the DigiByte block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>DigiByte Core va télécharger et stocker une copie de la chaîne de blocs DigiByte. Au moins %1Go de données seront stockées dans ce répertoire et cela augmentera avec le temps. Le portefeuille sera également stocké dans ce répertoire.</translation>
+        <source>Nautiluscoin Core will download and store a copy of the Nautiluscoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Nautiluscoin Core va télécharger et stocker une copie de la chaîne de blocs Nautiluscoin. Au moins %1Go de données seront stockées dans ce répertoire et cela augmentera avec le temps. Le portefeuille sera également stocké dans ce répertoire.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1178,8 +1178,8 @@ Adresse : %4
     </message>
     <message>
         <location filename="../intro.cpp" line="+85"/>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Nautiluscoin</source>
+        <translation>Nautiluscoin</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1254,13 +1254,13 @@ Adresse : %4
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start DigiByte after logging in to the system.</source>
-        <translation>Démarrer DigiByte automatiquement après avoir ouvert une session sur l&apos;ordinateur.</translation>
+        <source>Automatically start Nautiluscoin after logging in to the system.</source>
+        <translation>Démarrer Nautiluscoin automatiquement après avoir ouvert une session sur l&apos;ordinateur.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start DigiByte on system login</source>
-        <translation>&amp;Démarrer DigiByte lors de l&apos;ouverture d&apos;une session</translation>
+        <source>&amp;Start Nautiluscoin on system login</source>
+        <translation>&amp;Démarrer Nautiluscoin lors de l&apos;ouverture d&apos;une session</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -1289,8 +1289,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+58"/>
-        <source>Connect to the DigiByte network through a SOCKS proxy.</source>
-        <translation>Se connecter au réseau DigiByte par un mandataire SOCKS.</translation>
+        <source>Connect to the Nautiluscoin network through a SOCKS proxy.</source>
+        <translation>Se connecter au réseau Nautiluscoin par un mandataire SOCKS.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1324,8 +1324,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Ouvrir le port du client DigiByte automatiquement sur le routeur. Ceci ne fonctionne que si votre routeur supporte l&apos;UPnP et si la fonctionnalité est activée.</translation>
+        <source>Automatically open the Nautiluscoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Ouvrir le port du client Nautiluscoin automatiquement sur le routeur. Ceci ne fonctionne que si votre routeur supporte l&apos;UPnP et si la fonctionnalité est activée.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1394,8 +1394,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting DigiByte.</source>
-        <translation>La langue de l&apos;interface utilisateur peut être définie ici. Ce réglage sera pris en compte après redémarrage de DigiByte.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Nautiluscoin.</source>
+        <translation>La langue de l&apos;interface utilisateur peut être définie ici. Ce réglage sera pris en compte après redémarrage de Nautiluscoin.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1409,8 +1409,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show DigiByte addresses in the transaction list or not.</source>
-        <translation>Détermine si les adresses DigiByte seront affichées sur la liste des transactions.</translation>
+        <source>Whether to show Nautiluscoin addresses in the transaction list or not.</source>
+        <translation>Détermine si les adresses Nautiluscoin seront affichées sur la liste des transactions.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1484,8 +1484,8 @@ Adresse : %4
     <message>
         <location line="+50"/>
         <location line="+231"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
-        <translation>Les informations affichées peuvent être obsolètes. Votre portefeuille est automatiquement synchronisé avec le réseau DigiByte lorsque la connexion s&apos;établit, or ce processus n&apos;est pas encore terminé.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Nautiluscoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Les informations affichées peuvent être obsolètes. Votre portefeuille est automatiquement synchronisé avec le réseau Nautiluscoin lorsque la connexion s&apos;établit, or ce processus n&apos;est pas encore terminé.</translation>
     </message>
     <message>
         <location line="-155"/>
@@ -1554,8 +1554,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+1"/>
-        <source>URI can not be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
-        <translation>L&apos;URI ne peut être analysé ! Ceci peut être causé par une adresse DigiByte invalide ou par des paramètres d&apos;URI mal composé.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid Nautiluscoin address or malformed URI parameters.</source>
+        <translation>L&apos;URI ne peut être analysé ! Ceci peut être causé par une adresse Nautiluscoin invalide ou par des paramètres d&apos;URI mal composé.</translation>
     </message>
     <message>
         <location line="+96"/>
@@ -1574,8 +1574,8 @@ Adresse : %4
     </message>
     <message>
         <location line="-353"/>
-        <source>Cannot start digibyte: click-to-pay handler</source>
-        <translation>Impossible de démarrer le gestionnaire de cliquer-pour-payer digibyte :</translation>
+        <source>Cannot start nautiluscoin: click-to-pay handler</source>
+        <translation>Impossible de démarrer le gestionnaire de cliquer-pour-payer nautiluscoin :</translation>
     </message>
     <message>
         <location line="+58"/>
@@ -1641,10 +1641,10 @@ Adresse : %4
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../digibyte.cpp" line="+71"/>
+        <location filename="../nautiluscoin.cpp" line="+71"/>
         <location line="+11"/>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Nautiluscoin</source>
+        <translation>Nautiluscoin</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1814,8 +1814,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the DigiByte debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Ouvrir le journal de débogage de DigiByte depuis le répertoire de données actuel. Ceci peut prendre quelques secondes pour les journaux de grande taille.</translation>
+        <source>Open the Nautiluscoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Ouvrir le journal de débogage de Nautiluscoin depuis le répertoire de données actuel. Ceci peut prendre quelques secondes pour les journaux de grande taille.</translation>
     </message>
     <message>
         <location line="+76"/>
@@ -1824,8 +1824,8 @@ Adresse : %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
-        <source>Welcome to the DigiByte RPC console.</source>
-        <translation>Bienvenue sur la console RPC de DigiByte.</translation>
+        <source>Welcome to the Nautiluscoin RPC console.</source>
+        <translation>Bienvenue sur la console RPC de Nautiluscoin.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1907,8 +1907,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+7"/>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
-        <translation>Un message optionnel à joindre à la demande de paiement qui sera affiché à l&apos;ouverture de celle-ci. Note : le message ne sera pas envoyé avec le paiement par le réseau DigiByte.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Nautiluscoin network.</source>
+        <translation>Un message optionnel à joindre à la demande de paiement qui sera affiché à l&apos;ouverture de celle-ci. Note : le message ne sera pas envoyé avec le paiement par le réseau Nautiluscoin.</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -2191,8 +2191,8 @@ Adresse : %4
     </message>
     <message>
         <location line="-136"/>
-        <source>Enter a DigiByte address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Saisir une adresse DigiByte (par ex. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Nautiluscoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Saisir une adresse Nautiluscoin (par ex. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -2281,8 +2281,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+112"/>
-        <source>Warning: Invalid DigiByte address</source>
-        <translation>Attention : adresse DigiByte invalide</translation>
+        <source>Warning: Invalid Nautiluscoin address</source>
+        <translation>Attention : adresse Nautiluscoin invalide</translation>
     </message>
     <message>
         <location line="+21"/>
@@ -2383,8 +2383,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+10"/>
-        <source>A message that was attached to the DigiByte URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
-        <translation>Un message qui était joint à l&apos;URI DigiByte et qui sera stocké avec la transaction pour référence. Note : ce message ne sera pas envoyé par le réseau DigiByte.</translation>
+        <source>A message that was attached to the Nautiluscoin URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Nautiluscoin network.</source>
+        <translation>Un message qui était joint à l&apos;URI Nautiluscoin et qui sera stocké avec la transaction pour référence. Note : ce message ne sera pas envoyé par le réseau Nautiluscoin.</translation>
     </message>
     <message>
         <location line="+958"/>
@@ -2415,16 +2415,16 @@ Adresse : %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a DigiByte address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Saisir une adresse DigiByte (par ex. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Nautiluscoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Saisir une adresse Nautiluscoin (par ex. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
 </context>
 <context>
     <name>ShutdownWindow</name>
     <message>
         <location filename="../utilitydialog.cpp" line="+48"/>
-        <source>DigiByte Core is shutting down...</source>
-        <translation>Arrêt de DigiByte Core...</translation>
+        <source>Nautiluscoin Core is shutting down...</source>
+        <translation>Arrêt de Nautiluscoin Core...</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2493,8 +2493,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this DigiByte address</source>
-        <translation>Signer le message pour prouver que vous détenez cette adresse DigiByte</translation>
+        <source>Sign the message to prove you own this Nautiluscoin address</source>
+        <translation>Signer le message pour prouver que vous détenez cette adresse Nautiluscoin</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2529,8 +2529,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
-        <translation>Vérifier le message pour vous assurer qu&apos;il a bien été signé par l&apos;adresse DigiByte spécifiée</translation>
+        <source>Verify the message to ensure it was signed with the specified Nautiluscoin address</source>
+        <translation>Vérifier le message pour vous assurer qu&apos;il a bien été signé par l&apos;adresse Nautiluscoin spécifiée</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2545,8 +2545,8 @@ Adresse : %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+29"/>
         <location line="+3"/>
-        <source>Enter a DigiByte address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Saisir une adresse DigiByte (par ex. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Nautiluscoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Saisir une adresse Nautiluscoin (par ex. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -2555,8 +2555,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter DigiByte signature</source>
-        <translation>Saisir une signature DigiByte</translation>
+        <source>Enter Nautiluscoin signature</source>
+        <translation>Saisir une signature Nautiluscoin</translation>
     </message>
     <message>
         <location line="+84"/>
@@ -2629,13 +2629,13 @@ Adresse : %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+28"/>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
+        <source>Nautiluscoin Core</source>
+        <translation>Nautiluscoin Core</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>The DigiByte Core developers</source>
-        <translation>Les développeurs DigiByte Core</translation>
+        <source>The Nautiluscoin Core developers</source>
+        <translation>Les développeurs Nautiluscoin Core</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3202,9 +3202,9 @@ Adresse : %4
     </message>
 </context>
 <context>
-    <name>digibyte-core</name>
+    <name>nautiluscoin-core</name>
     <message>
-        <location filename="../digibytestrings.cpp" line="+221"/>
+        <location filename="../nautiluscoinstrings.cpp" line="+221"/>
         <source>Usage:</source>
         <translation>Utilisation :</translation>
     </message>
@@ -3225,13 +3225,13 @@ Adresse : %4
     </message>
     <message>
         <location line="+22"/>
-        <source>Specify configuration file (default: digibyte.conf)</source>
-        <translation>Spécifier le fichier de configuration (par défaut : digibyte.conf)</translation>
+        <source>Specify configuration file (default: nautiluscoin.conf)</source>
+        <translation>Spécifier le fichier de configuration (par défaut : nautiluscoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: digibyted.pid)</source>
-        <translation>Spécifier le fichier PID (par défaut : digibyted.pid)</translation>
+        <source>Specify pid file (default: nautiluscoind.pid)</source>
+        <translation>Spécifier le fichier PID (par défaut : nautiluscoind.pid)</translation>
     </message>
     <message>
         <location line="-1"/>
@@ -3308,24 +3308,24 @@ Adresse : %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=digibyterpc
+rpcuser=nautiluscoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Nautiluscoin Alert&quot; admin@foo.com
 </source>
         <translation>%s, vous devez définir un mot de passe rpc dans le fichier de configuration : 
 %s
 Il vous est conseillé d&apos;utiliser le mot de passe aléatoire suivant :
-rpcuser=digibyterpc
+rpcuser=nautiluscoinrpc
 rpcpassword=%s
 (vous n&apos;avez pas besoin de retenir ce mot de passe)
 Le nom d&apos;utilisateur et le mot de passe NE DOIVENT PAS être identiques.
 Si le fichier n&apos;existe pas, créez-le avec les droits de lecture accordés au propriétaire.
 Il est aussi conseillé de régler alertnotify pour être prévenu des problèmes ;
-par exemple : alertnotify=echo %%s | mail -s &quot;Alerte DigiByte&quot; admin@foo.com
+par exemple : alertnotify=echo %%s | mail -s &quot;Alerte Nautiluscoin&quot; admin@foo.com
 </translation>
     </message>
     <message>
@@ -3345,8 +3345,8 @@ par exemple : alertnotify=echo %%s | mail -s &quot;Alerte DigiByte&quot; admin@f
     </message>
     <message>
         <location line="+3"/>
-        <source>Cannot obtain a lock on data directory %s. DigiByte is probably already running.</source>
-        <translation>Impossible d’obtenir un verrou sur le répertoire de données %s. DigiByte fonctionne probablement déjà.</translation>
+        <source>Cannot obtain a lock on data directory %s. Nautiluscoin is probably already running.</source>
+        <translation>Impossible d’obtenir un verrou sur le répertoire de données %s. Nautiluscoin fonctionne probablement déjà.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3390,8 +3390,8 @@ par exemple : alertnotify=echo %%s | mail -s &quot;Alerte DigiByte&quot; admin@f
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong DigiByte will not work properly.</source>
-        <translation>Attention : Veuillez vérifier que la date et l&apos;heure de votre ordinateur sont justes ! Si votre horloge n&apos;est pas à l&apos;heure, DigiByte ne fonctionnera pas correctement.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Nautiluscoin will not work properly.</source>
+        <translation>Attention : Veuillez vérifier que la date et l&apos;heure de votre ordinateur sont justes ! Si votre horloge n&apos;est pas à l&apos;heure, Nautiluscoin ne fonctionnera pas correctement.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3425,13 +3425,13 @@ par exemple : alertnotify=echo %%s | mail -s &quot;Alerte DigiByte&quot; admin@f
     </message>
     <message>
         <location line="+1"/>
-        <source>DigiByte Core Daemon</source>
-        <translation>Démon DigiByte Core</translation>
+        <source>Nautiluscoin Core Daemon</source>
+        <translation>Démon Nautiluscoin Core</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>DigiByte RPC client version</source>
-        <translation>Version du client RPC DigiByte</translation>
+        <source>Nautiluscoin RPC client version</source>
+        <translation>Version du client RPC Nautiluscoin</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3630,8 +3630,8 @@ par exemple : alertnotify=echo %%s | mail -s &quot;Alerte DigiByte&quot; admin@f
     </message>
     <message>
         <location line="+1"/>
-        <source>Send command to DigiByte server</source>
-        <translation>Envoyer une commande au serveur DigiByte</translation>
+        <source>Send command to Nautiluscoin server</source>
+        <translation>Envoyer une commande au serveur Nautiluscoin</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -3650,8 +3650,8 @@ par exemple : alertnotify=echo %%s | mail -s &quot;Alerte DigiByte&quot; admin@f
     </message>
     <message>
         <location line="+2"/>
-        <source>Start DigiByte server</source>
-        <translation>Démarrer le serveur DigiByte</translation>
+        <source>Start Nautiluscoin server</source>
+        <translation>Démarrer le serveur Nautiluscoin</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3660,8 +3660,8 @@ par exemple : alertnotify=echo %%s | mail -s &quot;Alerte DigiByte&quot; admin@f
     </message>
     <message>
         <location line="+10"/>
-        <source>Usage (deprecated, use digibyte-cli):</source>
-        <translation>Utilisation (obsolète, utiliser digibyte-cli) :</translation>
+        <source>Usage (deprecated, use nautiluscoin-cli):</source>
+        <translation>Utilisation (obsolète, utiliser nautiluscoin-cli) :</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -3765,8 +3765,8 @@ par exemple : alertnotify=echo %%s | mail -s &quot;Alerte DigiByte&quot; admin@f
     </message>
     <message>
         <location line="+9"/>
-        <source>SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
-        <translation>Options SSL : (voir le Wiki de DigiByte pour les instructions de configuration du SSL)</translation>
+        <source>SSL options: (see the Nautiluscoin Wiki for SSL setup instructions)</source>
+        <translation>Options SSL : (voir le Wiki de Nautiluscoin pour les instructions de configuration du SSL)</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -3925,13 +3925,13 @@ par exemple : alertnotify=echo %%s | mail -s &quot;Alerte DigiByte&quot; admin@f
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of DigiByte</source>
-        <translation>Erreur lors du chargement de wallet.dat : le portefeuille exige une version plus récente de DigiByte</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Nautiluscoin</source>
+        <translation>Erreur lors du chargement de wallet.dat : le portefeuille exige une version plus récente de Nautiluscoin</translation>
     </message>
     <message>
         <location line="+98"/>
-        <source>Wallet needed to be rewritten: restart DigiByte to complete</source>
-        <translation>Le portefeuille devait être réécrit : redémarrer DigiByte pour terminer l&apos;opération.</translation>
+        <source>Wallet needed to be rewritten: restart Nautiluscoin to complete</source>
+        <translation>Le portefeuille devait être réécrit : redémarrer Nautiluscoin pour terminer l&apos;opération.</translation>
     </message>
     <message>
         <location line="-100"/>
@@ -3990,8 +3990,8 @@ par exemple : alertnotify=echo %%s | mail -s &quot;Alerte DigiByte&quot; admin@f
     </message>
     <message>
         <location line="-32"/>
-        <source>Unable to bind to %s on this computer. DigiByte is probably already running.</source>
-        <translation>Impossible de se lier à %s sur cet ordinateur. DigiByte fonctionne probablement déjà.</translation>
+        <source>Unable to bind to %s on this computer. Nautiluscoin is probably already running.</source>
+        <translation>Impossible de se lier à %s sur cet ordinateur. Nautiluscoin fonctionne probablement déjà.</translation>
     </message>
     <message>
         <location line="+95"/>

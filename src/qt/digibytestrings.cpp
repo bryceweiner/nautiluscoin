@@ -8,235 +8,235 @@
 #else
 #define UNUSED
 #endif
-static const char UNUSED *digibyte_strings[] = {
-QT_TRANSLATE_NOOP("digibyte-core", ""
+static const char UNUSED *nautiluscoin_strings[] = {
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "%s, you must set a rpcpassword in the configuration file:\n"
 "%s\n"
 "It is recommended you use the following random password:\n"
-"rpcuser=digibyterpc\n"
+"rpcuser=nautiluscoinrpc\n"
 "rpcpassword=%s\n"
 "(you do not need to remember this password)\n"
 "The username and password MUST NOT be the same.\n"
 "If the file does not exist, create it with owner-readable-only file "
 "permissions.\n"
 "It is also recommended to set alertnotify so you are notified of problems;\n"
-"for example: alertnotify=echo %%s | mail -s \"DigiByte Alert\" admin@foo.com\n"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+"for example: alertnotify=echo %%s | mail -s \"Nautiluscoin Alert\" admin@foo.com\n"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!"
 "3DES:@STRENGTH)"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "An error occurred while setting up the RPC port %u for listening on IPv4: %s"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "An error occurred while setting up the RPC port %u for listening on IPv6, "
 "falling back to IPv4: %s"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Bind to given address and always listen on it. Use [host]:port notation for "
 "IPv6"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
-"Cannot obtain a lock on data directory %s. DigiByte is probably already "
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
+"Cannot obtain a lock on data directory %s. Nautiluscoin is probably already "
 "running."),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Enter regression test mode, which uses a special chain in which blocks can "
 "be solved instantly. This is intended for regression testing tools and app "
 "development."),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Enter regression test mode, which uses a special chain in which blocks can "
 "be solved instantly."),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Error: The transaction was rejected! This might happen if some of the coins "
 "in your wallet were already spent, such as if you used a copy of wallet.dat "
 "and coins were spent in the copy but not marked as spent here."),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Error: This transaction requires a transaction fee of at least %s because of "
 "its amount, complexity, or use of recently received funds!"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Execute command when a relevant alert is received or we see a really long "
 "fork (%s in cmd is replaced by message)"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Execute command when a wallet transaction changes (%s in cmd is replaced by "
 "TxID)"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Execute command when the best block changes (%s in cmd is replaced by block "
 "hash)"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Listen for JSON-RPC connections on <port> (default: 8332 or testnet: 18332)"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Number of seconds to keep misbehaving peers from reconnecting (default: "
 "86400)"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Output debugging information (default: 0, supplying <category> is optional)"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Set maximum size of high-priority/low-fee transactions in bytes (default: %d)"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Set the number of script verification threads (up to 16, 0 = auto, <0 = "
 "leave that many cores free, default: 0)"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "This is a pre-release test build - use at your own risk - do not use for "
 "mining or merchant applications"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
-"Unable to bind to %s on this computer. DigiByte is probably already running."),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
+"Unable to bind to %s on this computer. Nautiluscoin is probably already running."),
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: -"
 "proxy)"),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Warning: -paytxfee is set very high! This is the transaction fee you will "
 "pay if you send a transaction."),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Warning: Please check that your computer's date and time are correct! If "
-"your clock is wrong DigiByte will not work properly."),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+"your clock is wrong Nautiluscoin will not work properly."),
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Warning: The network does not appear to fully agree! Some miners appear to "
 "be experiencing issues."),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Warning: We do not appear to fully agree with our peers! You may need to "
 "upgrade, or other nodes may need to upgrade."),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Warning: error reading wallet.dat! All keys read correctly, but transaction "
 "data or address book entries might be missing or incorrect."),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "Warning: wallet.dat corrupt, data salvaged! Original wallet.dat saved as "
 "wallet.{timestamp}.bak in %s; if your balance or transactions are incorrect "
 "you should restore from a backup."),
-QT_TRANSLATE_NOOP("digibyte-core", ""
+QT_TRANSLATE_NOOP("nautiluscoin-core", ""
 "You must set rpcpassword=<password> in the configuration file:\n"
 "%s\n"
 "If the file does not exist, create it with owner-readable-only file "
 "permissions."),
-QT_TRANSLATE_NOOP("digibyte-core", "<category> can be:"),
-QT_TRANSLATE_NOOP("digibyte-core", "Accept command line and JSON-RPC commands"),
-QT_TRANSLATE_NOOP("digibyte-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Add a node to connect to and attempt to keep the connection open"),
-QT_TRANSLATE_NOOP("digibyte-core", "Allow DNS lookups for -addnode, -seednode and -connect"),
-QT_TRANSLATE_NOOP("digibyte-core", "Allow JSON-RPC connections from specified IP address"),
-QT_TRANSLATE_NOOP("digibyte-core", "Attempt to recover private keys from a corrupt wallet.dat"),
-QT_TRANSLATE_NOOP("digibyte-core", "DigiByte Core Daemon"),
-QT_TRANSLATE_NOOP("digibyte-core", "DigiByte RPC client version"),
-QT_TRANSLATE_NOOP("digibyte-core", "Block creation options:"),
-QT_TRANSLATE_NOOP("digibyte-core", "Cannot downgrade wallet"),
-QT_TRANSLATE_NOOP("digibyte-core", "Cannot resolve -bind address: '%s'"),
-QT_TRANSLATE_NOOP("digibyte-core", "Cannot resolve -externalip address: '%s'"),
-QT_TRANSLATE_NOOP("digibyte-core", "Cannot write default address"),
-QT_TRANSLATE_NOOP("digibyte-core", "Clear list of wallet transactions (diagnostic tool; implies -rescan)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Connect only to the specified node(s)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Connect through SOCKS proxy"),
-QT_TRANSLATE_NOOP("digibyte-core", "Connect to JSON-RPC on <port> (default: 8332 or testnet: 18332)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Connect to a node to retrieve peer addresses, and disconnect"),
-QT_TRANSLATE_NOOP("digibyte-core", "Corrupted block database detected"),
-QT_TRANSLATE_NOOP("digibyte-core", "Discover own IP address (default: 1 when listening and no -externalip)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Do not load the wallet and disable wallet RPC calls"),
-QT_TRANSLATE_NOOP("digibyte-core", "Do you want to rebuild the block database now?"),
-QT_TRANSLATE_NOOP("digibyte-core", "Done loading"),
-QT_TRANSLATE_NOOP("digibyte-core", "Error initializing block database"),
-QT_TRANSLATE_NOOP("digibyte-core", "Error initializing wallet database environment %s!"),
-QT_TRANSLATE_NOOP("digibyte-core", "Error loading block database"),
-QT_TRANSLATE_NOOP("digibyte-core", "Error loading wallet.dat"),
-QT_TRANSLATE_NOOP("digibyte-core", "Error loading wallet.dat: Wallet corrupted"),
-QT_TRANSLATE_NOOP("digibyte-core", "Error loading wallet.dat: Wallet requires newer version of DigiByte"),
-QT_TRANSLATE_NOOP("digibyte-core", "Error opening block database"),
-QT_TRANSLATE_NOOP("digibyte-core", "Error"),
-QT_TRANSLATE_NOOP("digibyte-core", "Error: Disk space is low!"),
-QT_TRANSLATE_NOOP("digibyte-core", "Error: Wallet locked, unable to create transaction!"),
-QT_TRANSLATE_NOOP("digibyte-core", "Error: system error: "),
-QT_TRANSLATE_NOOP("digibyte-core", "Failed to listen on any port. Use -listen=0 if you want this."),
-QT_TRANSLATE_NOOP("digibyte-core", "Failed to read block info"),
-QT_TRANSLATE_NOOP("digibyte-core", "Failed to read block"),
-QT_TRANSLATE_NOOP("digibyte-core", "Failed to sync block index"),
-QT_TRANSLATE_NOOP("digibyte-core", "Failed to write block index"),
-QT_TRANSLATE_NOOP("digibyte-core", "Failed to write block info"),
-QT_TRANSLATE_NOOP("digibyte-core", "Failed to write block"),
-QT_TRANSLATE_NOOP("digibyte-core", "Failed to write file info"),
-QT_TRANSLATE_NOOP("digibyte-core", "Failed to write to coin database"),
-QT_TRANSLATE_NOOP("digibyte-core", "Failed to write transaction index"),
-QT_TRANSLATE_NOOP("digibyte-core", "Failed to write undo data"),
-QT_TRANSLATE_NOOP("digibyte-core", "Fee per kB to add to transactions you send"),
-QT_TRANSLATE_NOOP("digibyte-core", "Find peers using DNS lookup (default: 1 unless -connect)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Generate coins (default: 0)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Get help for a command"),
-QT_TRANSLATE_NOOP("digibyte-core", "How many blocks to check at startup (default: 288, 0 = all)"),
-QT_TRANSLATE_NOOP("digibyte-core", "How thorough the block verification is (0-4, default: 3)"),
-QT_TRANSLATE_NOOP("digibyte-core", "If <category> is not supplied, output all debugging information."),
-QT_TRANSLATE_NOOP("digibyte-core", "Imports blocks from external blk000??.dat file"),
-QT_TRANSLATE_NOOP("digibyte-core", "Incorrect or no genesis block found. Wrong datadir for network?"),
-QT_TRANSLATE_NOOP("digibyte-core", "Information"),
-QT_TRANSLATE_NOOP("digibyte-core", "Insufficient funds"),
-QT_TRANSLATE_NOOP("digibyte-core", "Invalid -onion address: '%s'"),
-QT_TRANSLATE_NOOP("digibyte-core", "Invalid -proxy address: '%s'"),
-QT_TRANSLATE_NOOP("digibyte-core", "Invalid amount for -minrelaytxfee=<amount>: '%s'"),
-QT_TRANSLATE_NOOP("digibyte-core", "Invalid amount for -mintxfee=<amount>: '%s'"),
-QT_TRANSLATE_NOOP("digibyte-core", "Invalid amount for -paytxfee=<amount>: '%s'"),
-QT_TRANSLATE_NOOP("digibyte-core", "Invalid amount"),
-QT_TRANSLATE_NOOP("digibyte-core", "List commands"),
-QT_TRANSLATE_NOOP("digibyte-core", "Listen for connections on <port> (default: 8333 or testnet: 18333)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Loading addresses..."),
-QT_TRANSLATE_NOOP("digibyte-core", "Loading block index..."),
-QT_TRANSLATE_NOOP("digibyte-core", "Loading wallet..."),
-QT_TRANSLATE_NOOP("digibyte-core", "Maintain a full transaction index (default: 0)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Maintain at most <n> connections to peers (default: 125)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Maximum per-connection receive buffer, <n>*1000 bytes (default: 5000)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Maximum per-connection send buffer, <n>*1000 bytes (default: 1000)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Not enough file descriptors available."),
-QT_TRANSLATE_NOOP("digibyte-core", "Only accept block chain matching built-in checkpoints (default: 1)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Only connect to nodes in network <net> (IPv4, IPv6 or Tor)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Options:"),
-QT_TRANSLATE_NOOP("digibyte-core", "Password for JSON-RPC connections"),
-QT_TRANSLATE_NOOP("digibyte-core", "Prepend debug output with timestamp (default: 1)"),
-QT_TRANSLATE_NOOP("digibyte-core", "RPC client options:"),
-QT_TRANSLATE_NOOP("digibyte-core", "Rebuild block chain index from current blk000??.dat files"),
-QT_TRANSLATE_NOOP("digibyte-core", "Rescan the block chain for missing wallet transactions"),
-QT_TRANSLATE_NOOP("digibyte-core", "Rescanning..."),
-QT_TRANSLATE_NOOP("digibyte-core", "Run in the background as a daemon and accept commands"),
-QT_TRANSLATE_NOOP("digibyte-core", "SSL options: (see the DigiByte Wiki for SSL setup instructions)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Select SOCKS version for -proxy (4 or 5, default: 5)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Send command to DigiByte server"),
-QT_TRANSLATE_NOOP("digibyte-core", "Send commands to node running on <ip> (default: 127.0.0.1)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Send trace/debug info to console instead of debug.log file"),
-QT_TRANSLATE_NOOP("digibyte-core", "Server certificate file (default: server.cert)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Server private key (default: server.pem)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Set database cache size in megabytes (default: 25)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Set key pool size to <n> (default: 100)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Set maximum block size in bytes (default: %d)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Set minimum block size in bytes (default: 0)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Set the number of threads to service RPC calls (default: 4)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Shrink debug.log file on client startup (default: 1 when no -debug)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Signing transaction failed"),
-QT_TRANSLATE_NOOP("digibyte-core", "Specify configuration file (default: digibyte.conf)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Specify connection timeout in milliseconds (default: 5000)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Specify data directory"),
-QT_TRANSLATE_NOOP("digibyte-core", "Specify pid file (default: digibyted.pid)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Specify wallet file (within data directory)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Specify your own public address"),
-QT_TRANSLATE_NOOP("digibyte-core", "Spend unconfirmed change when sending transactions (default: 1)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Start DigiByte server"),
-QT_TRANSLATE_NOOP("digibyte-core", "System error: "),
-QT_TRANSLATE_NOOP("digibyte-core", "This help message"),
-QT_TRANSLATE_NOOP("digibyte-core", "This is intended for regression testing tools and app development."),
-QT_TRANSLATE_NOOP("digibyte-core", "Threshold for disconnecting misbehaving peers (default: 100)"),
-QT_TRANSLATE_NOOP("digibyte-core", "To use the %s option"),
-QT_TRANSLATE_NOOP("digibyte-core", "Transaction amount too small"),
-QT_TRANSLATE_NOOP("digibyte-core", "Transaction amounts must be positive"),
-QT_TRANSLATE_NOOP("digibyte-core", "Transaction too large"),
-QT_TRANSLATE_NOOP("digibyte-core", "Unable to bind to %s on this computer (bind returned error %d, %s)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Unknown -socks proxy version requested: %i"),
-QT_TRANSLATE_NOOP("digibyte-core", "Unknown network specified in -onlynet: '%s'"),
-QT_TRANSLATE_NOOP("digibyte-core", "Upgrade wallet to latest format"),
-QT_TRANSLATE_NOOP("digibyte-core", "Usage (deprecated, use digibyte-cli):"),
-QT_TRANSLATE_NOOP("digibyte-core", "Usage:"),
-QT_TRANSLATE_NOOP("digibyte-core", "Use OpenSSL (https) for JSON-RPC connections"),
-QT_TRANSLATE_NOOP("digibyte-core", "Use UPnP to map the listening port (default: 0)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Use UPnP to map the listening port (default: 1 when listening)"),
-QT_TRANSLATE_NOOP("digibyte-core", "Use the test network"),
-QT_TRANSLATE_NOOP("digibyte-core", "Username for JSON-RPC connections"),
-QT_TRANSLATE_NOOP("digibyte-core", "Verifying blocks..."),
-QT_TRANSLATE_NOOP("digibyte-core", "Verifying wallet..."),
-QT_TRANSLATE_NOOP("digibyte-core", "Wait for RPC server to start"),
-QT_TRANSLATE_NOOP("digibyte-core", "Wallet %s resides outside data directory %s"),
-QT_TRANSLATE_NOOP("digibyte-core", "Wallet needed to be rewritten: restart DigiByte to complete"),
-QT_TRANSLATE_NOOP("digibyte-core", "Wallet options:"),
-QT_TRANSLATE_NOOP("digibyte-core", "Warning"),
-QT_TRANSLATE_NOOP("digibyte-core", "Warning: Deprecated argument -debugnet ignored, use -debug=net"),
-QT_TRANSLATE_NOOP("digibyte-core", "Warning: This version is obsolete, upgrade required!"),
-QT_TRANSLATE_NOOP("digibyte-core", "You need to rebuild the database using -reindex to change -txindex"),
-QT_TRANSLATE_NOOP("digibyte-core", "Zapping all transactions from wallet..."),
-QT_TRANSLATE_NOOP("digibyte-core", "version"),
-QT_TRANSLATE_NOOP("digibyte-core", "wallet.dat corrupt, salvage failed"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "<category> can be:"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Accept command line and JSON-RPC commands"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Add a node to connect to and attempt to keep the connection open"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Allow DNS lookups for -addnode, -seednode and -connect"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Allow JSON-RPC connections from specified IP address"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Attempt to recover private keys from a corrupt wallet.dat"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Nautiluscoin Core Daemon"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Nautiluscoin RPC client version"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Block creation options:"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Cannot downgrade wallet"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Cannot resolve -bind address: '%s'"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Cannot resolve -externalip address: '%s'"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Cannot write default address"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Clear list of wallet transactions (diagnostic tool; implies -rescan)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Connect only to the specified node(s)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Connect through SOCKS proxy"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Connect to JSON-RPC on <port> (default: 8332 or testnet: 18332)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Connect to a node to retrieve peer addresses, and disconnect"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Corrupted block database detected"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Discover own IP address (default: 1 when listening and no -externalip)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Do not load the wallet and disable wallet RPC calls"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Do you want to rebuild the block database now?"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Done loading"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Error initializing block database"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Error initializing wallet database environment %s!"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Error loading block database"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Error loading wallet.dat"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Error loading wallet.dat: Wallet corrupted"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Error loading wallet.dat: Wallet requires newer version of Nautiluscoin"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Error opening block database"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Error"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Error: Disk space is low!"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Error: Wallet locked, unable to create transaction!"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Error: system error: "),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Failed to listen on any port. Use -listen=0 if you want this."),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Failed to read block info"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Failed to read block"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Failed to sync block index"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Failed to write block index"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Failed to write block info"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Failed to write block"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Failed to write file info"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Failed to write to coin database"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Failed to write transaction index"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Failed to write undo data"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Fee per kB to add to transactions you send"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Find peers using DNS lookup (default: 1 unless -connect)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Generate coins (default: 0)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Get help for a command"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "How many blocks to check at startup (default: 288, 0 = all)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "How thorough the block verification is (0-4, default: 3)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "If <category> is not supplied, output all debugging information."),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Imports blocks from external blk000??.dat file"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Incorrect or no genesis block found. Wrong datadir for network?"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Information"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Insufficient funds"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Invalid -onion address: '%s'"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Invalid -proxy address: '%s'"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Invalid amount for -minrelaytxfee=<amount>: '%s'"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Invalid amount for -mintxfee=<amount>: '%s'"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Invalid amount for -paytxfee=<amount>: '%s'"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Invalid amount"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "List commands"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Listen for connections on <port> (default: 8333 or testnet: 18333)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Loading addresses..."),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Loading block index..."),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Loading wallet..."),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Maintain a full transaction index (default: 0)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Maintain at most <n> connections to peers (default: 125)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Maximum per-connection receive buffer, <n>*1000 bytes (default: 5000)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Maximum per-connection send buffer, <n>*1000 bytes (default: 1000)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Not enough file descriptors available."),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Only accept block chain matching built-in checkpoints (default: 1)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Only connect to nodes in network <net> (IPv4, IPv6 or Tor)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Options:"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Password for JSON-RPC connections"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Prepend debug output with timestamp (default: 1)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "RPC client options:"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Rebuild block chain index from current blk000??.dat files"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Rescan the block chain for missing wallet transactions"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Rescanning..."),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Run in the background as a daemon and accept commands"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "SSL options: (see the Nautiluscoin Wiki for SSL setup instructions)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Select SOCKS version for -proxy (4 or 5, default: 5)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Send command to Nautiluscoin server"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Send commands to node running on <ip> (default: 127.0.0.1)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Send trace/debug info to console instead of debug.log file"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Server certificate file (default: server.cert)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Server private key (default: server.pem)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Set database cache size in megabytes (default: 25)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Set key pool size to <n> (default: 100)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Set maximum block size in bytes (default: %d)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Set minimum block size in bytes (default: 0)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Set the number of threads to service RPC calls (default: 4)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Shrink debug.log file on client startup (default: 1 when no -debug)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Signing transaction failed"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Specify configuration file (default: nautiluscoin.conf)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Specify connection timeout in milliseconds (default: 5000)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Specify data directory"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Specify pid file (default: nautiluscoind.pid)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Specify wallet file (within data directory)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Specify your own public address"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Spend unconfirmed change when sending transactions (default: 1)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Start Nautiluscoin server"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "System error: "),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "This help message"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "This is intended for regression testing tools and app development."),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Threshold for disconnecting misbehaving peers (default: 100)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "To use the %s option"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Transaction amount too small"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Transaction amounts must be positive"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Transaction too large"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Unable to bind to %s on this computer (bind returned error %d, %s)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Unknown -socks proxy version requested: %i"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Unknown network specified in -onlynet: '%s'"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Upgrade wallet to latest format"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Usage (deprecated, use nautiluscoin-cli):"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Usage:"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Use OpenSSL (https) for JSON-RPC connections"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Use UPnP to map the listening port (default: 0)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Use UPnP to map the listening port (default: 1 when listening)"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Use the test network"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Username for JSON-RPC connections"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Verifying blocks..."),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Verifying wallet..."),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Wait for RPC server to start"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Wallet %s resides outside data directory %s"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Wallet needed to be rewritten: restart Nautiluscoin to complete"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Wallet options:"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Warning"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Warning: Deprecated argument -debugnet ignored, use -debug=net"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Warning: This version is obsolete, upgrade required!"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "You need to rebuild the database using -reindex to change -txindex"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "Zapping all transactions from wallet..."),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "version"),
+QT_TRANSLATE_NOOP("nautiluscoin-core", "wallet.dat corrupt, salvage failed"),
 };

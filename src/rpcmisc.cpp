@@ -1,5 +1,5 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The DigiByte developers
+// Copyright (c) 2009-2014 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -37,7 +37,7 @@ Value getinfo(const Array& params, bool fHelp)
             "  \"version\": xxxxx,           (numeric) the server version\n"
             "  \"protocolversion\": xxxxx,   (numeric) the protocol version\n"
             "  \"walletversion\": xxxxx,     (numeric) the wallet version\n"
-            "  \"balance\": xxxxxxx,         (numeric) the total digibyte balance of the wallet\n"
+            "  \"balance\": xxxxxxx,         (numeric) the total nautiluscoin balance of the wallet\n"
             "  \"blocks\": xxxxxx,           (numeric) the current number of blocks processed in the server\n"
             "  \"timeoffset\": xxxxx,        (numeric) the time offset\n"
             "  \"connections\": xxxxx,       (numeric) the number of connections\n"
@@ -115,7 +115,7 @@ public:
         obj.push_back(Pair("hex", HexStr(subscript.begin(), subscript.end())));
         Array a;
         BOOST_FOREACH(const CTxDestination& addr, addresses)
-            a.push_back(CDigiByteAddress(addr).ToString());
+            a.push_back(CNautiluscoinAddress(addr).ToString());
         obj.push_back(Pair("addresses", a));
         if (whichType == TX_MULTISIG)
             obj.push_back(Pair("sigsrequired", nRequired));
@@ -128,14 +128,14 @@ Value validateaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "validateaddress \"digibyteaddress\"\n"
-            "\nReturn information about the given digibyte address.\n"
+            "validateaddress \"nautiluscoinaddress\"\n"
+            "\nReturn information about the given nautiluscoin address.\n"
             "\nArguments:\n"
-            "1. \"digibyteaddress\"     (string, required) The digibyte address to validate\n"
+            "1. \"nautiluscoinaddress\"     (string, required) The nautiluscoin address to validate\n"
             "\nResult:\n"
             "{\n"
             "  \"isvalid\" : true|false,         (boolean) If the address is valid or not. If not, this is the only property returned.\n"
-            "  \"address\" : \"digibyteaddress\", (string) The digibyte address validated\n"
+            "  \"address\" : \"nautiluscoinaddress\", (string) The nautiluscoin address validated\n"
             "  \"ismine\" : true|false,          (boolean) If the address is yours or not\n"
             "  \"isscript\" : true|false,        (boolean) If the key is a script\n"
             "  \"pubkey\" : \"publickeyhex\",    (string) The hex value of the raw public key\n"
@@ -147,7 +147,7 @@ Value validateaddress(const Array& params, bool fHelp)
             + HelpExampleRpc("validateaddress", "\"1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc\"")
         );
 
-    CDigiByteAddress address(params[0].get_str());
+    CNautiluscoinAddress address(params[0].get_str());
     bool isValid = address.IsValid();
 
     Object ret;
@@ -192,8 +192,8 @@ CScript _createmultisig(const Array& params)
     {
         const std::string& ks = keys[i].get_str();
 #ifdef ENABLE_WALLET
-        // Case 1: DigiByte address and we have full public key:
-        CDigiByteAddress address(ks);
+        // Case 1: Nautiluscoin address and we have full public key:
+        CNautiluscoinAddress address(ks);
         if (pwalletMain && address.IsValid())
         {
             CKeyID keyID;
@@ -239,9 +239,9 @@ Value createmultisig(const Array& params, bool fHelp)
 
             "\nArguments:\n"
             "1. nrequired      (numeric, required) The number of required signatures out of the n keys or addresses.\n"
-            "2. \"keys\"       (string, required) A json array of keys which are digibyte addresses or hex-encoded public keys\n"
+            "2. \"keys\"       (string, required) A json array of keys which are nautiluscoin addresses or hex-encoded public keys\n"
             "     [\n"
-            "       \"key\"    (string) digibyte address or hex-encoded public key\n"
+            "       \"key\"    (string) nautiluscoin address or hex-encoded public key\n"
             "       ,...\n"
             "     ]\n"
 
@@ -263,7 +263,7 @@ Value createmultisig(const Array& params, bool fHelp)
     // Construct using pay-to-script-hash:
     CScript inner = _createmultisig(params);
     CScriptID innerID = inner.GetID();
-    CDigiByteAddress address(innerID);
+    CNautiluscoinAddress address(innerID);
 
     Object result;
     result.push_back(Pair("address", address.ToString()));
@@ -276,10 +276,10 @@ Value verifymessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 3)
         throw runtime_error(
-            "verifymessage \"digibyteaddress\" \"signature\" \"message\"\n"
+            "verifymessage \"nautiluscoinaddress\" \"signature\" \"message\"\n"
             "\nVerify a signed message\n"
             "\nArguments:\n"
-            "1. \"digibyteaddress\"  (string, required) The digibyte address to use for the signature.\n"
+            "1. \"nautiluscoinaddress\"  (string, required) The nautiluscoin address to use for the signature.\n"
             "2. \"signature\"       (string, required) The signature provided by the signer in base 64 encoding (see signmessage).\n"
             "3. \"message\"         (string, required) The message that was signed.\n"
             "\nResult:\n"
@@ -299,7 +299,7 @@ Value verifymessage(const Array& params, bool fHelp)
     string strSign     = params[1].get_str();
     string strMessage  = params[2].get_str();
 
-    CDigiByteAddress addr(strAddress);
+    CNautiluscoinAddress addr(strAddress);
     if (!addr.IsValid())
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid address");
 

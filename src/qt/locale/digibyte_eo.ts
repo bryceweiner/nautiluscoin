@@ -3,12 +3,12 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About DigiByte Core</source>
+        <source>About Nautiluscoin Core</source>
         <translation>Pri la Bitmona Kerno</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;DigiByte Core&lt;/b&gt; version</source>
+        <source>&lt;b&gt;Nautiluscoin Core&lt;/b&gt; version</source>
         <translation>Versio de &lt;b&gt;Bitmona Kerno&lt;/b&gt;</translation>
     </message>
     <message>
@@ -33,7 +33,7 @@ Tiu ĉi produkto enhavas erojn kreitajn de la &quot;OpenSSL Project&quot; por uz
     </message>
     <message>
         <location line="+0"/>
-        <source>The DigiByte Core developers</source>
+        <source>The Nautiluscoin Core developers</source>
         <translation>La programistoj de Bitmona Kerno</translation>
     </message>
 </context>
@@ -121,12 +121,12 @@ Tiu ĉi produkto enhavas erojn kreitajn de la &quot;OpenSSL Project&quot; por uz
     </message>
     <message>
         <location line="+7"/>
-        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Nautiluscoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>Jen viaj Bitmon-adresoj por sendi pagojn. Zorge kontrolu la sumon kaj la alsendan adreson antaŭ ol sendi.</translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Nautiluscoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation>Jen viaj bitmonaj adresoj por ricevi pagojn. Estas konsilinde uzi apartan ricevan adreson por ĉiu transakcio.</translation>
     </message>
     <message>
@@ -274,7 +274,7 @@ Tiu ĉi produkto enhavas erojn kreitajn de la &quot;OpenSSL Project&quot; por uz
     </message>
     <message>
         <location line="-56"/>
-        <source>DigiByte will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
+        <source>Nautiluscoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your nautiluscoins from being stolen by malware infecting your computer.</source>
         <translation>Bitmono nun fermiĝos por fini la ĉifradon. Memoru, ke eĉ ĉifrado ne protektas kontraŭ ĉiu atako, ekz. se viruso infektus vian komputilon.</translation>
     </message>
     <message>
@@ -320,9 +320,9 @@ Tiu ĉi produkto enhavas erojn kreitajn de la &quot;OpenSSL Project&quot; por uz
     </message>
 </context>
 <context>
-    <name>DigiByteGUI</name>
+    <name>NautiluscoinGUI</name>
     <message>
-        <location filename="../digibytegui.cpp" line="+295"/>
+        <location filename="../nautiluscoingui.cpp" line="+295"/>
         <source>Sign &amp;message...</source>
         <translation>Subskribi &amp;mesaĝon...</translation>
     </message>
@@ -368,7 +368,7 @@ Tiu ĉi produkto enhavas erojn kreitajn de la &quot;OpenSSL Project&quot; por uz
     </message>
     <message>
         <location line="+7"/>
-        <source>Show information about DigiByte</source>
+        <source>Show information about Nautiluscoin</source>
         <translation>Vidigi informojjn pri Bitmono</translation>
     </message>
     <message>
@@ -429,12 +429,12 @@ Tiu ĉi produkto enhavas erojn kreitajn de la &quot;OpenSSL Project&quot; por uz
     </message>
     <message>
         <location line="-405"/>
-        <source>Send coins to a DigiByte address</source>
+        <source>Send coins to a Nautiluscoin address</source>
         <translation>Sendi monon al Bitmon-adreso</translation>
     </message>
     <message>
         <location line="+49"/>
-        <source>Modify configuration options for DigiByte</source>
+        <source>Modify configuration options for Nautiluscoin</source>
         <translation>Modifi agordaĵojn por Bitmono</translation>
     </message>
     <message>
@@ -464,7 +464,7 @@ Tiu ĉi produkto enhavas erojn kreitajn de la &quot;OpenSSL Project&quot; por uz
     </message>
     <message>
         <location line="+430"/>
-        <source>DigiByte</source>
+        <source>Nautiluscoin</source>
         <translation>Bitmono</translation>
     </message>
     <message>
@@ -500,12 +500,12 @@ Tiu ĉi produkto enhavas erojn kreitajn de la &quot;OpenSSL Project&quot; por uz
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your DigiByte addresses to prove you own them</source>
+        <source>Sign messages with your Nautiluscoin addresses to prove you own them</source>
         <translation>Subskribi mesaĝojn per via Bitmon-adresoj por pravigi, ke vi estas la posedanto</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
+        <source>Verify messages to ensure they were signed with specified Nautiluscoin addresses</source>
         <translation>Kontroli mesaĝojn por kontroli ĉu ili estas subskribitaj per specifaj Bitmon-adresoj</translation>
     </message>
     <message>
@@ -536,18 +536,18 @@ Tiu ĉi produkto enhavas erojn kreitajn de la &quot;OpenSSL Project&quot; por uz
     </message>
     <message>
         <location line="-401"/>
-        <source>DigiByte Core</source>
+        <source>Nautiluscoin Core</source>
         <translation>Kerno de Bitmono</translation>
     </message>
     <message>
         <location line="+163"/>
-        <source>Request payments (generates QR codes and digibyte: URIs)</source>
-        <translation>Peti pagon (kreas QR-kodojn kaj URI-ojn kun prefikso digibyte:)</translation>
+        <source>Request payments (generates QR codes and nautiluscoin: URIs)</source>
+        <translation>Peti pagon (kreas QR-kodojn kaj URI-ojn kun prefikso nautiluscoin:)</translation>
     </message>
     <message>
         <location line="+29"/>
         <location line="+2"/>
-        <source>&amp;About DigiByte Core</source>
+        <source>&amp;About Nautiluscoin Core</source>
         <translation>&amp;Pri la Bitmona Kerno</translation>
     </message>
     <message>
@@ -562,8 +562,8 @@ Tiu ĉi produkto enhavas erojn kreitajn de la &quot;OpenSSL Project&quot; por uz
     </message>
     <message>
         <location line="+3"/>
-        <source>Open a digibyte: URI or payment request</source>
-        <translation>Malfermi digibyte:-URI-on aŭ pagpeton</translation>
+        <source>Open a nautiluscoin: URI or payment request</source>
+        <translation>Malfermi nautiluscoin:-URI-on aŭ pagpeton</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -572,18 +572,18 @@ Tiu ĉi produkto enhavas erojn kreitajn de la &quot;OpenSSL Project&quot; por uz
     </message>
     <message>
         <location line="+1"/>
-        <source>Show the DigiByte Core help message to get a list with possible DigiByte command-line options</source>
+        <source>Show the Nautiluscoin Core help message to get a list with possible Nautiluscoin command-line options</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+159"/>
         <location line="+5"/>
-        <source>DigiByte client</source>
+        <source>Nautiluscoin client</source>
         <translation>Bitmon-kliento</translation>
     </message>
     <message numerus="yes">
         <location line="+142"/>
-        <source>%n active connection(s) to DigiByte network</source>
+        <source>%n active connection(s) to Nautiluscoin network</source>
         <translation><numerusform>%n aktiva konekto al la bitmona reto</numerusform><numerusform>%n aktivaj konektoj al la bitmona reto</numerusform></translation>
     </message>
     <message>
@@ -690,8 +690,8 @@ Adreso: %4
         <translation>Monujo estas &lt;b&gt;ĉifrita&lt;/b&gt; kaj aktuale &lt;b&gt;ŝlosita&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../digibyte.cpp" line="+438"/>
-        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
+        <location filename="../nautiluscoin.cpp" line="+438"/>
+        <source>A fatal error occurred. Nautiluscoin can no longer continue safely and will quit.</source>
         <translation>Okazis neriparebla eraro. Bitmono ne plu povas sekure daŭri, do ĝi sekure ĉesos.</translation>
     </message>
 </context>
@@ -1049,7 +1049,7 @@ Adreso: %4
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid DigiByte address.</source>
+        <source>The entered address &quot;%1&quot; is not a valid Nautiluscoin address.</source>
         <translation>La adreso enigita &quot;%1&quot; ne estas valida Bitmon-adreso.</translation>
     </message>
     <message>
@@ -1095,12 +1095,12 @@ Adreso: %4
     <name>HelpMessageDialog</name>
     <message>
         <location filename="../forms/helpmessagedialog.ui" line="+19"/>
-        <source>DigiByte Core - Command-line options</source>
+        <source>Nautiluscoin Core - Command-line options</source>
         <translation>Bitmona Kerno - Komandliniaj agordaĵoj</translation>
     </message>
     <message>
         <location filename="../utilitydialog.cpp" line="+38"/>
-        <source>DigiByte Core</source>
+        <source>Nautiluscoin Core</source>
         <translation>Kerno de Bitmono</translation>
     </message>
     <message>
@@ -1153,18 +1153,18 @@ Adreso: %4
     </message>
     <message>
         <location line="+9"/>
-        <source>Welcome to DigiByte Core.</source>
-        <translation>Bonvenon al la bitmona kerno, DigiByte Core.</translation>
+        <source>Welcome to Nautiluscoin Core.</source>
+        <translation>Bonvenon al la bitmona kerno, Nautiluscoin Core.</translation>
     </message>
     <message>
         <location line="+26"/>
-        <source>As this is the first time the program is launched, you can choose where DigiByte Core will store its data.</source>
-        <translation>Dum tiu ĉi unua uzo de la programo, vi povas elekti lokon, kie DigiByte Core stokos siajn datumojn.</translation>
+        <source>As this is the first time the program is launched, you can choose where Nautiluscoin Core will store its data.</source>
+        <translation>Dum tiu ĉi unua uzo de la programo, vi povas elekti lokon, kie Nautiluscoin Core stokos siajn datumojn.</translation>
     </message>
     <message>
         <location line="+10"/>
-        <source>DigiByte Core will download and store a copy of the DigiByte block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>DigiByte Core elŝutos kaj konservos kopion de la bitmona blokĉeno. Almenaŭ %1GB da datumoj konserviĝos en tiu loko, kaj tio poiome kreskos. Ankaŭ via monujo konserviĝos en tiu dosierujo.</translation>
+        <source>Nautiluscoin Core will download and store a copy of the Nautiluscoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Nautiluscoin Core elŝutos kaj konservos kopion de la bitmona blokĉeno. Almenaŭ %1GB da datumoj konserviĝos en tiu loko, kaj tio poiome kreskos. Ankaŭ via monujo konserviĝos en tiu dosierujo.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1178,7 +1178,7 @@ Adreso: %4
     </message>
     <message>
         <location filename="../intro.cpp" line="+85"/>
-        <source>DigiByte</source>
+        <source>Nautiluscoin</source>
         <translation>Bitmono</translation>
     </message>
     <message>
@@ -1254,12 +1254,12 @@ Adreso: %4
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start DigiByte after logging in to the system.</source>
+        <source>Automatically start Nautiluscoin after logging in to the system.</source>
         <translation>Aŭtomate lanĉi Bitmonon post ensaluto al la sistemo.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start DigiByte on system login</source>
+        <source>&amp;Start Nautiluscoin on system login</source>
         <translation>&amp;Lanĉi Bitmonon tuj post ensaluto al la sistemo</translation>
     </message>
     <message>
@@ -1289,7 +1289,7 @@ Adreso: %4
     </message>
     <message>
         <location line="+58"/>
-        <source>Connect to the DigiByte network through a SOCKS proxy.</source>
+        <source>Connect to the Nautiluscoin network through a SOCKS proxy.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1324,7 +1324,7 @@ Adreso: %4
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the Nautiluscoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Aŭtomate malfermi la kursilan pordon por Bitmono. Tio funkcias nur se via kursilo havas la UPnP-funkcion, kaj se tiu ĉi estas ŝaltita.</translation>
     </message>
     <message>
@@ -1394,7 +1394,7 @@ Adreso: %4
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting DigiByte.</source>
+        <source>The user interface language can be set here. This setting will take effect after restarting Nautiluscoin.</source>
         <translation>Vi povas elekti la lingvon uzata en la aplikaĵo ĉi tie. Tiu ekefikos nur post relanĉo de Bitmono.</translation>
     </message>
     <message>
@@ -1409,7 +1409,7 @@ Adreso: %4
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show DigiByte addresses in the transaction list or not.</source>
+        <source>Whether to show Nautiluscoin addresses in the transaction list or not.</source>
         <translation>Elekti ĉu videblu Bitmon-adresoj en la listo de transakcioj.</translation>
     </message>
     <message>
@@ -1484,7 +1484,7 @@ Adreso: %4
     <message>
         <location line="+50"/>
         <location line="+231"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Nautiluscoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Eblas, ke la informoj videblaj ĉi tie estas eksdataj. Via monujo aŭtomate sinkoniĝas kun la bitmona reto kiam ili konektiĝas, sed tiu procezo ankoraŭ ne finfariĝis.</translation>
     </message>
     <message>
@@ -1554,7 +1554,7 @@ Adreso: %4
     </message>
     <message>
         <location line="+1"/>
-        <source>URI can not be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
+        <source>URI can not be parsed! This can be caused by an invalid Nautiluscoin address or malformed URI parameters.</source>
         <translation>Fiaskis la analizon de la URI! Eble la Bitmon-adreso estas nevalida, aŭ povus esti problemo kun la parametroj de la URI.</translation>
     </message>
     <message>
@@ -1574,7 +1574,7 @@ Adreso: %4
     </message>
     <message>
         <location line="-353"/>
-        <source>Cannot start digibyte: click-to-pay handler</source>
+        <source>Cannot start nautiluscoin: click-to-pay handler</source>
         <translation>Ne eblas lanĉi la ilon &apos;klaki-por-pagi&apos;</translation>
     </message>
     <message>
@@ -1641,9 +1641,9 @@ Adreso: %4
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../digibyte.cpp" line="+71"/>
+        <location filename="../nautiluscoin.cpp" line="+71"/>
         <location line="+11"/>
-        <source>DigiByte</source>
+        <source>Nautiluscoin</source>
         <translation>Bitmono</translation>
     </message>
     <message>
@@ -1814,7 +1814,7 @@ Adreso: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the DigiByte debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the Nautiluscoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>Malfermi la sencimiga protokoldosiero de Bitmono el la aktuala dosierujo por datumoj. Tio eble daŭros plurajn sekundojn por granda protokoldosiero.</translation>
     </message>
     <message>
@@ -1824,7 +1824,7 @@ Adreso: %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
-        <source>Welcome to the DigiByte RPC console.</source>
+        <source>Welcome to the Nautiluscoin RPC console.</source>
         <translation>Bonvenon al la RPC-konzolo de Bitmono.</translation>
     </message>
     <message>
@@ -1907,7 +1907,7 @@ Adreso: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Nautiluscoin network.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2191,7 +2191,7 @@ Adreso: %4
     </message>
     <message>
         <location line="-136"/>
-        <source>Enter a DigiByte address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <source>Enter a Nautiluscoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
         <translation>Enigi Bitmon-adreson (ekz. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
@@ -2281,7 +2281,7 @@ Adreso: %4
     </message>
     <message>
         <location line="+112"/>
-        <source>Warning: Invalid DigiByte address</source>
+        <source>Warning: Invalid Nautiluscoin address</source>
         <translation>Averto: Nevalida Bitmon-adreso</translation>
     </message>
     <message>
@@ -2383,7 +2383,7 @@ Adreso: %4
     </message>
     <message>
         <location line="+10"/>
-        <source>A message that was attached to the DigiByte URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
+        <source>A message that was attached to the Nautiluscoin URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Nautiluscoin network.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2415,7 +2415,7 @@ Adreso: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a DigiByte address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <source>Enter a Nautiluscoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
         <translation>Enigi Bitmon-adreson (ekz. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
 </context>
@@ -2423,7 +2423,7 @@ Adreso: %4
     <name>ShutdownWindow</name>
     <message>
         <location filename="../utilitydialog.cpp" line="+48"/>
-        <source>DigiByte Core is shutting down...</source>
+        <source>Nautiluscoin Core is shutting down...</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2493,7 +2493,7 @@ Adreso: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this DigiByte address</source>
+        <source>Sign the message to prove you own this Nautiluscoin address</source>
         <translation>Subskribi la mesaĝon por pravigi, ke vi estas la posedanto de tiu Bitmon-adreso</translation>
     </message>
     <message>
@@ -2529,7 +2529,7 @@ Adreso: %4
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
+        <source>Verify the message to ensure it was signed with the specified Nautiluscoin address</source>
         <translation>Kontroli la mesaĝon por pravigi, ke ĝi ja estas subskribita per la specifa Bitmon-adreso</translation>
     </message>
     <message>
@@ -2545,7 +2545,7 @@ Adreso: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+29"/>
         <location line="+3"/>
-        <source>Enter a DigiByte address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <source>Enter a Nautiluscoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
         <translation>Enigi Bitmon-adreson (ekz. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
@@ -2555,7 +2555,7 @@ Adreso: %4
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter DigiByte signature</source>
+        <source>Enter Nautiluscoin signature</source>
         <translation>Enigi Bitmon-subskribon</translation>
     </message>
     <message>
@@ -2629,12 +2629,12 @@ Adreso: %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+28"/>
-        <source>DigiByte Core</source>
+        <source>Nautiluscoin Core</source>
         <translation>Kerno de Bitmono</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>The DigiByte Core developers</source>
+        <source>The Nautiluscoin Core developers</source>
         <translation>La programistoj de Bitmona Kerno</translation>
     </message>
     <message>
@@ -3202,9 +3202,9 @@ Adreso: %4
     </message>
 </context>
 <context>
-    <name>digibyte-core</name>
+    <name>nautiluscoin-core</name>
     <message>
-        <location filename="../digibytestrings.cpp" line="+221"/>
+        <location filename="../nautiluscoinstrings.cpp" line="+221"/>
         <source>Usage:</source>
         <translation>Uzado:</translation>
     </message>
@@ -3225,13 +3225,13 @@ Adreso: %4
     </message>
     <message>
         <location line="+22"/>
-        <source>Specify configuration file (default: digibyte.conf)</source>
-        <translation>Specifi konfiguran dosieron (defaŭlte: digibyte.conf)</translation>
+        <source>Specify configuration file (default: nautiluscoin.conf)</source>
+        <translation>Specifi konfiguran dosieron (defaŭlte: nautiluscoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: digibyted.pid)</source>
-        <translation>Specifi pid-dosieron (defaŭlte: digibyted.pid)</translation>
+        <source>Specify pid file (default: nautiluscoind.pid)</source>
+        <translation>Specifi pid-dosieron (defaŭlte: nautiluscoind.pid)</translation>
     </message>
     <message>
         <location line="-1"/>
@@ -3308,18 +3308,18 @@ Adreso: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=digibyterpc
+rpcuser=nautiluscoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Nautiluscoin Alert&quot; admin@foo.com
 </source>
         <translation>%s, vi devas specifi rpcpassword en la konfigura dosiero:
 %s
 Estas konsilinde uzi tiun ĉi aleatore kreitan pasvorton:
-rpcuser=digibyterpc
+rpcuser=nautiluscoinrpc
 rpcpassword=%s
 (ne utilas al vi memorigi tiun ĉi pasvorton)
 La salutnomo kaj la pasvorto estu nepre MALSAMAJ.
@@ -3345,7 +3345,7 @@ ekzemple: alertnotify=echo %%s | mail -s &quot;Averto de Bitmono&quot; admin@foo
     </message>
     <message>
         <location line="+3"/>
-        <source>Cannot obtain a lock on data directory %s. DigiByte is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Nautiluscoin is probably already running.</source>
         <translation>Ne eblas akiri eksklusivan rajton al dosierujo de datumoj %s. Verŝajne Bitmono jam rulas.</translation>
     </message>
     <message>
@@ -3390,7 +3390,7 @@ ekzemple: alertnotify=echo %%s | mail -s &quot;Averto de Bitmono&quot; admin@foo
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong DigiByte will not work properly.</source>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Nautiluscoin will not work properly.</source>
         <translation>Averto: Bonvolu kontroli, ke la horo kaj dato de via komputilo estas ĝuste agorditaj! Se via horloĝo malĝustas, Bitmono ne bone funkcios.</translation>
     </message>
     <message>
@@ -3425,12 +3425,12 @@ ekzemple: alertnotify=echo %%s | mail -s &quot;Averto de Bitmono&quot; admin@foo
     </message>
     <message>
         <location line="+1"/>
-        <source>DigiByte Core Daemon</source>
+        <source>Nautiluscoin Core Daemon</source>
         <translation>Bitmonakerna Demono</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>DigiByte RPC client version</source>
+        <source>Nautiluscoin RPC client version</source>
         <translation>Versio de la Bitmono-RPC-kliento</translation>
     </message>
     <message>
@@ -3630,7 +3630,7 @@ ekzemple: alertnotify=echo %%s | mail -s &quot;Averto de Bitmono&quot; admin@foo
     </message>
     <message>
         <location line="+1"/>
-        <source>Send command to DigiByte server</source>
+        <source>Send command to Nautiluscoin server</source>
         <translation>Sendi komandon al bitmona servilo</translation>
     </message>
     <message>
@@ -3650,7 +3650,7 @@ ekzemple: alertnotify=echo %%s | mail -s &quot;Averto de Bitmono&quot; admin@foo
     </message>
     <message>
         <location line="+2"/>
-        <source>Start DigiByte server</source>
+        <source>Start Nautiluscoin server</source>
         <translation>Starti bitmonan servilon</translation>
     </message>
     <message>
@@ -3660,8 +3660,8 @@ ekzemple: alertnotify=echo %%s | mail -s &quot;Averto de Bitmono&quot; admin@foo
     </message>
     <message>
         <location line="+10"/>
-        <source>Usage (deprecated, use digibyte-cli):</source>
-        <translation>Uzado (malaktuala, uzu anstataŭe digibyte-cli):</translation>
+        <source>Usage (deprecated, use nautiluscoin-cli):</source>
+        <translation>Uzado (malaktuala, uzu anstataŭe nautiluscoin-cli):</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -3765,7 +3765,7 @@ ekzemple: alertnotify=echo %%s | mail -s &quot;Averto de Bitmono&quot; admin@foo
     </message>
     <message>
         <location line="+9"/>
-        <source>SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
+        <source>SSL options: (see the Nautiluscoin Wiki for SSL setup instructions)</source>
         <translation>SSL-agordaĵoj: (vidu la vikio de Bitmono por instrukcioj pri agordado de SSL)</translation>
     </message>
     <message>
@@ -3925,12 +3925,12 @@ ekzemple: alertnotify=echo %%s | mail -s &quot;Averto de Bitmono&quot; admin@foo
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of DigiByte</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Nautiluscoin</source>
         <translation>Eraro dum ŝargo de wallet.dat: monujo bezonas pli novan version de Bitmono</translation>
     </message>
     <message>
         <location line="+98"/>
-        <source>Wallet needed to be rewritten: restart DigiByte to complete</source>
+        <source>Wallet needed to be rewritten: restart Nautiluscoin to complete</source>
         <translation>Monujo bezonas esti reskribita: relanĉu Bitmonon por finfari tion</translation>
     </message>
     <message>
@@ -3990,7 +3990,7 @@ ekzemple: alertnotify=echo %%s | mail -s &quot;Averto de Bitmono&quot; admin@foo
     </message>
     <message>
         <location line="-32"/>
-        <source>Unable to bind to %s on this computer. DigiByte is probably already running.</source>
+        <source>Unable to bind to %s on this computer. Nautiluscoin is probably already running.</source>
         <translation>Ne eblas bindi al %s ĉe tiu ĉi komputilo. Bitmono verŝajne jam rulas.</translation>
     </message>
     <message>

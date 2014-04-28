@@ -1,9 +1,9 @@
 --- 
-name: digibyte
+name: nautiluscoin
 urls:
-- http://digibyte.co/digibyte-latest-win32-gitian.zip
+- http://nautiluscoin.co/nautiluscoin-latest-win32-gitian.zip
 rss:
 - url: http://sourceforge.net/api/file/index/project-id/244765/mtime/desc/limit/100/rss
   xpath: //item/link/text()
-  pattern: digibyte-\d+.\d+.\d+-win32-gitian.zip
+  pattern: nautiluscoin-\d+.\d+.\d+-win32-gitian.zip
 minimum_weight: 120

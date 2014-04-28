@@ -1,11 +1,11 @@
-// Copyright (c) 2011-2013 The DigiByte developers
+// Copyright (c) 2011-2013 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "guiutil.h"
 
-#include "digibyteaddressvalidator.h"
-#include "digibyteunits.h"
+#include "nautiluscoinaddressvalidator.h"
+#include "nautiluscoinunits.h"
 #include "qvalidatedlineedit.h"
 #include "walletmodel.h"
 
@@ -66,7 +66,7 @@ QString dateTimeStr(qint64 nTime)
     return dateTimeStr(QDateTime::fromTime_t((qint32)nTime));
 }
 
-QFont digibyteAddressFont()
+QFont nautiluscoinAddressFont()
 {
     QFont font("Monospace");
     font.setStyleHint(QFont::TypeWriter);
@@ -77,12 +77,12 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 {
     parent->setFocusProxy(widget);
 
-    widget->setFont(digibyteAddressFont());
+    widget->setFont(nautiluscoinAddressFont());
 #if QT_VERSION >= 0x040700
-    widget->setPlaceholderText(QObject::tr("Enter a DigiByte address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)"));
+    widget->setPlaceholderText(QObject::tr("Enter a Nautiluscoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)"));
 #endif
-    widget->setValidator(new DigiByteAddressEntryValidator(parent));
-    widget->setCheckValidator(new DigiByteAddressCheckValidator(parent));
+    widget->setValidator(new NautiluscoinAddressEntryValidator(parent));
+    widget->setCheckValidator(new NautiluscoinAddressCheckValidator(parent));
 }
 
 void setupAmountWidget(QLineEdit *widget, QWidget *parent)
@@ -94,10 +94,10 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
     widget->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
 }
 
-bool parseDigiByteURI(const QUrl &uri, SendCoinsRecipient *out)
+bool parseNautiluscoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no digibyte: URI
-    if(!uri.isValid() || uri.scheme() != QString("digibyte"))
+    // return if URI is not valid or is no nautiluscoin: URI
+    if(!uri.isValid() || uri.scheme() != QString("nautiluscoin"))
         return false;
 
     SendCoinsRecipient rv;
@@ -133,7 +133,7 @@ bool parseDigiByteURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!DigiByteUnits::parse(DigiByteUnits::DGB, i->second, &rv.amount))
+                if(!NautiluscoinUnits::parse(NautiluscoinUnits::PHI, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -151,28 +151,28 @@ bool parseDigiByteURI(const QUrl &uri, SendCoinsRecipient *out)
     return true;
 }
 
-bool parseDigiByteURI(QString uri, SendCoinsRecipient *out)
+bool parseNautiluscoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert digibyte:// to digibyte:
+    // Convert nautiluscoin:// to nautiluscoin:
     //
-    //    Cannot handle this later, because digibyte:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because nautiluscoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("digibyte://", Qt::CaseInsensitive))
+    if(uri.startsWith("nautiluscoin://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 10, "digibyte:");
+        uri.replace(0, 10, "nautiluscoin:");
     }
     QUrl uriInstance(uri);
-    return parseDigiByteURI(uriInstance, out);
+    return parseNautiluscoinURI(uriInstance, out);
 }
 
-QString formatDigiByteURI(const SendCoinsRecipient &info)
+QString formatNautiluscoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("digibyte:%1").arg(info.address);
+    QString ret = QString("nautiluscoin:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(DigiByteUnits::format(DigiByteUnits::DGB, info.amount));
+        ret += QString("?amount=%1").arg(NautiluscoinUnits::format(NautiluscoinUnits::PHI, info.amount));
         paramCount++;
     }
 
@@ -195,7 +195,7 @@ QString formatDigiByteURI(const SendCoinsRecipient &info)
 
 bool isDust(const QString& address, qint64 amount)
 {
-    CTxDestination dest = CDigiByteAddress(address.toStdString()).Get();
+    CTxDestination dest = CNautiluscoinAddress(address.toStdString()).Get();
     CScript script; script.SetDestination(dest);
     CTxOut txOut(amount, script);
     return txOut.IsDust(CTransaction::nMinRelayTxFee);
@@ -382,12 +382,12 @@ bool ToolTipToRichTextFilter::eventFilter(QObject *obj, QEvent *evt)
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "DigiByte.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "Nautiluscoin.lnk";
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for DigiByte.lnk
+    // check for Nautiluscoin.lnk
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -464,7 +464,7 @@ boost::filesystem::path static GetAutostartDir()
 
 boost::filesystem::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "digibyte.desktop";
+    return GetAutostartDir() / "nautiluscoin.desktop";
 }
 
 bool GetStartOnSystemStartup()
@@ -502,10 +502,10 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         boost::filesystem::ofstream optionFile(GetAutostartFilePath(), std::ios_base::out|std::ios_base::trunc);
         if (!optionFile.good())
             return false;
-        // Write a digibyte.desktop file to the autostart directory:
+        // Write a nautiluscoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
-        optionFile << "Name=DigiByte\n";
+        optionFile << "Name=Nautiluscoin\n";
         optionFile << "Exec=" << pszExePath << " -min\n";
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -523,7 +523,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
 {
-    // loop through the list of startup items and try to find the digibyte app
+    // loop through the list of startup items and try to find the nautiluscoin app
     CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, NULL);
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
@@ -544,21 +544,21 @@ LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef
 
 bool GetStartOnSystemStartup()
 {
-    CFURLRef digibyteAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    CFURLRef nautiluscoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
     LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, digibyteAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, nautiluscoinAppUrl);
     return !!foundItem; // return boolified object
 }
 
 bool SetStartOnSystemStartup(bool fAutoStart)
 {
-    CFURLRef digibyteAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    CFURLRef nautiluscoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
     LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, digibyteAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, nautiluscoinAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add digibyte app to startup item list
-        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, digibyteAppUrl, NULL, NULL);
+        // add nautiluscoin app to startup item list
+        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, nautiluscoinAppUrl, NULL, NULL);
     }
     else if(!fAutoStart && foundItem) {
         // remove item

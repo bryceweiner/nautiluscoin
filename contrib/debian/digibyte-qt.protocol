@@ -1,6 +1,6 @@
 [Protocol]
-exec=digibyte-qt '%u'
-protocol=digibyte
+exec=nautiluscoin-qt '%u'
+protocol=nautiluscoin
 input=none
 output=none
 helper=true

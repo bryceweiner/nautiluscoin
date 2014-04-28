@@ -1,4 +1,4 @@
-digibyte               ICON    "pixmaps/digibyte.ico"
+nautiluscoin               ICON    "pixmaps/nautiluscoin.ico"
 
 #include "wx/msw/wx.rc"
 
