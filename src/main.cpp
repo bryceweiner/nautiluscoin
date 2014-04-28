@@ -1091,12 +1091,12 @@ void static PruneOrphanBlocks()
     mapOrphanBlocks.erase(hash);
 }
 
-static const int64_t nDiffChangeTarget = 67200; // Patch effective @ block 67200
+static const int64_t nDiffChangeTarget = 50; // Patch effective @ block 67200
 static const int64_t patchBlockRewardDuration = 10080; // 10080 blocks main net change
 
 int64_t GetPHISubsidy(int nHeight) {
    // thanks to RealSolid & WDC for helping out with this code
-   int64_t qSubsidy = 8000*COIN;
+   int64_t qSubsidy = 161*COIN;
    int blocks = nHeight - nDiffChangeTarget;
    int weeks = (blocks / patchBlockRewardDuration)+1;
    //decrease reward by 0.5% every week
@@ -1111,19 +1111,8 @@ int64_t GetBlockValue(int nHeight, int64_t nFees)
    
    if(nHeight < nDiffChangeTarget) {
       //this is pre-patch, reward is 8000.
-      nSubsidy = 8000 * COIN;
-      
-      if(nHeight < 1440)  //1440
-      {
-        nSubsidy = 72000 * COIN;
-      }
-      else if(nHeight < 5760)  //5760
-      {
-        nSubsidy = 16000 * COIN;
-      }
-      
+      nSubsidy = 3236 * COIN;
    } else {
-      //patch takes effect after 67,200 blocks solved
       nSubsidy = GetPHISubsidy(nHeight);
    }
 
@@ -1136,13 +1125,12 @@ int64_t GetBlockValue(int nHeight, int64_t nFees)
 }
 
 
-static const int64_t nTargetTimespan =  0.10 * 24 * 60 * 60; // 2.4 hours
+static const int64_t nTargetTimespan =  1 * 60; // 2.4 hours
 static const int64_t nTargetSpacing = 60; // 60 seconds
 static const int64_t nInterval = nTargetTimespan / nTargetSpacing;
-static const int64_t nTargetTimespanRe = 1*60; // 60 Seconds
-static const int64_t nTargetSpacingRe = 1*60; // 60 seconds
-static const int64_t nIntervalRe = nTargetTimespanRe / nTargetSpacingRe; // 1 block
-
+//static const int64_t nTargetTimespanRe = 1*60; // 60 Seconds
+//static const int64_t nTargetSpacingRe = 1*60; // 60 seconds
+//static const int64_t nIntervalRe = nTargetTimespanRe / nTargetSpacingRe; // 1 block
 
 
 //
@@ -1161,17 +1149,10 @@ unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime)
     bnResult.SetCompact(nBase);
     while (nTime > 0 && bnResult < bnLimit)
     { 
-	if(chainActive.Height()<nDiffChangeTarget){
-            // Maximum 400% adjustment...
-            bnResult *= 4;
-            // ... in best-case exactly 4-times-normal target time
-            nTime -= nTargetTimespan*4;
-        } else {
             // Maximum 10% adjustment...
             bnResult = (bnResult * 110) / 100;
             // ... in best-case exactly 4-times-normal target time
             nTime -= nTargetTimespanRe*4;
-        }
     }
     if (bnResult > bnLimit)
         bnResult = bnLimit;
@@ -1193,7 +1174,8 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 	
     // Genesis block
     if (pindexLast == NULL) return nProofOfWorkLimit;
-		
+
+    /* Not required
 	//if v2.0 changes are in effect for block num, alter retarget values 
    if(fNewDifficultyProtocol) {
       LogPrintf("GetNextWorkRequired nActualTimespan Limiting\n");
@@ -1201,6 +1183,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
       retargetSpacing = nTargetSpacingRe;
       retargetInterval = nIntervalRe;
     }
+    */
 
     // Only change once per interval
     if ((pindexLast->nHeight+1) % retargetInterval != 0)
@@ -1240,15 +1223,9 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     LogPrintf("nActualTimespan = %d  before bounds\n", nActualTimespan);
 	
 	// thanks to RealSolid & WDC for this code
-		if(fNewDifficultyProtocol) {
-			LogPrintf("GetNextWorkRequired nActualTimespan Limiting\n");
-			if (nActualTimespan < (retargetTimespan - (retargetTimespan/4)) ) nActualTimespan = (retargetTimespan - (retargetTimespan/4));
-			if (nActualTimespan > (retargetTimespan + (retargetTimespan/2)) ) nActualTimespan = (retargetTimespan + (retargetTimespan/2));
-		}
-		else {
-			if (nActualTimespan < retargetTimespan/4) nActualTimespan = retargetTimespan/4;
-			if (nActualTimespan > retargetTimespan*4) nActualTimespan = retargetTimespan*4;
-		}	
+	LogPrintf("GetNextWorkRequired nActualTimespan Limiting\n");
+	if (nActualTimespan < (retargetTimespan - (retargetTimespan/4)) ) nActualTimespan = (retargetTimespan - (retargetTimespan/4));
+	if (nActualTimespan > (retargetTimespan + (retargetTimespan/2)) ) nActualTimespan = (retargetTimespan + (retargetTimespan/2));
 
     CBigNum bnNew;
     bnNew.SetCompact(pindexLast->nBits);
@@ -1260,7 +1237,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 
     /// debug print
     LogPrintf("GetNextWorkRequired RETARGET\n");
-    LogPrintf("nTargetTimespan = %d    nActualTimespan = %d\n", nTargetTimespan, nActualTimespan);
+    LogPrintf("nTargetTimespan = %d    nActualTimespan = %d\n", retargetTimespan, nActualTimespan);
     LogPrintf("Before: %08x  %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString());
     LogPrintf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString());
 
