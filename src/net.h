@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_NET_H
-#define DIGIBYTE_NET_H
+#ifndef NAUTILUSCOIN_NET_H
+#define NAUTILUSCOIN_NET_H
 
 #include "bloom.h"
 #include "compat.h"

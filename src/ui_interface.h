@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_UI_INTERFACE_H
-#define DIGIBYTE_UI_INTERFACE_H
+#ifndef NAUTILUSCOIN_UI_INTERFACE_H
+#define NAUTILUSCOIN_UI_INTERFACE_H
 
 #include <stdint.h>
 #include <string>

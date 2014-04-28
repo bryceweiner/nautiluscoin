@@ -10,9 +10,9 @@ AC_INIT([Nautiluscoin Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT
 AC_CONFIG_AUX_DIR([src/build-aux])
 AC_CONFIG_MACRO_DIR([src/m4])
 AC_CANONICAL_HOST
-AH_TOP([#ifndef DIGIBYTE_CONFIG_H])
-AH_TOP([#define DIGIBYTE_CONFIG_H])
-AH_BOTTOM([#endif //DIGIBYTE_CONFIG_H])
+AH_TOP([#ifndef NAUTILUSCOIN_CONFIG_H])
+AH_TOP([#define NAUTILUSCOIN_CONFIG_H])
+AH_BOTTOM([#endif //NAUTILUSCOIN_CONFIG_H])
 
 # This m4 will only be used if a system copy cannot be found. This is helpful
 # on systems where autotools are installed but the pkg-config macros are not in
@@ -359,7 +359,7 @@ AC_SUBST(LIBMEMENV)
 
 if test x$enable_wallet != xno; then
     dnl Check for libdb_cxx only if wallet enabled
-    DIGIBYTE_FIND_BDB48
+    NAUTILUSCOIN_FIND_BDB48
 fi
 
 dnl Check for libminiupnpc (optional)
@@ -479,7 +479,7 @@ AC_ARG_WITH([daemon],
   [build_nautiluscoind=$withval],
   [build_nautiluscoind=yes])
 
-DIGIBYTE_QT_INIT
+NAUTILUSCOIN_QT_INIT
 
 if test x$use_pkgconfig = xyes; then
 
@@ -493,9 +493,9 @@ if test x$use_pkgconfig = xyes; then
     [
       PKG_CHECK_MODULES([SSL], [libssl], [INCLUDES="$INCLUDES $SSL_CFLAGS"; LIBS="$LIBS $SSL_LIBS"], [AC_MSG_ERROR(openssl  not found.)])
       PKG_CHECK_MODULES([CRYPTO], [libcrypto], [INCLUDES="$INCLUDES $CRYPTO_CFLAGS"; LIBS="$LIBS $CRYPTO_LIBS"], [AC_MSG_ERROR(libcrypto  not found.)])
-      DIGIBYTE_QT_CHECK([PKG_CHECK_MODULES([PROTOBUF], [protobuf], [have_protobuf=yes], [DIGIBYTE_QT_FAIL(libprotobuf not found)])])
+      NAUTILUSCOIN_QT_CHECK([PKG_CHECK_MODULES([PROTOBUF], [protobuf], [have_protobuf=yes], [NAUTILUSCOIN_QT_FAIL(libprotobuf not found)])])
       if test x$use_qr != xno; then
-        DIGIBYTE_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
+        NAUTILUSCOIN_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
       fi
     ]
   )
@@ -506,25 +506,25 @@ else
   AC_CHECK_HEADER([openssl/ssl.h],, AC_MSG_ERROR(libssl headers missing),)
   AC_CHECK_LIB([ssl],         [main],, AC_MSG_ERROR(libssl missing))
 
-  DIGIBYTE_QT_CHECK(AC_CHECK_LIB([protobuf] ,[main],,DIGIBYTE_QT_FAIL(libprotobuf not found)))
+  NAUTILUSCOIN_QT_CHECK(AC_CHECK_LIB([protobuf] ,[main],,NAUTILUSCOIN_QT_FAIL(libprotobuf not found)))
   if test x$use_qr != xno; then
-    DIGIBYTE_QT_CHECK([AC_CHECK_LIB([qrencode], [main],, [have_qrencode=no])])
-    DIGIBYTE_QT_CHECK([AC_CHECK_HEADER([qrencode.h],, have_qrencode=no)])
+    NAUTILUSCOIN_QT_CHECK([AC_CHECK_LIB([qrencode], [main],, [have_qrencode=no])])
+    NAUTILUSCOIN_QT_CHECK([AC_CHECK_HEADER([qrencode.h],, have_qrencode=no)])
   fi
 fi
 
-DIGIBYTE_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
+NAUTILUSCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
 AC_MSG_CHECKING([whether to build nautiluscoind])
-AM_CONDITIONAL([BUILD_DIGIBYTED], [test x$build_nautiluscoind = xyes])
+AM_CONDITIONAL([BUILD_NAUTILUSCOIND], [test x$build_nautiluscoind = xyes])
 AC_MSG_RESULT($build_nautiluscoind)
 
 AC_MSG_CHECKING([whether to build nautiluscoin-cli])
-AM_CONDITIONAL([BUILD_DIGIBYTE_CLI], [test x$build_nautiluscoin_cli = xyes])
+AM_CONDITIONAL([BUILD_NAUTILUSCOIN_CLI], [test x$build_nautiluscoin_cli = xyes])
 AC_MSG_RESULT($build_nautiluscoin_cli)
 
 dnl sets $nautiluscoin_enable_qt, $nautiluscoin_enable_qt_test, $nautiluscoin_enable_qt_dbus
-DIGIBYTE_QT_CONFIGURE([$use_pkgconfig], [qt4])
+NAUTILUSCOIN_QT_CONFIGURE([$use_pkgconfig], [qt4])
 
 
 if test x$use_ipv6 = xyes; then

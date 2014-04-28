@@ -69,7 +69,7 @@ HelpMessageDialog::HelpMessageDialog(QWidget *parent) :
         tr("Usage:") + "\n" +
         "  nautiluscoin-qt [" + tr("command-line options") + "]                     " + "\n";
 
-    coreOptions = QString::fromStdString(HelpMessage(HMM_DIGIBYTE_QT));
+    coreOptions = QString::fromStdString(HelpMessage(HMM_NAUTILUSCOIN_QT));
 
     uiOptions = tr("UI options") + ":\n" +
         "  -lang=<lang>           " + tr("Set language, for example \"de_DE\" (default: system locale)") + "\n" +

@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_CHECKPOINT_H
-#define DIGIBYTE_CHECKPOINT_H
+#ifndef NAUTILUSCOIN_CHECKPOINT_H
+#define NAUTILUSCOIN_CHECKPOINT_H
 
 #include <map>
 

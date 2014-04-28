@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef _DIGIBYTE_COMPAT_H
-#define _DIGIBYTE_COMPAT_H
+#ifndef _NAUTILUSCOIN_COMPAT_H
+#define _NAUTILUSCOIN_COMPAT_H
 
 #ifdef WIN32
 #ifdef _WIN32_WINNT

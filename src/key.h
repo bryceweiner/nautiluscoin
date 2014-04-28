@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_KEY_H
-#define DIGIBYTE_KEY_H
+#ifndef NAUTILUSCOIN_KEY_H
+#define NAUTILUSCOIN_KEY_H
 
 #include "allocators.h"
 #include "hash.h"

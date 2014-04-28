@@ -88,7 +88,7 @@ bool AppInit(int argc, char* argv[])
                   "  nautiluscoind [options] help                " + _("List commands") + "\n" +
                   "  nautiluscoind [options] help <command>      " + _("Get help for a command") + "\n";
 
-            strUsage += "\n" + HelpMessage(HMM_DIGIBYTED);
+            strUsage += "\n" + HelpMessage(HMM_NAUTILUSCOIND);
             strUsage += "\n" + HelpMessageCli(false);
 
             fprintf(stdout, "%s", strUsage.c_str());

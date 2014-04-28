@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_TXDB_LEVELDB_H
-#define DIGIBYTE_TXDB_LEVELDB_H
+#ifndef NAUTILUSCOIN_TXDB_LEVELDB_H
+#define NAUTILUSCOIN_TXDB_LEVELDB_H
 
 #include "leveldbwrapper.h"
 #include "main.h"
@@ -66,4 +66,4 @@ public:
     bool LoadBlockIndexGuts();
 };
 
-#endif // DIGIBYTE_TXDB_LEVELDB_H
+#endif // NAUTILUSCOIN_TXDB_LEVELDB_H

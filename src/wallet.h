@@ -2,8 +2,8 @@
 // Copyright (c) 2009-2013 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef DIGIBYTE_WALLET_H
-#define DIGIBYTE_WALLET_H
+#ifndef NAUTILUSCOIN_WALLET_H
+#define NAUTILUSCOIN_WALLET_H
 
 #include "core.h"
 #include "crypter.h"

@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_KEYSTORE_H
-#define DIGIBYTE_KEYSTORE_H
+#ifndef NAUTILUSCOIN_KEYSTORE_H
+#define NAUTILUSCOIN_KEYSTORE_H
 
 #include "key.h"
 #include "sync.h"

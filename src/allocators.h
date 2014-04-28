@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_ALLOCATORS_H
-#define DIGIBYTE_ALLOCATORS_H
+#ifndef NAUTILUSCOIN_ALLOCATORS_H
+#define NAUTILUSCOIN_ALLOCATORS_H
 
 #include <map>
 #include <string>

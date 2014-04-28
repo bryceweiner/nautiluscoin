@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_INIT_H
-#define DIGIBYTE_INIT_H
+#ifndef NAUTILUSCOIN_INIT_H
+#define NAUTILUSCOIN_INIT_H
 
 #include <string>
 
@@ -25,8 +25,8 @@ bool AppInit2(boost::thread_group& threadGroup);
 /* The help message mode determines what help message to show */
 enum HelpMessageMode
 {
-    HMM_DIGIBYTED,
-    HMM_DIGIBYTE_QT
+    HMM_NAUTILUSCOIND,
+    HMM_NAUTILUSCOIN_QT
 };
 
 std::string HelpMessage(HelpMessageMode mode);

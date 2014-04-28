@@ -442,7 +442,7 @@ void NautiluscoinApplication::handleRunawayException(const QString &message)
     ::exit(1);
 }
 
-#ifndef DIGIBYTE_QT_TEST
+#ifndef NAUTILUSCOIN_QT_TEST
 int main(int argc, char *argv[])
 {
     /// 1. Parse command-line options. These take precedence over anything else.
@@ -581,4 +581,4 @@ int main(int argc, char *argv[])
     }
     return app.getReturnValue();
 }
-#endif // DIGIBYTE_QT_TEST
+#endif // NAUTILUSCOIN_QT_TEST

@@ -12,11 +12,11 @@ endif
 
 bin_PROGRAMS =
 
-if BUILD_DIGIBYTED
+if BUILD_NAUTILUSCOIND
   bin_PROGRAMS += nautiluscoind
 endif
 
-if BUILD_DIGIBYTE_CLI
+if BUILD_NAUTILUSCOIN_CLI
   bin_PROGRAMS += nautiluscoin-cli
 endif
 
@@ -24,7 +24,7 @@ SUBDIRS = . $(BUILD_QT) $(BUILD_TEST)
 DIST_SUBDIRS = . qt test
 .PHONY: FORCE
 # nautiluscoin core #
-DIGIBYTE_CORE_H = \
+NAUTILUSCOIN_CORE_H = \
   addrman.h \
   alert.h \
   allocators.h \
@@ -111,7 +111,7 @@ libnautiluscoin_server_a_SOURCES = \
   txdb.cpp \
   txmempool.cpp \
   $(JSON_H) \
-  $(DIGIBYTE_CORE_H)
+  $(NAUTILUSCOIN_CORE_H)
 
 libnautiluscoin_wallet_a_SOURCES = \
   db.cpp \
@@ -120,7 +120,7 @@ libnautiluscoin_wallet_a_SOURCES = \
   rpcwallet.cpp \
   wallet.cpp \
   walletdb.cpp \
-  $(DIGIBYTE_CORE_H)
+  $(NAUTILUSCOIN_CORE_H)
 
 libnautiluscoin_common_a_SOURCES = \
   allocators.cpp \
@@ -136,11 +136,11 @@ libnautiluscoin_common_a_SOURCES = \
   sync.cpp \
   util.cpp \
   version.cpp \
-  $(DIGIBYTE_CORE_H)
+  $(NAUTILUSCOIN_CORE_H)
 
 libnautiluscoin_cli_a_SOURCES = \
   rpcclient.cpp \
-  $(DIGIBYTE_CORE_H)
+  $(NAUTILUSCOIN_CORE_H)
 
 nodist_libnautiluscoin_common_a_SOURCES = $(top_srcdir)/src/obj/build.h
 #

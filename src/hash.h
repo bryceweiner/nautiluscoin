@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_HASH_H
-#define DIGIBYTE_HASH_H
+#ifndef NAUTILUSCOIN_HASH_H
+#define NAUTILUSCOIN_HASH_H
 
 #include "serialize.h"
 #include "uint256.h"

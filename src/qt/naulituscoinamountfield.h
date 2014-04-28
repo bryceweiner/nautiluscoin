@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTEAMOUNTFIELD_H
-#define DIGIBYTEAMOUNTFIELD_H
+#ifndef NAUTILUSCOINAMOUNTFIELD_H
+#define NAUTILUSCOINAMOUNTFIELD_H
 
 #include <QWidget>
 
@@ -69,4 +69,4 @@ private slots:
 
 };
 
-#endif // DIGIBYTEAMOUNTFIELD_H
+#endif // NAUTILUSCOINAMOUNTFIELD_H

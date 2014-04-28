@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTEGUI_H
-#define DIGIBYTEGUI_H
+#ifndef NAUTILUSCOINGUI_H
+#define NAUTILUSCOINGUI_H
 
 #if defined(HAVE_CONFIG_H)
 #include "nautiluscoin-config.h"
@@ -193,4 +193,4 @@ private slots:
     void detectShutdown();
 };
 
-#endif // DIGIBYTEGUI_H
+#endif // NAUTILUSCOINGUI_H

@@ -2,8 +2,8 @@
 // Copyright (c) 2009-2013 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef DIGIBYTE_WALLETDB_H
-#define DIGIBYTE_WALLETDB_H
+#ifndef NAUTILUSCOIN_WALLETDB_H
+#define NAUTILUSCOIN_WALLETDB_H
 
 #include "db.h"
 #include "key.h"
@@ -130,4 +130,4 @@ public:
 
 bool BackupWallet(const CWallet& wallet, const std::string& strDest);
 
-#endif // DIGIBYTE_WALLETDB_H
+#endif // NAUTILUSCOIN_WALLETDB_H

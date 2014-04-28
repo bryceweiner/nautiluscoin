@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_LEVELDBWRAPPER_H
-#define DIGIBYTE_LEVELDBWRAPPER_H
+#ifndef NAUTILUSCOIN_LEVELDBWRAPPER_H
+#define NAUTILUSCOIN_LEVELDBWRAPPER_H
 
 #include "serialize.h"
 #include "util.h"
@@ -152,4 +152,4 @@ public:
     }
 };
 
-#endif // DIGIBYTE_LEVELDBWRAPPER_H
+#endif // NAUTILUSCOIN_LEVELDBWRAPPER_H

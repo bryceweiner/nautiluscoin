@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTEUNITS_H
-#define DIGIBYTEUNITS_H
+#ifndef NAUTILUSCOINUNITS_H
+#define NAUTILUSCOINUNITS_H
 
 #include <QAbstractListModel>
 #include <QString>
@@ -72,4 +72,4 @@ private:
 };
 typedef NautiluscoinUnits::Unit NautiluscoinUnit;
 
-#endif // DIGIBYTEUNITS_H
+#endif // NAUTILUSCOINUNITS_H

@@ -228,7 +228,7 @@ std::string HelpMessage(HelpMessageMode hmm)
     strUsage += "                         " + _("If <category> is not supplied, output all debugging information.") + "\n";
     strUsage += "                         " + _("<category> can be:");
     strUsage +=                                 " addrman, alert, coindb, db, lock, rand, rpc, selectcoins, mempool, net"; // Don't translate these and qt below
-    if (hmm == HMM_DIGIBYTE_QT)
+    if (hmm == HMM_NAUTILUSCOIN_QT)
     {
         strUsage += ", qt.\n";
     }
@@ -243,7 +243,7 @@ std::string HelpMessage(HelpMessageMode hmm)
     strUsage += "                         " + _("This is intended for regression testing tools and app development.") + "\n";
     strUsage += "  -server                " + _("Accept command line and JSON-RPC commands") + "\n";
 
-    if (hmm == HMM_DIGIBYTED)
+    if (hmm == HMM_NAUTILUSCOIND)
     {
 #if !defined(WIN32)
         strUsage += "  -daemon                " + _("Run in the background as a daemon and accept commands") + "\n";

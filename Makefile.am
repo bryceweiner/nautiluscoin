@@ -4,10 +4,10 @@ SUBDIRS = src
 
 GZIP_ENV="-9n"
 
-DIGIBYTED_BIN=$(top_builddir)/src/nautiluscoind$(EXEEXT)
-DIGIBYTE_QT_BIN=$(top_builddir)/src/qt/nautiluscoin-qt$(EXEEXT)
-DIGIBYTE_CLI_BIN=$(top_builddir)/src/nautiluscoin-cli$(EXEEXT)
-DIGIBYTE_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
+NAUTILUSCOIND_BIN=$(top_builddir)/src/nautiluscoind$(EXEEXT)
+NAUTILUSCOIN_QT_BIN=$(top_builddir)/src/qt/nautiluscoin-qt$(EXEEXT)
+NAUTILUSCOIN_CLI_BIN=$(top_builddir)/src/nautiluscoin-cli$(EXEEXT)
+NAUTILUSCOIN_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
 
 OSX_APP=Nautiluscoin-Qt.app
 OSX_DMG=Nautiluscoin-Qt.dmg
@@ -43,15 +43,15 @@ distcheck-hook:
 distcleancheck:
 	@:
 
-$(DIGIBYTE_WIN_INSTALLER): $(DIGIBYTED_BIN) $(DIGIBYTE_QT_BIN) $(DIGIBYTE_CLI_BIN)
+$(NAUTILUSCOIN_WIN_INSTALLER): $(NAUTILUSCOIND_BIN) $(NAUTILUSCOIN_QT_BIN) $(NAUTILUSCOIN_CLI_BIN)
 	$(MKDIR_P) $(top_builddir)/release
-	$(INSTALL_STRIP_PROGRAM) $(DIGIBYTED_BIN) $(top_builddir)/release
-	$(INSTALL_STRIP_PROGRAM) $(DIGIBYTE_QT_BIN) $(top_builddir)/release
-	$(INSTALL_STRIP_PROGRAM) $(DIGIBYTE_CLI_BIN) $(top_builddir)/release
+	$(INSTALL_STRIP_PROGRAM) $(NAUTILUSCOIND_BIN) $(top_builddir)/release
+	$(INSTALL_STRIP_PROGRAM) $(NAUTILUSCOIN_QT_BIN) $(top_builddir)/release
+	$(INSTALL_STRIP_PROGRAM) $(NAUTILUSCOIN_CLI_BIN) $(top_builddir)/release
 	@test -f $(MAKENSIS) && $(MAKENSIS) $(top_builddir)/share/setup.nsi || \
 	  echo error: could not build $@
 
-$(DIGIBYTED_BIN) $(DIGIBYTE_QT_BIN) $(DIGIBYTE_CLI_BIN):
+$(NAUTILUSCOIND_BIN) $(NAUTILUSCOIN_QT_BIN) $(NAUTILUSCOIN_CLI_BIN):
 	make -C $(dir $@) $(notdir $@)
 
 $(OSX_APP)/Contents/PkgInfo:
@@ -70,7 +70,7 @@ $(OSX_APP)/Contents/Resources/nautiluscoin.icns: $(OSX_INSTALLER_ICONS)
 	$(MKDIR_P) $(@D)
 	$(INSTALL) $< $@
 
-$(OSX_APP)/Contents/MacOS/Nautiluscoin-Qt: $(DIGIBYTE_QT_BIN)
+$(OSX_APP)/Contents/MacOS/Nautiluscoin-Qt: $(NAUTILUSCOIN_QT_BIN)
 	$(MKDIR_P) $(@D)
 	$(INSTALL_STRIP_PROGRAM)  $< $@
 
@@ -87,7 +87,7 @@ appbundle: $(OSX_APP_BUILT)
 deploy: $(OSX_DMG)
 endif
 if TARGET_WINDOWS
-deploy: $(DIGIBYTE_WIN_INSTALLER)
+deploy: $(NAUTILUSCOIN_WIN_INSTALLER)
 endif
 
 if USE_LCOV
@@ -152,7 +152,7 @@ endif
 
 EXTRA_DIST = $(top_srcdir)/share/genbuild.sh qa/pull-tester/pull-tester.sh $(DIST_DOCS) $(WINDOWS_PACKAGING) $(OSX_PACKAGING)
 
-CLEANFILES = $(OSX_DMG) $(OSX_APP) $(DIGIBYTEDIGIBYTE_WIN_INSTALLER)
+CLEANFILES = $(OSX_DMG) $(OSX_APP) $(NAUTILUSCOINNAUTILUSCOIN_WIN_INSTALLER)
 
 .INTERMEDIATE: $(COVERAGE_INFO)
 

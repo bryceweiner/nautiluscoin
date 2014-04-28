@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_DB_H
-#define DIGIBYTE_DB_H
+#ifndef NAUTILUSCOIN_DB_H
+#define NAUTILUSCOIN_DB_H
 
 #include "serialize.h"
 #include "sync.h"
@@ -305,4 +305,4 @@ public:
     bool static Rewrite(const std::string& strFile, const char* pszSkip = NULL);
 };
 
-#endif // DIGIBYTE_DB_H
+#endif // NAUTILUSCOIN_DB_H

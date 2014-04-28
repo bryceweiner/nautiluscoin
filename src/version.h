@@ -1,8 +1,8 @@
 // Copyright (c) 2012 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef DIGIBYTE_VERSION_H
-#define DIGIBYTE_VERSION_H
+#ifndef NAUTILUSCOIN_VERSION_H
+#define NAUTILUSCOIN_VERSION_H
 
 #include "clientversion.h"
 

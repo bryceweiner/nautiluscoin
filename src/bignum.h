@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_BIGNUM_H
-#define DIGIBYTE_BIGNUM_H
+#ifndef NAUTILUSCOIN_BIGNUM_H
+#define NAUTILUSCOIN_BIGNUM_H
 
 #include "serialize.h"
 #include "uint256.h"

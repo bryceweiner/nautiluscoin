@@ -253,7 +253,7 @@ MIT/X11 프로그램 라이선스에 따라 배포합니다. COPYING 또는 http
     </message>
     <message>
         <location line="+1"/>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR DIGIBYTES&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR NAUTILUSCOINS&lt;/b&gt;!</source>
         <translation>경고: 만약 당신의 지갑을 암호화 하고 비밀번호를 잃어 버릴 경우, 당신의 모든 비트코인들을 잃어버릴 수 있습니다!</translation>
     </message>
     <message>

@@ -11,8 +11,8 @@
 // - E-mail usually won't line-break if there's no punctuation to break at.
 // - Double-clicking selects the whole number as one word if it's all alphanumeric.
 //
-#ifndef DIGIBYTE_BASE58_H
-#define DIGIBYTE_BASE58_H
+#ifndef NAUTILUSCOIN_BASE58_H
+#define NAUTILUSCOIN_BASE58_H
 
 #include "bignum.h"
 #include "chainparams.h"
@@ -419,4 +419,4 @@ public:
 typedef CNautiluscoinExtKeyBase<CExtKey, 74, CChainParams::EXT_SECRET_KEY> CNautiluscoinExtKey;
 typedef CNautiluscoinExtKeyBase<CExtPubKey, 74, CChainParams::EXT_PUBLIC_KEY> CNautiluscoinExtPubKey;
 
-#endif // DIGIBYTE_BASE58_H
+#endif // NAUTILUSCOIN_BASE58_H

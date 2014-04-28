@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_UINT256_H
-#define DIGIBYTE_UINT256_H
+#ifndef NAUTILUSCOIN_UINT256_H
+#define NAUTILUSCOIN_UINT256_H
 
 #include <stdint.h>
 #include <stdio.h>

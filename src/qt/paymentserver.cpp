@@ -46,11 +46,11 @@
 
 using namespace boost;
 
-const int DIGIBYTE_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
-const QString DIGIBYTE_IPC_PREFIX("nautiluscoin:");
-const char* DIGIBYTE_REQUEST_MIMETYPE = "application/nautiluscoin-paymentrequest";
-const char* DIGIBYTE_PAYMENTACK_MIMETYPE = "application/nautiluscoin-paymentack";
-const char* DIGIBYTE_PAYMENTACK_CONTENTTYPE = "application/nautiluscoin-payment";
+const int NAUTILUSCOIN_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
+const QString NAUTILUSCOIN_IPC_PREFIX("nautiluscoin:");
+const char* NAUTILUSCOIN_REQUEST_MIMETYPE = "application/nautiluscoin-paymentrequest";
+const char* NAUTILUSCOIN_PAYMENTACK_MIMETYPE = "application/nautiluscoin-paymentack";
+const char* NAUTILUSCOIN_PAYMENTACK_CONTENTTYPE = "application/nautiluscoin-payment";
 
 X509_STORE* PaymentServer::certStore = NULL;
 void PaymentServer::freeCertStore()
@@ -186,7 +186,7 @@ bool PaymentServer::ipcParseCommandLine(int argc, char* argv[])
         if (arg.startsWith("-"))
             continue;
 
-        if (arg.startsWith(DIGIBYTE_IPC_PREFIX, Qt::CaseInsensitive)) // nautiluscoin: URI
+        if (arg.startsWith(NAUTILUSCOIN_IPC_PREFIX, Qt::CaseInsensitive)) // nautiluscoin: URI
         {
             savedPaymentRequests.append(arg);
 
@@ -238,7 +238,7 @@ bool PaymentServer::ipcSendCommandLine()
     {
         QLocalSocket* socket = new QLocalSocket();
         socket->connectToServer(ipcServerName(), QIODevice::WriteOnly);
-        if (!socket->waitForConnected(DIGIBYTE_IPC_CONNECT_TIMEOUT))
+        if (!socket->waitForConnected(NAUTILUSCOIN_IPC_CONNECT_TIMEOUT))
         {
             delete socket;
             return false;
@@ -252,7 +252,7 @@ bool PaymentServer::ipcSendCommandLine()
         socket->write(block);
         socket->flush();
 
-        socket->waitForBytesWritten(DIGIBYTE_IPC_CONNECT_TIMEOUT);
+        socket->waitForBytesWritten(NAUTILUSCOIN_IPC_CONNECT_TIMEOUT);
         socket->disconnectFromServer();
         delete socket;
         fResult = true;
@@ -378,7 +378,7 @@ void PaymentServer::handleURIOrFile(const QString& s)
         return;
     }
 
-    if (s.startsWith(DIGIBYTE_IPC_PREFIX, Qt::CaseInsensitive)) // nautiluscoin: URI
+    if (s.startsWith(NAUTILUSCOIN_IPC_PREFIX, Qt::CaseInsensitive)) // nautiluscoin: URI
     {
 #if QT_VERSION < 0x050000
         QUrl uri(s);
@@ -539,7 +539,7 @@ void PaymentServer::fetchRequest(const QUrl& url)
     netRequest.setAttribute(QNetworkRequest::User, "PaymentRequest");
     netRequest.setUrl(url);
     netRequest.setRawHeader("User-Agent", CLIENT_NAME.c_str());
-    netRequest.setRawHeader("Accept", DIGIBYTE_REQUEST_MIMETYPE);
+    netRequest.setRawHeader("Accept", NAUTILUSCOIN_REQUEST_MIMETYPE);
     netManager->get(netRequest);
 }
 
@@ -552,9 +552,9 @@ void PaymentServer::fetchPaymentACK(CWallet* wallet, SendCoinsRecipient recipien
     QNetworkRequest netRequest;
     netRequest.setAttribute(QNetworkRequest::User, "PaymentACK");
     netRequest.setUrl(QString::fromStdString(details.payment_url()));
-    netRequest.setHeader(QNetworkRequest::ContentTypeHeader, DIGIBYTE_PAYMENTACK_CONTENTTYPE);
+    netRequest.setHeader(QNetworkRequest::ContentTypeHeader, NAUTILUSCOIN_PAYMENTACK_CONTENTTYPE);
     netRequest.setRawHeader("User-Agent", CLIENT_NAME.c_str());
-    netRequest.setRawHeader("Accept", DIGIBYTE_PAYMENTACK_MIMETYPE);
+    netRequest.setRawHeader("Accept", NAUTILUSCOIN_PAYMENTACK_MIMETYPE);
 
     payments::Payment payment;
     payment.set_merchant_data(details.merchant_data());

@@ -148,7 +148,7 @@ QT_MOC_CPP = \
   moc_walletmodel.cpp \
   moc_walletview.cpp
 
-DIGIBYTE_MM = \
+NAUTILUSCOIN_MM = \
   macdockiconhandler.mm \
   macnotificationhandler.mm
 
@@ -165,7 +165,7 @@ PROTOBUF_CC = paymentrequest.pb.cc
 PROTOBUF_H = paymentrequest.pb.h
 PROTOBUF_PROTO = paymentrequest.proto
 
-DIGIBYTE_QT_H = \
+NAUTILUSCOIN_QT_H = \
   addressbookpage.h \
   addresstablemodel.h \
   askpassphrasedialog.h \
@@ -259,7 +259,7 @@ RES_ICONS = \
   res/icons/tx_output.png \
   res/icons/tx_mined.png
 
-DIGIBYTE_QT_CPP = \
+NAUTILUSCOIN_QT_CPP = \
   nautiluscoin.cpp \
   nautiluscoinaddressvalidator.cpp \
   nautiluscoinamountfield.cpp \
@@ -282,7 +282,7 @@ DIGIBYTE_QT_CPP = \
   utilitydialog.cpp
 
 if ENABLE_WALLET
-DIGIBYTE_QT_CPP += \
+NAUTILUSCOIN_QT_CPP += \
   addressbookpage.cpp \
   addresstablemodel.cpp \
   askpassphrasedialog.cpp \
@@ -317,11 +317,11 @@ RES_IMAGES = \
 
 RES_MOVIES = $(wildcard res/movies/spinner-*.png)
 
-DIGIBYTE_RC = res/nautiluscoin-qt-res.rc
+NAUTILUSCOIN_RC = res/nautiluscoin-qt-res.rc
 
 libnautiluscoinqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
   -I$(top_srcdir)/src/qt/forms $(QT_DBUS_INCLUDES)
-libnautiluscoinqt_a_SOURCES = $(DIGIBYTE_QT_CPP) $(DIGIBYTE_QT_H) $(QT_FORMS_UI) \
+libnautiluscoinqt_a_SOURCES = $(NAUTILUSCOIN_QT_CPP) $(NAUTILUSCOIN_QT_H) $(QT_FORMS_UI) \
   $(QT_QRC) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES)
 
 nodist_libnautiluscoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
@@ -339,16 +339,16 @@ nautiluscoin_qt_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
   -I$(top_srcdir)/src/qt/forms
 nautiluscoin_qt_SOURCES = nautiluscoin.cpp
 if TARGET_DARWIN
-  nautiluscoin_qt_SOURCES += $(DIGIBYTE_MM)
+  nautiluscoin_qt_SOURCES += $(NAUTILUSCOIN_MM)
 endif
 if TARGET_WINDOWS
-  nautiluscoin_qt_SOURCES += $(DIGIBYTE_RC)
+  nautiluscoin_qt_SOURCES += $(NAUTILUSCOIN_RC)
 endif
-nautiluscoin_qt_LDADD = libnautiluscoinqt.a $(LIBDIGIBYTE_SERVER)
+nautiluscoin_qt_LDADD = libnautiluscoinqt.a $(LIBNAUTILUSCOIN_SERVER)
 if ENABLE_WALLET
-nautiluscoin_qt_LDADD += $(LIBDIGIBYTE_WALLET)
+nautiluscoin_qt_LDADD += $(LIBNAUTILUSCOIN_WALLET)
 endif
-nautiluscoin_qt_LDADD += $(LIBDIGIBYTE_CLI) $(LIBDIGIBYTE_COMMON) $(LIBLEVELDB) $(LIBMEMENV) \
+nautiluscoin_qt_LDADD += $(LIBNAUTILUSCOIN_CLI) $(LIBNAUTILUSCOIN_COMMON) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS)
 nautiluscoin_qt_LDFLAGS = $(QT_LDFLAGS)
 
@@ -364,7 +364,7 @@ QT_QM=$(QT_TS:.ts=.qm)
 nautiluscoinstrings.cpp: FORCE
 	$(MAKE) -C $(top_srcdir)/src qt/nautiluscoinstrings.cpp
 
-translate: nautiluscoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(DIGIBYTE_QT_CPP) $(DIGIBYTE_QT_H) $(DIGIBYTE_MM)
+translate: nautiluscoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(NAUTILUSCOIN_QT_CPP) $(NAUTILUSCOIN_QT_H) $(NAUTILUSCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
 	@QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts locale/nautiluscoin_en.ts
 

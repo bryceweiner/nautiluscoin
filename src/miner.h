@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_MINER_H
-#define DIGIBYTE_MINER_H
+#ifndef NAUTILUSCOIN_MINER_H
+#define NAUTILUSCOIN_MINER_H
 
 #include <stdint.h>
 
@@ -32,4 +32,4 @@ void SHA256Transform(void* pstate, void* pinput, const void* pinit);
 extern double dHashesPerSec;
 extern int64_t nHPSTimerStart;
 
-#endif // DIGIBYTE_MINER_H
+#endif // NAUTILUSCOIN_MINER_H

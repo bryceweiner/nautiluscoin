@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_BLOOM_H
-#define DIGIBYTE_BLOOM_H
+#ifndef NAUTILUSCOIN_BLOOM_H
+#define NAUTILUSCOIN_BLOOM_H
 
 #include "serialize.h"
 
@@ -89,4 +89,4 @@ public:
     void UpdateEmptyFull();
 };
 
-#endif /* DIGIBYTE_BLOOM_H */
+#endif /* NAUTILUSCOIN_BLOOM_H */

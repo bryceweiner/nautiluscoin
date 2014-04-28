@@ -34,11 +34,11 @@ endif
 
 nodist_test_nautiluscoin_qt_SOURCES = $(TEST_QT_MOC_CPP)
 
-test_nautiluscoin_qt_LDADD = $(LIBDIGIBYTEQT) $(LIBDIGIBYTE_SERVER)
+test_nautiluscoin_qt_LDADD = $(LIBNAUTILUSCOINQT) $(LIBNAUTILUSCOIN_SERVER)
 if ENABLE_WALLET
-test_nautiluscoin_qt_LDADD += $(LIBDIGIBYTE_WALLET)
+test_nautiluscoin_qt_LDADD += $(LIBNAUTILUSCOIN_WALLET)
 endif
-test_nautiluscoin_qt_LDADD += $(LIBDIGIBYTE_CLI) $(LIBDIGIBYTE_COMMON) $(LIBLEVELDB) \
+test_nautiluscoin_qt_LDADD += $(LIBNAUTILUSCOIN_CLI) $(LIBNAUTILUSCOIN_COMMON) $(LIBLEVELDB) \
   $(LIBMEMENV) $(BOOST_LIBS) $(QT_DBUS_LIBS) $(QT_TEST_LIBS) $(QT_LIBS) \
   $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS)
 test_nautiluscoin_qt_LDFLAGS = $(QT_LDFLAGS)

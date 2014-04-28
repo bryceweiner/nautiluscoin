@@ -2,8 +2,8 @@
 // Copyright (c) 2009-2013 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef DIGIBYTE_TXMEMPOOL_H
-#define DIGIBYTE_TXMEMPOOL_H
+#ifndef NAUTILUSCOIN_TXMEMPOOL_H
+#define NAUTILUSCOIN_TXMEMPOOL_H
 
 #include <list>
 
@@ -110,4 +110,4 @@ public:
     bool HaveCoins(const uint256 &txid);
 };
 
-#endif /* DIGIBYTE_TXMEMPOOL_H */
+#endif /* NAUTILUSCOIN_TXMEMPOOL_H */

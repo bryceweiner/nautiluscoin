@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DIGIBYTE_UTIL_H
-#define DIGIBYTE_UTIL_H
+#ifndef NAUTILUSCOIN_UTIL_H
+#define NAUTILUSCOIN_UTIL_H
 
 #if defined(HAVE_CONFIG_H)
 #include "nautiluscoin-config.h"

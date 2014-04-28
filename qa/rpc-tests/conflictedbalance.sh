@@ -20,7 +20,7 @@ fi
 
 set -f
 
-DIGIBYTED=${1}/nautiluscoind
+NAUTILUSCOIND=${1}/nautiluscoind
 CLI=${1}/nautiluscoin-cli
 
 DIR="${BASH_SOURCE%/*}"
@@ -36,13 +36,13 @@ D=$(mktemp -d test.XXXXX)
 D1=${D}/node1
 CreateDataDir $D1 port=11000 rpcport=11001
 B1ARGS="-datadir=$D1 -debug=mempool"
-$DIGIBYTED $B1ARGS &
+$NAUTILUSCOIND $B1ARGS &
 B1PID=$!
 
 D2=${D}/node2
 CreateDataDir $D2 port=11010 rpcport=11011
 B2ARGS="-datadir=$D2 -debug=mempool"
-$DIGIBYTED $B2ARGS &
+$NAUTILUSCOIND $B2ARGS &
 B2PID=$!
 
 # Wait until all four nodes are at the same block number
@@ -93,7 +93,7 @@ CheckBalance "$B2ARGS" 0
 # restart B2 with no connection
 $CLI $B2ARGS stop > /dev/null 2>&1
 wait $B2PID
-$DIGIBYTED $B2ARGS &
+$NAUTILUSCOIND $B2ARGS &
 B2PID=$!
 
 B1ADDRESS=$( $CLI $B1ARGS getnewaddress )
