@@ -19,7 +19,7 @@ packages:
 
 reference_datetime: "2014-03-14 00:00:00"
 remotes:
-- "url": "https://github.com/nautiluscoin/NautiluscoinProject.git"
+- "url": "https://github.com/nautiluscoin/nautiluscoin.git"
   "dir": "nautiluscoin"
 files:
 - "qt-win32-5.2.0-gitian-r2.zip"
