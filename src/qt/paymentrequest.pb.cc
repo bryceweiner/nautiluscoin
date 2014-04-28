@@ -215,8 +215,8 @@ void protobuf_AddDesc_paymentrequest_2eproto() {
     "ctions\030\002 \003(\014\022#\n\trefund_to\030\003 \003(\0132\020.paymen"
     "ts.Output\022\014\n\004memo\030\004 \001(\t\">\n\nPaymentACK\022\"\n"
     "\007payment\030\001 \002(\0132\021.payments.Payment\022\014\n\004mem"
-    "o\030\002 \001(\tB(\n\036org.nautiluscoin.protocols.payment"
-    "sB\006Protos", 649);
+    "o\030\002 \001(\tB-\n#org.nautiluscoin.protocols.pa"
+    "ymentsB\006Protos", 654);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "paymentrequest.proto", &protobuf_RegisterTypes);
   Output::default_instance_ = new Output();
