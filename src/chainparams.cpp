@@ -30,13 +30,13 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0xfa;
-        pchMessageStart[1] = 0xc3;
-        pchMessageStart[2] = 0xb6;
-        pchMessageStart[3] = 0xda;
+        pchMessageStart[0] = 0xaa;
+        pchMessageStart[1] = 0x5c;
+        pchMessageStart[2] = 0x2d;
+        pchMessageStart[3] = 0xba;
         vAlertPubKey = ParseHex("04F04441C4757F356290A37C313C3772C5BC5003E898EB2E0CF365795543A7BF690C8BBBFA32EE3A3325477CE2000B7D0453EFBB203329D0F9DF34D5927D022BC9");
-        nDefaultPort = 12024;
-        nRPCPort = 14022;
+        nDefaultPort = 11161;
+        nRPCPort = 1161;
 	
 	//static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20);
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 20);
@@ -51,30 +51,30 @@ public:
         //     CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
         //   vMerkleTree: 4a5e1e
 	//ParseHex("
-        const char* pszTimestamp = "USA Today: 10/Jan/2014, Target: Data stolen from up to 110M customers";
+        const char* pszTimestamp = "CNBC 4/14/2014: How I created my own bitcoin-like currency. - Brian Kelly";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 8000;
+        txNew.vout[0].nValue = 161.8;
         txNew.vout[0].scriptPubKey = CScript() << 0x0 << OP_CHECKSIG;          
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1389388394;
+        genesis.nTime    = 1398651038;
         genesis.nBits    = 0x1e0ffff0;
-        genesis.nNonce   = 2447652;
+        genesis.nNonce   = 1327937;
 	
 		hashGenesisBlock = genesis.GetHash();
 
-        assert(hashGenesisBlock == uint256("0x7497ea1b465eb39f1c8f507bc877078fe016d6fcb6dfad3a64c98dcc6e1e8496"));
-        assert(genesis.hashMerkleRoot == uint256("0x72ddd9496b004221ed0557358846d9248ecd4c440ebd28ed901efc18757d0fad"));
+        assert(hashGenesisBlock == uint256("0x4d0c83a6df6e77f9a9830d6d0729b0207e95b722810210ea3f1eeea66b80a87a"));
+        assert(genesis.hashMerkleRoot == uint256("0x95100de4d8e594464b59b09110c5990f1f09ac4e0e20b2fe8dd642f5b1128b9a"));
 
         vSeeds.push_back(CDNSSeedData("nautiluscoin.co seed #1", "seed1.nautiluscoin.co"));
         vSeeds.push_back(CDNSSeedData("hashdragon.com seed #2", "seed2.hashdragon.com"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = list_of(30);
+        base58Prefixes[PUBKEY_ADDRESS] = list_of(0);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(5);
         base58Prefixes[SECRET_KEY] =     list_of(128);
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
