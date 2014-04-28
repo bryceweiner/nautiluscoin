@@ -56,7 +56,7 @@ public:
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 161.8;
+        txNew.vout[0].nValue = 8000;
         txNew.vout[0].scriptPubKey = CScript() << 0x0 << OP_CHECKSIG;          
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
