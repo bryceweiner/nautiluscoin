@@ -1100,7 +1100,7 @@ int64_t GetPHISubsidy(int nHeight) {
    int blocks = nHeight - nDiffChangeTarget;
    int weeks = (blocks / patchBlockRewardDuration)+1;
    //decrease reward by 0.5% every week
-   for(int i = 0; i < weeks; i++)  qSubsidy -= (qSubsidy/99.4);  
+   for(int i = 0; i < weeks; i++)  qSubsidy -= (qSubsidy/90.4);  
    return qSubsidy;
 
 }
