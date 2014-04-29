@@ -1091,16 +1091,16 @@ void static PruneOrphanBlocks()
     mapOrphanBlocks.erase(hash);
 }
 
-static const int64_t nDiffChangeTarget = 3; // Patch effective @ block 67200
-static const int64_t patchBlockRewardDuration = 5; // 10080 blocks main net change
+static const int64_t nDiffChangeTarget = 1; // Patch effective @ block 67200
+static const int64_t patchBlockRewardDuration = 1; // 10080 blocks main net change
 
 int64_t GetPHISubsidy(int nHeight) {
    // thanks to RealSolid & WDC for helping out with this code
    int64_t qSubsidy = 161*COIN;
    int blocks = nHeight - nDiffChangeTarget;
    int weeks = (blocks / patchBlockRewardDuration)+1;
-   //decrease reward by 1.6% every week
-   for(int i = 0; i < weeks; i++)  qSubsidy -= (qSubsidy*16/qSubsidy*10)*COIN; 
+   //decrease reward by 1.0% every week
+   for(int i = 0; i < weeks; i++)  qSubsidy -= (qSubsidy/100);
    return qSubsidy;
 
 }
