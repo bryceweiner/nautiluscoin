@@ -1091,8 +1091,8 @@ void static PruneOrphanBlocks()
     mapOrphanBlocks.erase(hash);
 }
 
-static const int64_t nDiffChangeTarget = 50; // Reward effective @ block 50
-static const int64_t nDiffFinalTarget = 105400; // Reward effective @ block 50
+static const int64_t nDiffChangeTarget = 2; // Reward effective @ block 50
+static const int64_t nDiffFinalTarget = 10; // Last Minted Reward Block @ block 105,400
 static const int64_t patchBlockRewardDuration = 10080; // 10080 blocks main net change
 
 int64_t GetPHISubsidy(int nHeight) {
