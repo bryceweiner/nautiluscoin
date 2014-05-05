@@ -1119,10 +1119,6 @@ int64_t GetBlockValue(int nHeight, int64_t nFees)
      //Drop reward to zero once total amount has been minted
      nSubsidy = 0;
    }
-   //make sure the reward is at least 1 PHI
-   if(nSubsidy < COIN) {
-      nSubsidy = COIN;
-   }
 
    return nSubsidy + nFees;
 }
