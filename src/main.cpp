@@ -1092,6 +1092,7 @@ void static PruneOrphanBlocks()
 }
 
 static const int64_t nDiffChangeTarget = 50; // Reward effective @ block 50
+static const int64_t nDiffFinalTarget = 105400; // Reward effective @ block 50
 static const int64_t patchBlockRewardDuration = 10080; // 10080 blocks main net change
 
 int64_t GetPHISubsidy(int nHeight) {
@@ -1112,10 +1113,12 @@ int64_t GetBlockValue(int nHeight, int64_t nFees)
    if(nHeight < nDiffChangeTarget) {
       //this is pre-patch, reward is 8000.
       nSubsidy = 3236 * COIN;
-   } else {
+   } else if ( nHeight < nDiffFinalTarget ){
       nSubsidy = GetPHISubsidy(nHeight);
+   } else {
+     //Drop reward to zero once total amount has been minted
+     nSubsidy = 0;
    }
-
    //make sure the reward is at least 1 PHI
    if(nSubsidy < COIN) {
       nSubsidy = COIN;
