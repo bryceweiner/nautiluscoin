@@ -16,8 +16,8 @@ QList<NautiluscoinUnits::Unit> NautiluscoinUnits::availableUnits()
 {
     QList<NautiluscoinUnits::Unit> unitlist;
     unitlist.append(NAUT);
-    unitlist.append(mPHI);
-    unitlist.append(uPHI);
+    unitlist.append(mNAUT);
+    unitlist.append(uNAUT);
     return unitlist;
 }
 
@@ -26,8 +26,8 @@ bool NautiluscoinUnits::valid(int unit)
     switch(unit)
     {
     case NAUT:
-    case mPHI:
-    case uPHI:
+    case mNAUT:
+    case uNAUT:
         return true;
     default:
         return false;
@@ -39,8 +39,8 @@ QString NautiluscoinUnits::name(int unit)
     switch(unit)
     {
     case NAUT: return QString("NAUT");
-    case mPHI: return QString("mPHI");
-    case uPHI: return QString::fromUtf8("μPHI");
+    case mNAUT: return QString("mNAUT");
+    case uNAUT: return QString::fromUtf8("μNAUT");
     default: return QString("???");
     }
 }
@@ -50,8 +50,8 @@ QString NautiluscoinUnits::description(int unit)
     switch(unit)
     {
     case NAUT: return QString("Nautiluscoins");
-    case mPHI: return QString("Milli-Nautiluscoins (1 / 1,000)");
-    case uPHI: return QString("Micro-Nautiluscoins (1 / 1,000,000)");
+    case mNAUT: return QString("Milli-Nautiluscoins (1 / 1,000)");
+    case uNAUT: return QString("Micro-Nautiluscoins (1 / 1,000,000)");
     default: return QString("???");
     }
 }
@@ -61,8 +61,8 @@ qint64 NautiluscoinUnits::factor(int unit)
     switch(unit)
     {
     case NAUT:  return 100000000;
-    case mPHI: return 100000;
-    case uPHI: return 100;
+    case mNAUT: return 100000;
+    case uNAUT: return 100;
     default:   return 100000000;
     }
 }
@@ -72,8 +72,8 @@ qint64 NautiluscoinUnits::maxAmount(int unit)
     switch(unit)
     {
     case NAUT:  return Q_INT64_C(21000000);
-    case mPHI: return Q_INT64_C(21000000000);
-    case uPHI: return Q_INT64_C(21000000000000);
+    case mNAUT: return Q_INT64_C(21000000000);
+    case uNAUT: return Q_INT64_C(21000000000000);
     default:   return 0;
     }
 }
@@ -83,8 +83,8 @@ int NautiluscoinUnits::amountDigits(int unit)
     switch(unit)
     {
     case NAUT: return 8; // 21,000,000 (# digits, without commas)
-    case mPHI: return 11; // 21,000,000,000
-    case uPHI: return 14; // 21,000,000,000,000
+    case mNAUT: return 11; // 21,000,000,000
+    case uNAUT: return 14; // 21,000,000,000,000
     default: return 0;
     }
 }
@@ -94,8 +94,8 @@ int NautiluscoinUnits::decimals(int unit)
     switch(unit)
     {
     case NAUT: return 8;
-    case mPHI: return 5;
-    case uPHI: return 2;
+    case mNAUT: return 5;
+    case uNAUT: return 2;
     default: return 0;
     }
 }
