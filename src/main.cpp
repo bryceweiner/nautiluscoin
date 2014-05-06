@@ -1111,7 +1111,7 @@ int64_t GetBlockValue(int nHeight, int64_t nFees)
    int64_t nSubsidy = COIN;
    
    if(nHeight < nDiffChangeTarget) {
-      //this is pre-patch, reward is 8000.
+      //Reward is 3236 1st 50 blocks.
       nSubsidy = 3236 * COIN;
    } else if ( nHeight < nDiffFinalTarget ){
       nSubsidy = GetNAUTSubsidy(nHeight);
