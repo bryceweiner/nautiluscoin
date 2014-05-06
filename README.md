@@ -23,27 +23,15 @@ Technical Specifications
 
  - Scrypt proof-of-work algorithm
  - 60 second block time target
- - ~21 billion total coins
- - 8000 coins per block, reduces by 0.5% each week starting 2/28/14
+ -
  - Difficulty retarget every 1 block
  
 Links
 ------------------------
-Website: http://www.nautiluscoin.co
+Website: http://www.nautiluscoin.com
 
-NautiluscoinTalk: http://nautiluscointalk.com/index.php
+N
 
-BitcoinTalk: https://bitcointalk.org/index.php?topic=408268.0
-
-Facebook: https://www.facebook.com/nautiluscoincoin
-
-Twitter: https://twitter.com/nautiluscoincoin
-
-VK: https://vk.com/nautiluscoin
-
-Reddit: http://www.reddit.com/r/Digibyte/
-
-IRC Channel: http://webchat.freenode.net/?channels=#nautiluscoincoin
 
 License
 -------
