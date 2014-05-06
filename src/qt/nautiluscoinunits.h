@@ -23,7 +23,7 @@ public:
      */
     enum Unit
     {
-        PHI,
+        NAUT,
         mPHI,
         uPHI
     };

@@ -133,7 +133,7 @@ bool parseNautiluscoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!NautiluscoinUnits::parse(NautiluscoinUnits::PHI, i->second, &rv.amount))
+                if(!NautiluscoinUnits::parse(NautiluscoinUnits::NAUT, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -172,7 +172,7 @@ QString formatNautiluscoinURI(const SendCoinsRecipient &info)
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(NautiluscoinUnits::format(NautiluscoinUnits::PHI, info.amount));
+        ret += QString("?amount=%1").arg(NautiluscoinUnits::format(NautiluscoinUnits::NAUT, info.amount));
         paramCount++;
     }
 

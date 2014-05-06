@@ -51,7 +51,7 @@ void OptionsModel::Init()
 
     // Display
     if (!settings.contains("nDisplayUnit"))
-        settings.setValue("nDisplayUnit", NautiluscoinUnits::PHI);
+        settings.setValue("nDisplayUnit", NautiluscoinUnits::NAUT);
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
 
     if (!settings.contains("bDisplayAddresses"))
