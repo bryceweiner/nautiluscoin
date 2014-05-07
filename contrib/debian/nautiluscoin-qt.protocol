@@ -1,0 +1,11 @@
+[Protocol]
+exec=nautiluscoin-qt '%u'
+protocol=nautiluscoin
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

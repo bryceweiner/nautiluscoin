@@ -1,11 +1,15 @@
-#include <boost/test/unit_test.hpp>
+#include "bloom.h"
+
+#include "base58.h"
+#include "key.h"
+#include "main.h"
+#include "serialize.h"
+#include "uint256.h"
+#include "util.h"
+
 #include <vector>
 
-#include "bloom.h"
-#include "util.h"
-#include "key.h"
-#include "base58.h"
-#include "main.h"
+#include <boost/test/unit_test.hpp>
 
 using namespace std;
 using namespace boost::tuples;
@@ -70,17 +74,16 @@ BOOST_AUTO_TEST_CASE(bloom_create_insert_serialize_with_tweak)
 BOOST_AUTO_TEST_CASE(bloom_create_insert_key)
 {
     string strSecret = string("5Kg1gnAjaLfKiwhhPpGS3QfRg2m6awQvaj98JCZBZQ5SuS2F15C");
-    CBitcoinSecret vchSecret;
+    CNautiluscoinSecret vchSecret;
     BOOST_CHECK(vchSecret.SetString(strSecret));
 
-    CKey key;
-    bool fCompressed;
-    CSecret secret = vchSecret.GetSecret(fCompressed);
-    key.SetSecret(secret, fCompressed);
+    CKey key = vchSecret.GetKey();
+    CPubKey pubkey = key.GetPubKey();
+    vector<unsigned char> vchPubKey(pubkey.begin(), pubkey.end());
 
     CBloomFilter filter(2, 0.001, 0, BLOOM_UPDATE_ALL);
-    filter.insert(key.GetPubKey().Raw());
-    uint160 hash = key.GetPubKey().GetID();
+    filter.insert(vchPubKey);
+    uint160 hash = pubkey.GetID();
     filter.insert(vector<unsigned char>(hash.begin(), hash.end()));
 
     CDataStream stream(SER_NETWORK, PROTOCOL_VERSION);

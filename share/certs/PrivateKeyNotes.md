@@ -17,7 +17,7 @@ Threat analysis
 --
 
 Gavin is a single point of failure. He could be coerced to divulge the secret signing keys,
-allowing somebody to distribute a Nautiluscoin-Qt.app or bitcoin-qt-setup.exe with a valid
+allowing somebody to distribute a Nautiluscoin-Qt.app or nautiluscoin-qt-setup.exe with a valid
 signature but containing a malicious binary.
 
 Or the machine Gavin uses to sign the binaries could be compromised, either remotely or

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Use the raw transactions API to spend bitcoins received on particular addresses,
+# Use the raw transactions API to spend nautiluscoins received on particular addresses,
 # and send any change back to that same address.
 #
 # Example usage:
@@ -26,21 +26,21 @@ from jsonrpc import ServiceProxy, json
 BASE_FEE=Decimal("0.001")
 
 def check_json_precision():
-    """Make sure json library being used does not lose precision converting PHI values"""
+    """Make sure json library being used does not lose precision converting BTC values"""
     n = Decimal("20000000.00000003")
     satoshis = int(json.loads(json.dumps(float(n)))*1.0e8)
     if satoshis != 2000000000000003:
         raise RuntimeError("JSON encode/decode loses precision")
 
 def determine_db_dir():
-    """Return the default location of the bitcoin data directory"""
+    """Return the default location of the nautiluscoin data directory"""
     if platform.system() == "Darwin":
-        return os.path.expanduser("~/Library/Application Support/Bitcoin/")
+        return os.path.expanduser("~/Library/Application Support/Nautiluscoin/")
     elif platform.system() == "Windows":
-        return os.path.join(os.environ['APPDATA'], "Bitcoin")
-    return os.path.expanduser("~/.bitcoin")
+        return os.path.join(os.environ['APPDATA'], "Nautiluscoin")
+    return os.path.expanduser("~/.nautiluscoin")
 
-def read_nautiluscoin.config(dbdir):
+def read_nautiluscoin_config(dbdir):
     """Read the nautiluscoin.conf file from dbdir, returns dictionary of settings"""
     from ConfigParser import SafeConfigParser
 
@@ -63,11 +63,11 @@ def read_nautiluscoin.config(dbdir):
     return dict(config_parser.items("all"))
 
 def connect_JSON(config):
-    """Connect to a bitcoin JSON-RPC server"""
+    """Connect to a nautiluscoin JSON-RPC server"""
     testnet = config.get('testnet', '0')
     testnet = (int(testnet) > 0)  # 0/1 in config file, convert to True/False
     if not 'rpcport' in config:
-        config['rpcport'] = 19334 if testnet else 9334
+        config['rpcport'] = 18332 if testnet else 8332
     connect = "http://%s:%s@127.0.0.1:%s"%(config['rpcuser'], config['rpcpassword'], config['rpcport'])
     try:
         result = ServiceProxy(connect)
@@ -110,7 +110,7 @@ def list_available(nautiluscoind):
         vout = rawtx["vout"][output['vout']]
         pk = vout["scriptPubKey"]
 
-        # This code only deals with ordinary pay-to-bitcoin-address
+        # This code only deals with ordinary pay-to-nautiluscoin-address
         # or pay-to-script-hash outputs right now; anything exotic is ignored.
         if pk["type"] != "pubkeyhash" and pk["type"] != "scripthash":
             continue
@@ -152,7 +152,7 @@ def create_tx(nautiluscoind, fromaddresses, toaddress, amount, fee):
         total_available += all_coins[addr]["total"]
 
     if total_available < needed:
-        sys.stderr.write("Error, only %f PHI available, need %f\n"%(total_available, needed));
+        sys.stderr.write("Error, only %f BTC available, need %f\n"%(total_available, needed));
         sys.exit(1)
 
     #
@@ -221,9 +221,9 @@ def main():
 
     parser = optparse.OptionParser(usage="%prog [options]")
     parser.add_option("--from", dest="fromaddresses", default=None,
-                      help="addresses to get bitcoins from")
+                      help="addresses to get nautiluscoins from")
     parser.add_option("--to", dest="to", default=None,
-                      help="address to get send bitcoins to")
+                      help="address to get send nautiluscoins to")
     parser.add_option("--amount", dest="amount", default=None,
                       help="amount to send")
     parser.add_option("--fee", dest="fee", default="0.0",
@@ -238,7 +238,7 @@ def main():
     (options, args) = parser.parse_args()
 
     check_json_precision()
-    config = read_nautiluscoin.config(options.datadir)
+    config = read_nautiluscoin_config(options.datadir)
     if options.testnet: config['testnet'] = True
     nautiluscoind = connect_JSON(config)
 

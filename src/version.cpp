@@ -1,17 +1,18 @@
-// Copyright (c) 2012 The Bitcoin developers
+// Copyright (c) 2012 The Nautiluscoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#include <string>
 
 #include "version.h"
 
+#include <string>
+
 // Name of client reported in the 'version' message. Report the same name
-// for both nautiluscoind and bitcoin-qt, to make it harder for attackers to
+// for both nautiluscoind and nautiluscoin-qt, to make it harder for attackers to
 // target servers or GUI users specifically.
-const std::string CLIENT_NAME("Satoshi");
+const std::string CLIENT_NAME("Nautiluscoin");
 
 // Client version number
-#define CLIENT_VERSION_SUFFIX   "-beta"
+#define CLIENT_VERSION_SUFFIX   " DigiShield"
 
 
 // The following part of the code determines the CLIENT_BUILD variable.
@@ -40,10 +41,10 @@ const std::string CLIENT_NAME("Satoshi");
 #endif
 
 #define BUILD_DESC_FROM_COMMIT(maj,min,rev,build,commit) \
-    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-g" commit
+    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "" commit
 
 #define BUILD_DESC_FROM_UNKNOWN(maj,min,rev,build) \
-    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-unk"
+    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) ""
 
 #ifndef BUILD_DESC
 #    ifdef GIT_COMMIT_ID

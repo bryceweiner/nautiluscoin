@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Nautiluscoin
+Comment=Nautiluscoin P2P Cryptocurrency
+Comment[fr]=Nautiluscoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Nautiluscoin, eşten eşe kriptografik sanal para birimi
+Exec=nautiluscoin-qt %u
+Terminal=false
+Type=Application
+Icon=nautiluscoin128
+MimeType=x-scheme-handler/nautiluscoin;
+Categories=Office;Finance;

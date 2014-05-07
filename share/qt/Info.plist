@@ -2,34 +2,93 @@
 <!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
 <plist version="0.9">
 <dict>
-	<key>CFBundleIconFile</key>
-	<string>bitcoin.icns</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleGetInfoString</key>
-	<string>$VERSION, Copyright © 2009-$YEAR The Bitcoin developers</string>
-	<key>CFBundleShortVersionString</key>
-	<string>$VERSION</string>
-	<key>CFBundleVersion</key>
-	<string>$VERSION</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
-	<key>CFBundleExecutable</key>
-	<string>Nautiluscoin-Qt</string>
-	<key>CFBundleIdentifier</key>
-	<string>org.bitcoinfoundation.Nautiluscoin-Qt</string>
-        <key>CFBundleURLTypes</key>
+  <key>LSMinimumSystemVersion</key>
+  <string>10.6.0</string>
+
+  <key>LSArchitecturePriority</key>
+  <array>
+    <string>x86_64</string>
+  </array>
+
+  <key>CFBundleIconFile</key>
+  <string>nautiluscoin.icns</string>
+
+  <key>CFBundlePackageType</key>
+  <string>APPL</string>
+
+  <key>CFBundleGetInfoString</key>
+  <string>0.9, Copyright © 2009-2014 The Nautiluscoin Core developers</string>
+
+  <key>CFBundleShortVersionString</key>
+  <string>0.9</string>
+
+  <key>CFBundleVersion</key>
+  <string>0.9</string>
+
+  <key>CFBundleSignature</key>
+  <string>????</string>
+
+  <key>CFBundleExecutable</key>
+  <string>Nautiluscoin-Qt</string>
+
+  <key>CFBundleIdentifier</key>
+  <string>org.nautiluscoinfoundation.Nautiluscoin-Qt</string>
+
+  <key>CFBundleURLTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleTypeRole</key>
+      <string>Editor</string>
+      <key>CFBundleURLName</key>
+      <string>org.nautiluscoin.NautiluscoinPayment</string>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>nautiluscoin</string>
+      </array>
+    </dict>
+  </array>
+
+  <key>UTExportedTypeDeclarations</key>
+  <array>
+    <dict>
+      <key>UTTypeIdentifier</key>
+      <string>org.nautiluscoin.paymentrequest</string>
+      <key>UTTypeDescription</key>
+      <string>Nautiluscoin payment request</string>
+      <key>UTTypeConformsTo</key>
+      <array>
+        <string>public.data</string>
+      </array>
+      <key>UTTypeTagSpecification</key>
+      <dict>
+        <key>public.mime-type</key>
+        <string>application/x-nautiluscoin-payment-request</string>
+        <key>public.filename-extension</key>
         <array>
-          <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLName</key>
-            <string>org.bitcoinfoundation.BitcoinPayment</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-              <string>bitcoin</string>
-            </array>
-          </dict>
+          <string>nautiluscoinpaymentrequest</string>
         </array>
+      </dict>
+    </dict>
+  </array>
+
+  <key>CFBundleDocumentTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleTypeRole</key>
+      <string>Editor</string>
+      <key>LSItemContentTypes</key>
+      <array>
+        <string>org.nautiluscoin.paymentrequest</string>
+      </array>
+      <key>LSHandlerRank</key>
+      <string>Owner</string>
+    </dict>
+  </array>
+
+  <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+
+  <key>NSHighResolutionCapable</key>
+    <string>True</string>
 </dict>
 </plist>
