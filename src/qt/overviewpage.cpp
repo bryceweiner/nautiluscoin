@@ -24,7 +24,7 @@ class TxViewDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
 public:
-    TxViewDelegate(): QAbstractItemDelegate(), unit(NautiluscoinUnits::PHI)
+    TxViewDelegate(): QAbstractItemDelegate(), unit(NautiluscoinUnits::NAUT)
     {
 
     }
@@ -188,7 +188,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
         connect(model->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
     }
 
-    // update the display unit, to not use the default ("PHI")
+    // update the display unit, to not use the default ("NAUT")
     updateDisplayUnit();
 }
 

@@ -23,9 +23,9 @@ public:
      */
     enum Unit
     {
-        PHI,
-        mPHI,
-        uPHI
+        NAUT,
+        mNAUT,
+        uNAUT
     };
 
     //! @name Static API
