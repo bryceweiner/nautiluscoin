@@ -51,7 +51,7 @@ unsigned int nCoinCacheSize = 5000;
 uint256 hashGenesisBlock("0x4d0c83a6df6e77f9a9830d6d0729b0207e95b722810210ea3f1eeea66b80a87a");
 
 CBigNum bnProofOfWorkLimit(~uint256(0) >> 20);
-int64_t PROOF_OF_WORK_FORK_BLOCK = 1500 + 33000 ; // + block to fork TBD before launch  - BW
+int64_t PROOF_OF_WORK_FORK_BLOCK = 32600 ; // BW
 
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
 int64_t CTransaction::nMinTxFee = 2000000;  // Override with -mintxfee
