@@ -343,6 +343,8 @@ public:
 
     bool DelAddressBook(const CTxDestination& address);
 
+    void DisableTransaction(const CTransaction &tx);
+
     void UpdatedTransaction(const uint256 &hashTx);
 
     void Inventory(const uint256 &hash)

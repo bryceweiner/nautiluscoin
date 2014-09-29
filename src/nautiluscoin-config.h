@@ -18,7 +18,7 @@
 #define CLIENT_VERSION_MAJOR 1
 
 /* Minor version */
-#define CLIENT_VERSION_MINOR 1
+#define CLIENT_VERSION_MINOR 2
 
 /* Build revision */
 #define CLIENT_VERSION_REVISION 0
@@ -87,7 +87,7 @@
 /* #undef HAVE_LIBMINGWTHRD */
 
 /* Define to 1 if you have the `miniupnpc' library (-lminiupnpc). */
-#define HAVE_LIBMINIUPNPC 1
+/* #undef HAVE_LIBMINIUPNPC */
 
 /* Define to 1 if you have the `mswsock' library (-lmswsock). */
 /* #undef HAVE_LIBMSWSOCK */
@@ -141,16 +141,16 @@
 #define HAVE_MEMORY_H 1
 
 /* Define to 1 if you have the <miniupnpc/miniupnpc.h> header file. */
-#define HAVE_MINIUPNPC_MINIUPNPC_H 1
+/* #undef HAVE_MINIUPNPC_MINIUPNPC_H */
 
 /* Define to 1 if you have the <miniupnpc/miniwget.h> header file. */
-#define HAVE_MINIUPNPC_MINIWGET_H 1
+/* #undef HAVE_MINIUPNPC_MINIWGET_H */
 
 /* Define to 1 if you have the <miniupnpc/upnpcommands.h> header file. */
-#define HAVE_MINIUPNPC_UPNPCOMMANDS_H 1
+/* #undef HAVE_MINIUPNPC_UPNPCOMMANDS_H */
 
 /* Define to 1 if you have the <miniupnpc/upnperrors.h> header file. */
-#define HAVE_MINIUPNPC_UPNPERRORS_H 1
+/* #undef HAVE_MINIUPNPC_UPNPERRORS_H */
 
 /* Define this symbol if you have MSG_NOSIGNAL */
 #define HAVE_MSG_NOSIGNAL 1
@@ -159,7 +159,7 @@
 #define HAVE_PTHREAD 1
 
 /* Have PTHREAD_PRIO_INHERIT. */
-/* #undef HAVE_PTHREAD_PRIO_INHERIT */
+#define HAVE_PTHREAD_PRIO_INHERIT 1
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #define HAVE_STDINT_H 1
@@ -186,10 +186,10 @@
 #define HAVE_UNISTD_H 1
 
 /* Define this symbol if boost sleep works */
-#define HAVE_WORKING_BOOST_SLEEP 1
+/* #undef HAVE_WORKING_BOOST_SLEEP */
 
 /* Define this symbol if boost sleep_for works */
-/* #undef HAVE_WORKING_BOOST_SLEEP_FOR */
+#define HAVE_WORKING_BOOST_SLEEP_FOR 1
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT "support@nautiluscoin.co"
@@ -198,7 +198,7 @@
 #define PACKAGE_NAME "Nautiluscoin Core"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "Nautiluscoin Core 1.0"
+#define PACKAGE_STRING "Nautiluscoin Core 1.2.0"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "nautiluscoin"
@@ -207,7 +207,7 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "1.0"
+#define PACKAGE_VERSION "1.2.0"
 
 /* Define to necessary symbol if this constant uses a non-standard name on
    your system. */
@@ -226,11 +226,11 @@
 #define USE_IPV6 1
 
 /* Define if QR support should be compiled in */
-/* #undef USE_QRCODE */
+#define USE_QRCODE 1
 
 /* UPnP support not compiled if undefined, otherwise value (0 or 1) determines
    default state */
-#define USE_UPNP 0
+/* #undef USE_UPNP */
 
 /* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
    significant byte first (like Motorola and SPARC, unlike Intel). */
@@ -242,6 +242,11 @@
 # ifndef WORDS_BIGENDIAN
 /* #  undef WORDS_BIGENDIAN */
 # endif
+#endif
+
+/* Enable large inode numbers on Mac OS X 10.5.  */
+#ifndef _DARWIN_USE_64_BIT_INODE
+# define _DARWIN_USE_64_BIT_INODE 1
 #endif
 
 /* Number of bits in a file offset, on hosts where this is settable. */

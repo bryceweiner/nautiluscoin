@@ -12,7 +12,7 @@
 const std::string CLIENT_NAME("Nautiluscoin");
 
 // Client version number
-#define CLIENT_VERSION_SUFFIX   " DigiShield"
+#define CLIENT_VERSION_SUFFIX   " KGW"
 
 
 // The following part of the code determines the CLIENT_BUILD variable.
