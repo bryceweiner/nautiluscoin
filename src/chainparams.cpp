@@ -71,7 +71,7 @@ public:
         assert(hashGenesisBlock == uint256("0x4d0c83a6df6e77f9a9830d6d0729b0207e95b722810210ea3f1eeea66b80a87a"));
         assert(genesis.hashMerkleRoot == uint256("0x95100de4d8e594464b59b09110c5990f1f09ac4e0e20b2fe8dd642f5b1128b9a"));
 
-        vSeeds.push_back(CDNSSeedData("54.186.223.183 seed #1", "54.186.223.183"));
+        vSeeds.push_back(CDNSSeedData("NAUT Multipool", "naut.icarusglider.com"));
         vSeeds.push_back(CDNSSeedData("54.187.101.97 seed #2", "54.187.101.97"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(53);
